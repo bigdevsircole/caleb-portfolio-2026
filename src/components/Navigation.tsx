@@ -1,4 +1,3 @@
-
 "use client";
 
 import { motion } from "framer-motion";
@@ -21,7 +20,7 @@ export default function Navigation() {
           <div className="p-1.5 bg-primary/20 rounded-lg">
             <Cpu className="text-primary w-6 h-6" />
           </div>
-          <span className="font-bold text-xl tracking-tighter">PixelForge</span>
+          <span className="font-bold text-xl tracking-tighter">Caleb Yinusa</span>
         </motion.div>
         
         <div className="hidden md:flex items-center gap-8">

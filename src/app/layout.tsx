@@ -1,11 +1,10 @@
-
 import type {Metadata} from 'next';
 import './globals.css';
 import { Toaster } from "@/components/ui/toaster";
 
 export const metadata: Metadata = {
-  title: 'PixelForge Portfolio',
-  description: 'Modern, high-performance portfolio by PixelForge',
+  title: 'Caleb Yinusa Portfolio',
+  description: 'Modern, high-performance portfolio by Caleb Yinusa',
 };
 
 export default function RootLayout({

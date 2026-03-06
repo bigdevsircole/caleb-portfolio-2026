@@ -1,4 +1,3 @@
-
 import Navigation from "@/components/Navigation";
 import SyntaxBackground from "@/components/SyntaxBackground";
 import TypingAnimation from "@/components/TypingAnimation";
@@ -20,8 +19,8 @@ export default function Home() {
         <section className="min-h-screen flex flex-col items-center justify-center text-center px-4">
           <div className="max-w-4xl mx-auto">
             <h1 className="text-6xl md:text-8xl font-bold tracking-tighter mb-8 leading-none">
-              <span className="block text-foreground neon-text mb-2">PIXEL</span>
-              <span className="block text-primary neon-text">FORGE</span>
+              <span className="block text-foreground neon-text mb-2">CALEB</span>
+              <span className="block text-primary neon-text">YINUSA</span>
             </h1>
             
             <div className="text-xl md:text-2xl font-medium mb-12 h-8">
@@ -71,7 +70,7 @@ export default function Home() {
         {/* Footer */}
         <footer className="py-12 px-4 border-t border-border mt-24 text-center">
           <div className="max-w-7xl mx-auto text-muted-foreground text-sm">
-            <p>&copy; {new Date().getFullYear()} PixelForge. All rights reserved.</p>
+            <p>&copy; {new Date().getFullYear()} Caleb Yinusa. All rights reserved.</p>
             <p className="mt-2">Built with Next.js, Framer Motion, and Firebase.</p>
           </div>
         </footer>
