@@ -4,8 +4,9 @@ import { ProjectSection } from "@/components/sections/ProjectSection";
 import { SalesSection } from "@/components/sections/SalesSection";
 import { ResourceSection } from "@/components/sections/ResourceSection";
 import { Button } from "@/components/ui/button";
-import { ArrowUpRight, Mail } from "lucide-react";
+import { Mail } from "lucide-react";
 import TypingAnimation from "@/components/TypingAnimation";
+import SyntaxBackground from "@/components/SyntaxBackground";
 
 export default function Home() {
   return (
@@ -14,8 +15,9 @@ export default function Home() {
       
       <main className="relative z-10 pt-32">
         {/* Hero Section */}
-        <section className="px-6 py-20 max-w-7xl mx-auto">
-          <div className="flex flex-col items-start gap-6">
+        <section className="relative px-6 py-20 max-w-7xl mx-auto overflow-hidden">
+          <SyntaxBackground />
+          <div className="relative z-10 flex flex-col items-start gap-6">
             <div className="flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-xs font-medium text-muted-foreground">
               <span className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse" />
               Available for new opportunities
