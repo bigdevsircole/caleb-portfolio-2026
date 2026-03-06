@@ -1,77 +1,97 @@
 import Navigation from "@/components/Navigation";
-import SyntaxBackground from "@/components/SyntaxBackground";
-import TypingAnimation from "@/components/TypingAnimation";
 import SectionHeading from "@/components/SectionHeading";
 import { ProjectSection } from "@/components/sections/ProjectSection";
 import { SalesSection } from "@/components/sections/SalesSection";
 import { ResourceSection } from "@/components/sections/ResourceSection";
 import { Button } from "@/components/ui/button";
-import { ArrowRight } from "lucide-react";
+import { ArrowUpRight, Mail } from "lucide-react";
+import TypingAnimation from "@/components/TypingAnimation";
 
 export default function Home() {
   return (
-    <div className="relative min-h-screen">
-      <SyntaxBackground />
+    <div className="relative min-h-screen bg-background selection:bg-white selection:text-black">
       <Navigation />
       
-      <main className="relative z-10">
+      <main className="relative z-10 pt-32">
         {/* Hero Section */}
-        <section className="min-h-screen flex flex-col items-center justify-center text-center px-4">
-          <div className="max-w-4xl mx-auto">
-            <h1 className="text-6xl md:text-8xl font-bold tracking-tighter mb-8 leading-none">
-              <span className="block text-foreground neon-text mb-2">CALEB</span>
-              <span className="block text-primary neon-text">YINUSA</span>
+        <section className="px-6 py-20 max-w-7xl mx-auto">
+          <div className="flex flex-col items-start gap-6">
+            <div className="flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-xs font-medium text-muted-foreground">
+              <span className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse" />
+              Available for new opportunities
+            </div>
+            
+            <h1 className="text-5xl md:text-8xl font-bold tracking-tight max-w-4xl text-balance leading-[0.9]">
+              CALEB YINUSA
+              <span className="block text-muted-foreground italic font-light">DIGITAL ARCHITECT</span>
             </h1>
             
-            <div className="text-xl md:text-2xl font-medium mb-12 h-8">
+            <div className="mt-4 text-xl md:text-2xl text-muted-foreground font-medium flex items-center gap-2">
               <TypingAnimation />
             </div>
 
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <Button size="lg" className="px-8 bg-primary hover:bg-primary/90 rounded-full glow-on-hover">
-                View My Work <ArrowRight className="ml-2 w-4 h-4" />
+            <div className="flex flex-wrap gap-4 mt-8">
+              <Button size="lg" className="rounded-full bg-white text-black hover:bg-white/90 px-8">
+                View My Work
               </Button>
-              <Button size="lg" variant="outline" className="px-8 rounded-full border-primary/20 hover:bg-primary/10">
-                Download CV
+              <Button size="lg" variant="outline" className="rounded-full border-white/10 hover:bg-white/5 px-8">
+                Get in touch
               </Button>
             </div>
           </div>
         </section>
 
-        {/* Projects Section */}
-        <section id="projects" className="py-24 px-4 max-w-7xl mx-auto">
+        {/* Selected Projects */}
+        <section id="projects" className="py-24 px-6 max-w-7xl mx-auto">
           <SectionHeading 
-            title="Selected Projects" 
-            subtitle="Explore my latest digital creations, ranging from complex web applications to minimalist designs." 
+            title="Projects" 
+            subtitle="A collection of digital experiences crafted with precision." 
           />
           <ProjectSection />
         </section>
 
-        {/* Sales Section */}
-        <section id="shop" className="py-24 px-4 bg-muted/30">
+        {/* Services / Tools */}
+        <section id="shop" className="py-24 px-6 bg-white/[0.02] border-y border-white/5">
           <div className="max-w-7xl mx-auto">
             <SectionHeading 
-              title="Courses & Tools" 
-              subtitle="Level up your development skills with my exclusive digital courses and productivity tools." 
+              title="Shop" 
+              subtitle="Premium assets and educational resources for developers." 
             />
             <SalesSection />
           </div>
         </section>
 
-        {/* Resources Section */}
-        <section id="resources" className="py-24 px-4 max-w-7xl mx-auto">
+        {/* Resources */}
+        <section id="resources" className="py-24 px-6 max-w-7xl mx-auto">
           <SectionHeading 
-            title="Resource Library" 
-            subtitle="Access exclusive downloads, source code, and assets designed for professional developers." 
+            title="Resources" 
+            subtitle="Free tools and snippets to accelerate your workflow." 
           />
           <ResourceSection />
         </section>
 
+        {/* Contact CTA */}
+        <section id="contact" className="py-24 px-6 max-w-7xl mx-auto">
+          <div className="p-12 md:p-24 bg-white/5 rounded-[2.5rem] border border-white/10 text-center flex flex-col items-center gap-8">
+            <h2 className="text-4xl md:text-6xl font-bold tracking-tight max-w-2xl">
+              Let's create something extraordinary together.
+            </h2>
+            <Button size="lg" className="rounded-full bg-white text-black hover:bg-white/90 h-16 px-12 text-lg gap-3">
+              <Mail className="w-5 h-5" /> Start a conversation
+            </Button>
+          </div>
+        </section>
+
         {/* Footer */}
-        <footer className="py-12 px-4 border-t border-border mt-24 text-center">
-          <div className="max-w-7xl mx-auto text-muted-foreground text-sm">
-            <p>&copy; {new Date().getFullYear()} Caleb Yinusa. All rights reserved.</p>
-            <p className="mt-2">Built with Next.js, Framer Motion, and Firebase.</p>
+        <footer className="py-12 px-6 border-t border-white/5 mt-24">
+          <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6 text-muted-foreground text-sm font-medium">
+            <p>&copy; {new Date().getFullYear()} Caleb Yinusa.</p>
+            <div className="flex gap-8">
+              <a href="#" className="hover:text-white transition-colors">Twitter</a>
+              <a href="#" className="hover:text-white transition-colors">GitHub</a>
+              <a href="#" className="hover:text-white transition-colors">LinkedIn</a>
+            </div>
+            <p>Made in Nigeria.</p>
           </div>
         </footer>
       </main>

@@ -1,68 +1,55 @@
-
 "use client";
 
 import { motion } from "framer-motion";
-import { Download, Lock, FileCode, Palette, Zap } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { Download, FileCode, Palette, Zap } from "lucide-react";
 
 const resources = [
   {
     id: "r1",
-    title: "Tailwind Component Library",
-    type: "Source Code",
+    title: "Tailwind Library",
+    type: "Components",
     icon: FileCode,
-    isLocked: true
   },
   {
     id: "r2",
-    title: "Brand Identity Assets",
-    type: "Figma File",
+    title: "Design System",
+    type: "Figma",
     icon: Palette,
-    isLocked: false
   },
   {
     id: "r3",
-    title: "Production CI/CD Script",
-    type: "Shell Script",
+    title: "Next.js Boilerplate",
+    type: "Stack",
     icon: Zap,
-    isLocked: true
   }
 ];
 
 export function ResourceSection() {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
       {resources.map((res, index) => (
         <motion.div
           key={res.id}
-          initial={{ opacity: 0, scale: 0.95 }}
-          whileInView={{ opacity: 1, scale: 1 }}
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: index * 0.1 }}
-          className="p-6 bg-card border border-border rounded-2xl relative group hover:border-primary transition-all overflow-hidden"
+          className="group p-8 bg-white/[0.03] border border-white/10 rounded-[2rem] card-hover flex flex-col gap-8"
         >
-          {res.isLocked && (
-            <div className="absolute top-4 right-4 text-muted-foreground">
-              <Lock className="w-4 h-4" />
-            </div>
-          )}
-          
-          <div className="mb-6 p-3 bg-primary/10 w-fit rounded-xl text-primary">
+          <div className="w-12 h-12 bg-white/5 rounded-2xl flex items-center justify-center group-hover:bg-white group-hover:text-black transition-all duration-300">
             <res.icon className="w-6 h-6" />
           </div>
           
-          <h4 className="text-lg font-bold mb-1">{res.title}</h4>
-          <p className="text-xs text-muted-foreground mb-6 uppercase tracking-widest">{res.type}</p>
+          <div>
+            <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-muted-foreground mb-1 block">
+              {res.type}
+            </span>
+            <h4 className="text-xl font-bold">{res.title}</h4>
+          </div>
           
-          <Button 
-            variant={res.isLocked ? "secondary" : "default"}
-            className="w-full rounded-xl gap-2 font-semibold"
-            disabled={res.isLocked}
-          >
-            {res.isLocked ? "Purchased Required" : <><Download className="w-4 h-4" /> Download</>}
-          </Button>
-
-          <div className="absolute inset-0 bg-primary/5 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none" />
+          <button className="flex items-center gap-2 text-sm font-bold uppercase tracking-widest hover:text-white text-muted-foreground transition-colors mt-auto">
+            <Download className="w-4 h-4" /> Download
+          </button>
         </motion.div>
       ))}
     </div>

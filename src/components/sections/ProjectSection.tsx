@@ -1,95 +1,72 @@
-
 "use client";
 
 import { motion } from "framer-motion";
-import { ExternalLink, Github } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 import Image from "next/image";
 import { PlaceHolderImages } from "@/lib/placeholder-images";
-import { Button } from "@/components/ui/button";
 
 const projects = [
   {
     id: "1",
     title: "Quantum Dashboard",
-    description: "A high-performance real-time analytics platform built with Next.js and Tailwind.",
+    category: "Web Application",
     image: PlaceHolderImages[0].imageUrl,
     link: "#",
-    tech: ["React", "Firebase", "Recharts"]
   },
   {
     id: "2",
     title: "Nebula Mobile",
-    description: "Cross-platform mobile application for secure crypto asset management.",
+    category: "Mobile UI/UX",
     image: PlaceHolderImages[1].imageUrl,
     link: "#",
-    tech: ["React Native", "Tailwind", "Firebase"]
   },
   {
     id: "3",
-    title: "EcoSphere Commerce",
-    description: "Sustainable e-commerce solution focused on zero-carbon shipping logistics.",
+    title: "EcoSphere",
+    category: "E-commerce",
     image: PlaceHolderImages[2].imageUrl,
     link: "#",
-    tech: ["TypeScript", "Prisma", "Next.js"]
   }
 ];
 
 export function ProjectSection() {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
       {projects.map((project, index) => (
-        <motion.div
+        <motion.a
           key={project.id}
-          initial={{ opacity: 0, y: 30 }}
+          href={project.link}
+          initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ delay: index * 0.1 }}
+          transition={{ duration: 0.8, delay: index * 0.1, ease: [0.21, 0.45, 0.32, 0.9] }}
           viewport={{ once: true }}
-          whileHover={{ y: -10 }}
-          className="group bg-card rounded-2xl overflow-hidden border border-border hover:border-primary/50 transition-all"
+          className={`group relative overflow-hidden rounded-[2rem] bg-white/5 border border-white/10 card-hover ${index === 0 ? 'md:col-span-2' : ''}`}
         >
-          <div className="relative h-48 w-full overflow-hidden">
+          <div className={`relative w-full overflow-hidden ${index === 0 ? 'aspect-[21/9]' : 'aspect-[4/3]'}`}>
             <Image
               src={project.image}
               alt={project.title}
               fill
-              className="object-cover group-hover:scale-110 transition-transform duration-500"
-              data-ai-hint="project screenshot"
+              className="object-cover transition-transform duration-700 group-hover:scale-105"
+              data-ai-hint="minimalist project showcase"
             />
-            <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-4">
-               <motion.button 
-                 whileTap={{ scale: 0.9 }}
-                 className="p-2 bg-white rounded-full text-black hover:bg-primary hover:text-white transition-colors"
-               >
-                 <Github className="w-5 h-5" />
-               </motion.button>
-               <motion.button 
-                 whileTap={{ scale: 0.9 }}
-                 className="p-2 bg-white rounded-full text-black hover:bg-primary hover:text-white transition-colors"
-               >
-                 <ExternalLink className="w-5 h-5" />
-               </motion.button>
+            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60" />
+          </div>
+          
+          <div className="absolute bottom-0 left-0 right-0 p-8 flex justify-between items-end">
+            <div>
+              <span className="text-xs font-bold uppercase tracking-widest text-white/60 mb-2 block">
+                {project.category}
+              </span>
+              <h3 className="text-3xl font-bold">{project.title}</h3>
+            </div>
+            
+            <div className="w-12 h-12 rounded-full bg-white text-black flex items-center justify-center transform translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
+              <ArrowUpRight className="w-6 h-6" />
             </div>
           </div>
-          <div className="p-6">
-            <div className="flex gap-2 mb-4">
-              {project.tech.map(t => (
-                <span key={t} className="px-2 py-0.5 bg-primary/10 text-primary text-[10px] font-bold uppercase tracking-wider rounded">
-                  {t}
-                </span>
-              ))}
-            </div>
-            <h3 className="text-xl font-bold mb-2 group-hover:text-primary transition-colors">{project.title}</h3>
-            <p className="text-muted-foreground text-sm line-clamp-2 mb-4">
-              {project.description}
-            </p>
-            <Button variant="link" className="p-0 text-primary h-auto group-hover:translate-x-1 transition-transform">
-              Learn more <ArrowRight className="ml-1 w-3 h-3" />
-            </Button>
-          </div>
-        </motion.div>
+        </motion.a>
       ))}
     </div>
   );
 }
-
-import { ArrowRight } from "lucide-react";

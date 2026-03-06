@@ -1,4 +1,3 @@
-
 "use client";
 
 import { motion } from "framer-motion";
@@ -14,16 +13,18 @@ export default function SectionHeading({ title, subtitle }: SectionHeadingProps)
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
-      className="mb-12"
+      className="mb-16"
     >
-      <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4 flex items-center gap-4">
-        <span className="h-1 w-12 bg-primary rounded-full hidden md:block" />
-        {title}
-      </h2>
+      <div className="flex items-center gap-4 mb-4">
+        <span className="text-xs font-bold uppercase tracking-[0.3em] text-muted-foreground">
+          {title}
+        </span>
+        <div className="h-px flex-1 bg-white/10" />
+      </div>
       {subtitle && (
-        <p className="text-muted-foreground text-lg max-w-2xl">
+        <h3 className="text-3xl md:text-5xl font-bold tracking-tight text-balance">
           {subtitle}
-        </p>
+        </h3>
       )}
     </motion.div>
   );

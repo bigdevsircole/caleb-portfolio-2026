@@ -1,11 +1,9 @@
-
 "use client";
 
 import { motion } from "framer-motion";
-import { ShoppingCart, Star } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 import Image from "next/image";
 import { PlaceHolderImages } from "@/lib/placeholder-images";
-import { Button } from "@/components/ui/button";
 
 const products = [
   {
@@ -13,15 +11,13 @@ const products = [
     name: "Full-Stack Mastery",
     category: "Course",
     price: "$199",
-    rating: 5,
     image: PlaceHolderImages[3].imageUrl
   },
   {
     id: "p2",
     name: "Ultimate UI Kit",
-    category: "Design Tool",
+    category: "Digital Asset",
     price: "$49",
-    rating: 4.8,
     image: PlaceHolderImages[4].imageUrl
   }
 ];
@@ -32,40 +28,30 @@ export function SalesSection() {
       {products.map((product, index) => (
         <motion.div
           key={product.id}
-          initial={{ opacity: 0, x: index % 2 === 0 ? -20 : 20 }}
-          whileInView={{ opacity: 1, x: 0 }}
+          initial={{ opacity: 0, scale: 0.95 }}
+          whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
-          className="bg-card rounded-2xl p-4 border border-border flex flex-col sm:flex-row gap-6 hover:border-accent/50 transition-all"
+          transition={{ duration: 0.5, delay: index * 0.1 }}
+          className="group p-6 bg-white/[0.03] rounded-3xl border border-white/10 card-hover flex flex-col gap-6"
         >
-          <div className="relative w-full sm:w-48 h-48 shrink-0 rounded-xl overflow-hidden">
+          <div className="relative aspect-video w-full rounded-2xl overflow-hidden">
             <Image
               src={product.image}
               alt={product.name}
               fill
               className="object-cover"
-              data-ai-hint="product cover"
+              data-ai-hint="product cover minimal"
             />
           </div>
-          <div className="flex-1 flex flex-col justify-between py-2">
+          <div className="flex justify-between items-start">
             <div>
-              <span className="text-xs font-bold text-accent uppercase tracking-widest">{product.category}</span>
-              <h3 className="text-2xl font-bold mt-1 mb-2">{product.name}</h3>
-              <div className="flex items-center gap-1 mb-4">
-                {Array.from({ length: 5 }).map((_, i) => (
-                  <Star key={i} className={`w-4 h-4 ${i < Math.floor(product.rating) ? 'text-yellow-500 fill-yellow-500' : 'text-muted'}`} />
-                ))}
-                <span className="text-sm text-muted-foreground ml-2">{product.rating}</span>
-              </div>
+              <span className="text-xs font-bold text-muted-foreground uppercase tracking-widest">{product.category}</span>
+              <h3 className="text-2xl font-bold mt-1">{product.name}</h3>
+              <p className="text-2xl font-light mt-2">{product.price}</p>
             </div>
-            <div className="flex items-center justify-between mt-4">
-              <span className="text-3xl font-bold">{product.price}</span>
-              <Button 
-                className="bg-accent hover:bg-accent/90 rounded-full glow-on-hover px-6"
-                onClick={() => alert("Checkout flow integration placeholder")}
-              >
-                <ShoppingCart className="mr-2 w-4 h-4" /> Buy Now
-              </Button>
-            </div>
+            <button className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center hover:bg-white hover:text-black transition-all">
+              <ArrowUpRight className="w-5 h-5" />
+            </button>
           </div>
         </motion.div>
       ))}
