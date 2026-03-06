@@ -24,7 +24,7 @@ export default function Home() {
             </h1>
             
             <div className="text-xl md:text-2xl font-medium mb-12 h-8">
-              I am a <TypingAnimation />
+              <TypingAnimation />
             </div>
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
