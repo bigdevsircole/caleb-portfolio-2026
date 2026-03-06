@@ -1,3 +1,34 @@
 {
-  "placeholderImages": []
+  "placeholderImages": [
+    {
+      "id": "project-1",
+      "description": "A modern web dashboard UI",
+      "imageUrl": "https://picsum.photos/seed/123/600/400",
+      "imageHint": "dashboard interface"
+    },
+    {
+      "id": "project-2",
+      "description": "Mobile application concept design",
+      "imageUrl": "https://picsum.photos/seed/124/600/400",
+      "imageHint": "mobile app"
+    },
+    {
+      "id": "project-3",
+      "description": "E-commerce platform mockup",
+      "imageUrl": "https://picsum.photos/seed/125/600/400",
+      "imageHint": "ecommerce website"
+    },
+    {
+      "id": "course-1",
+      "description": "Advanced React Course cover",
+      "imageUrl": "https://picsum.photos/seed/126/600/400",
+      "imageHint": "coding course"
+    },
+    {
+      "id": "tool-1",
+      "description": "Developer productivity toolkit",
+      "imageUrl": "https://picsum.photos/seed/127/600/400",
+      "imageHint": "digital tools"
+    }
+  ]
 }
