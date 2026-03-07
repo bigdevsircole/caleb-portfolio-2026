@@ -32,7 +32,12 @@ export default function Navigation() {
           whileHover={{ scale: 1.05 }}
         >
           <div className="w-8 h-8 bg-white rounded-md flex items-center justify-center">
-            <span className="text-black font-black text-xs tracking-tighter">CY</span>
+            <span 
+              className="text-black font-black text-xs tracking-tighter" 
+              style={{ fontFamily: 'Impact, sans-serif' }}
+            >
+              CY
+            </span>
           </div>
         </motion.a>
         
