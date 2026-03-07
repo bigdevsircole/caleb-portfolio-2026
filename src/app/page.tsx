@@ -25,7 +25,7 @@ export default function Home() {
             
             <h1 className="text-5xl md:text-8xl font-bold tracking-tight max-w-4xl text-balance leading-[0.9]">
               CALEB YINUSA
-              <span className="block text-muted-foreground italic font-light">DIGITAL ARCHITECT</span>
+              <span className="block text-muted-foreground italic font-light">DIGITAL SOLUTION ARCHITECT</span>
             </h1>
             
             <div className="mt-4 text-xl md:text-2xl text-muted-foreground font-medium flex items-center gap-2">
