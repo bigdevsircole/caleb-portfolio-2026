@@ -23,12 +23,12 @@ export default function Home() {
               Available for new opportunities
             </div>
             
-            <h1 className="text-5xl md:text-8xl font-bold tracking-tight max-w-4xl text-balance leading-[0.9]">
+            <h1 className="text-4xl md:text-6xl font-bold tracking-tight max-w-5xl leading-[1.1]">
               CALEB YINUSA
-              <span className="block text-muted-foreground italic font-light">DIGITAL SOLUTION ARCHITECT</span>
+              <span className="text-muted-foreground italic font-light ml-4 opacity-70">DIGITAL SOLUTION ARCHITECT</span>
             </h1>
             
-            <div className="mt-4 text-xl md:text-2xl text-muted-foreground font-medium flex items-center gap-2">
+            <div className="mt-2 text-lg md:text-xl text-muted-foreground font-medium flex items-center gap-2">
               <TypingAnimation />
             </div>
 
