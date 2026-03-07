@@ -14,15 +14,15 @@ export default function Home() {
       
       <main className="relative z-10 pt-32">
         {/* Hero Section */}
-        <section className="relative px-6 py-20 max-w-7xl mx-auto overflow-hidden">
+        <section className="relative px-6 py-32 md:py-48 max-w-7xl mx-auto overflow-hidden">
           <SyntaxBackground />
-          <div className="relative z-10 flex flex-col items-start gap-8">
+          <div className="relative z-10 flex flex-col items-center text-center gap-8">
             <div className="flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-xs font-medium text-muted-foreground">
               <span className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse" />
               Available for new opportunities
             </div>
             
-            <div className="flex flex-col gap-2">
+            <div className="flex flex-col gap-4">
               <h1 className="text-5xl md:text-8xl font-bold tracking-tighter leading-[0.9]">
                 CALEB YINUSA
               </h1>
@@ -31,7 +31,7 @@ export default function Home() {
               </span>
             </div>
 
-            <div className="flex flex-wrap gap-4 mt-4">
+            <div className="flex flex-wrap justify-center gap-4 mt-4">
               <Button size="lg" className="rounded-full bg-white text-black hover:bg-white/90 px-8 h-14 text-base font-bold">
                 View My Work
               </Button>
