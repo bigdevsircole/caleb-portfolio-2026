@@ -17,26 +17,30 @@ export default function Home() {
         {/* Hero Section */}
         <section className="relative px-6 py-20 max-w-7xl mx-auto overflow-hidden">
           <SyntaxBackground />
-          <div className="relative z-10 flex flex-col items-start gap-6">
+          <div className="relative z-10 flex flex-col items-start gap-8">
             <div className="flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-xs font-medium text-muted-foreground">
               <span className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse" />
               Available for new opportunities
             </div>
             
-            <h1 className="text-4xl md:text-6xl font-bold tracking-tight max-w-5xl leading-[1.1]">
-              CALEB YINUSA
-              <span className="text-muted-foreground italic font-light ml-4 opacity-70">DIGITAL SOLUTION ARCHITECT</span>
-            </h1>
+            <div className="flex flex-col gap-2">
+              <h1 className="text-5xl md:text-8xl font-bold tracking-tighter leading-[0.9]">
+                CALEB YINUSA
+              </h1>
+              <span className="text-sm md:text-lg text-muted-foreground italic font-light tracking-[0.3em] uppercase opacity-60">
+                DIGITAL SOLUTION ARCHITECT
+              </span>
+            </div>
             
-            <div className="mt-2 text-lg md:text-xl text-muted-foreground font-medium flex items-center gap-2">
+            <div className="text-lg md:text-xl text-muted-foreground font-medium flex items-center gap-2">
               <TypingAnimation />
             </div>
 
-            <div className="flex flex-wrap gap-4 mt-8">
-              <Button size="lg" className="rounded-full bg-white text-black hover:bg-white/90 px-8">
+            <div className="flex flex-wrap gap-4 mt-4">
+              <Button size="lg" className="rounded-full bg-white text-black hover:bg-white/90 px-8 h-14 text-base font-bold">
                 View My Work
               </Button>
-              <Button size="lg" variant="outline" className="rounded-full border-white/10 hover:bg-white/5 px-8">
+              <Button size="lg" variant="outline" className="rounded-full border-white/10 hover:bg-white/5 px-8 h-14 text-base font-bold">
                 Get in touch
               </Button>
             </div>
