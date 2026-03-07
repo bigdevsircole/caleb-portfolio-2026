@@ -5,7 +5,6 @@ import { SalesSection } from "@/components/sections/SalesSection";
 import { ResourceSection } from "@/components/sections/ResourceSection";
 import { Button } from "@/components/ui/button";
 import { Mail } from "lucide-react";
-import TypingAnimation from "@/components/TypingAnimation";
 import SyntaxBackground from "@/components/SyntaxBackground";
 
 export default function Home() {
@@ -30,10 +29,6 @@ export default function Home() {
               <span className="text-sm md:text-lg text-muted-foreground italic font-light tracking-[0.3em] uppercase opacity-60">
                 DIGITAL SOLUTION ARCHITECT
               </span>
-            </div>
-            
-            <div className="text-lg md:text-xl text-muted-foreground font-medium flex items-center gap-2">
-              <TypingAnimation />
             </div>
 
             <div className="flex flex-wrap gap-4 mt-4">
