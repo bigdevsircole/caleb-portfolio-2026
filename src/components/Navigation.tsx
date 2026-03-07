@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Cpu, Menu, X } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
   Sheet,
@@ -31,10 +31,9 @@ export default function Navigation() {
           className="flex items-center gap-2"
           whileHover={{ scale: 1.05 }}
         >
-          <div className="w-8 h-8 bg-white rounded-lg flex items-center justify-center">
-            <Cpu className="text-black w-5 h-5" />
+          <div className="w-8 h-8 bg-white rounded-md flex items-center justify-center">
+            <span className="text-black font-black text-xs tracking-tighter">CY</span>
           </div>
-          <span className="font-bold text-sm tracking-tight md:hidden">CALEB</span>
         </motion.a>
         
         {/* Desktop Links */}
