@@ -56,10 +56,10 @@ export function ProjectSection() {
           
           <div className="absolute bottom-0 left-0 right-0 p-8 flex justify-between items-end">
             <div>
-              <span className="text-xs font-bold uppercase tracking-widest mb-2 block text-white/60">
+              <span className="text-xs font-bold uppercase tracking-widest mb-2 block text-white/60 drop-shadow-md">
                 {project.category}
               </span>
-              <h3 className="text-3xl font-bold text-white">
+              <h3 className="text-3xl font-bold text-white drop-shadow-lg">
                 {project.title}
               </h3>
             </div>
