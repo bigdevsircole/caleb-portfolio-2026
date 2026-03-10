@@ -20,13 +20,13 @@ export function AboutSection() {
         className="space-y-6"
       >
         <p className="text-xl md:text-3xl font-medium leading-tight text-white">
-          I bridge the gap between <span className="text-muted-foreground italic">complex requirements</span> and <span className="text-muted-foreground italic">elegant solutions</span>.
+          Every business has a bottleneck. My job is to make sure <span className="text-muted-foreground italic">technology isn’t yours</span>.
         </p>
         <p className="text-lg text-muted-foreground leading-relaxed">
-          As a Digital Solution Architect, I specialize in crafting high-performance web experiences that drive business growth. My approach is rooted in minimalist design principles and cutting-edge engineering.
+          As a Digital Solutions Architect, I bridge the gap between complex business challenges and scalable tech solutions. Whether you are looking to streamline operations, automate processes, or build a robust digital infrastructure from the ground up, I'm here to help you navigate it.
         </p>
-        <p className="text-lg text-muted-foreground leading-relaxed">
-          Based in Nigeria, working globally. I help startups and established brands build scalable, future-ready digital products.
+        <p className="text-lg text-white font-medium border-l-2 border-white/20 pl-4 py-2">
+          What digital challenge is slowing your business down right now?
         </p>
       </motion.div>
       
