@@ -1,9 +1,17 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, X } from "lucide-react";
 import Image from "next/image";
 import { PlaceHolderImages } from "@/lib/placeholder-images";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
+import { Button } from "@/components/ui/button";
 
 const projects = [
   {
@@ -12,6 +20,7 @@ const projects = [
     category: "Web Application",
     image: PlaceHolderImages[0].imageUrl,
     link: "https://mobile-banking-dashboard.vercel.app/",
+    useModal: true,
   },
   {
     id: "2",
@@ -19,6 +28,7 @@ const projects = [
     category: "Mobile UI/UX",
     image: PlaceHolderImages[1].imageUrl,
     link: "#",
+    useModal: false,
   },
   {
     id: "3",
@@ -26,50 +36,78 @@ const projects = [
     category: "E-commerce",
     image: PlaceHolderImages[2].imageUrl,
     link: "#",
+    useModal: false,
   }
 ];
 
 export function ProjectSection() {
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-      {projects.map((project, index) => (
-        <motion.a
-          key={project.id}
-          href={project.link}
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: index * 0.1, ease: [0.21, 0.45, 0.32, 0.9] }}
-          viewport={{ once: true }}
-          className={`group relative overflow-hidden rounded-[2rem] bg-white/5 border border-white/10 card-hover ${index === 0 ? 'md:col-span-2' : ''}`}
-        >
-          <div className={`relative w-full overflow-hidden ${index === 0 ? 'aspect-[21/9]' : 'aspect-[4/3]'}`}>
-            <Image
-              src={project.image}
-              alt={project.title}
-              fill
-              className="object-cover transition-transform duration-700 group-hover:scale-105"
-              data-ai-hint="minimalist project showcase"
-            />
-            {/* Standard overlay opacity restored for white text contrast */}
-            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent transition-opacity duration-300 opacity-60 group-hover:opacity-70" />
-          </div>
-          
-          <div className="absolute bottom-0 left-0 right-0 p-8 flex justify-between items-end">
-            <div>
-              <span className="text-xs font-bold uppercase tracking-widest mb-2 block text-white/60 drop-shadow-md">
-                {project.category}
-              </span>
-              <h3 className="text-3xl font-bold text-white drop-shadow-lg">
-                {project.title}
-              </h3>
+      {projects.map((project, index) => {
+        const ProjectCard = (
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: index * 0.1, ease: [0.21, 0.45, 0.32, 0.9] }}
+            viewport={{ once: true }}
+            className={`group relative overflow-hidden rounded-[2rem] bg-white/5 border border-white/10 card-hover cursor-pointer ${index === 0 ? 'md:col-span-2' : ''}`}
+          >
+            <div className={`relative w-full overflow-hidden ${index === 0 ? 'aspect-[21/9]' : 'aspect-[4/3]'}`}>
+              <Image
+                src={project.image}
+                alt={project.title}
+                fill
+                className="object-cover transition-transform duration-700 group-hover:scale-105"
+                data-ai-hint="minimalist project showcase"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent transition-opacity duration-300 opacity-60 group-hover:opacity-70" />
             </div>
             
-            <div className={`w-12 h-12 rounded-full flex items-center justify-center transform translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300 shadow-xl ${index === 0 ? 'bg-black text-white' : 'bg-white text-black'}`}>
-              <ArrowUpRight className="w-6 h-6" />
+            <div className="absolute bottom-0 left-0 right-0 p-8 flex justify-between items-end">
+              <div>
+                <span className="text-xs font-bold uppercase tracking-widest mb-2 block text-white/60 drop-shadow-md">
+                  {project.category}
+                </span>
+                <h3 className="text-3xl font-bold text-white drop-shadow-lg text-left">
+                  {project.title}
+                </h3>
+              </div>
+              
+              <div className={`w-12 h-12 rounded-full flex items-center justify-center transform translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300 shadow-xl ${index === 0 ? 'bg-black text-white' : 'bg-white text-black'}`}>
+                <ArrowUpRight className="w-6 h-6" />
+              </div>
             </div>
-          </div>
-        </motion.a>
-      ))}
+          </motion.div>
+        );
+
+        if (project.useModal) {
+          return (
+            <Dialog key={project.id}>
+              <DialogTrigger asChild>
+                {ProjectCard}
+              </DialogTrigger>
+              <DialogContent className="max-w-[95vw] w-full h-[90vh] p-0 bg-background border-white/10 overflow-hidden flex flex-col">
+                <DialogHeader className="p-4 border-b border-white/5 flex flex-row items-center justify-between space-y-0">
+                  <DialogTitle className="text-lg font-bold uppercase tracking-widest">{project.title}</DialogTitle>
+                </DialogHeader>
+                <div className="flex-1 w-full relative bg-white/5">
+                  <iframe 
+                    src={project.link} 
+                    className="w-full h-full border-none"
+                    title={project.title}
+                  />
+                </div>
+              </DialogContent>
+            </Dialog>
+          );
+        }
+
+        return (
+          <a key={project.id} href={project.link} className={index === 0 ? 'md:col-span-2' : ''}>
+            {ProjectCard}
+          </a>
+        );
+      })}
     </div>
   );
 }
