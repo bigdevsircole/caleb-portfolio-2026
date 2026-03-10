@@ -11,7 +11,7 @@ const projects = [
     title: "Quantum Dashboard",
     category: "Web Application",
     image: PlaceHolderImages[0].imageUrl,
-    link: "#",
+    link: "https://mobile-banking-dashboard.vercel.app/",
   },
   {
     id: "2",
