@@ -14,6 +14,7 @@ import {
 } from "@/components/ui/sheet";
 
 const navItems = [
+  { name: "Home", href: "#home" },
   { name: "About", href: "#about" },
   { name: "Projects", href: "#projects" },
   { name: "Shop", href: "#shop" },
