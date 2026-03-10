@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowUpRight, X } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 import Image from "next/image";
 import { PlaceHolderImages } from "@/lib/placeholder-images";
 import {
@@ -11,7 +11,6 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
-import { Button } from "@/components/ui/button";
 
 const projects = [
   {
@@ -20,7 +19,7 @@ const projects = [
     category: "Web Application",
     image: PlaceHolderImages[0].imageUrl,
     link: "https://mobile-banking-dashboard.vercel.app/",
-    useModal: true,
+    useModal: false,
   },
   {
     id: "2",
@@ -102,8 +101,16 @@ export function ProjectSection() {
           );
         }
 
+        const isExternal = project.link.startsWith('http');
+
         return (
-          <a key={project.id} href={project.link} className={index === 0 ? 'md:col-span-2' : ''}>
+          <a 
+            key={project.id} 
+            href={project.link} 
+            target={isExternal ? "_blank" : undefined}
+            rel={isExternal ? "noopener noreferrer" : undefined}
+            className={index === 0 ? 'md:col-span-2' : ''}
+          >
             {ProjectCard}
           </a>
         );
