@@ -13,9 +13,9 @@ export default function Home() {
     <div className="relative min-h-screen bg-background selection:bg-white selection:text-black">
       <Navigation />
       
-      <main className="relative z-10 pt-32">
+      <main className="relative z-10 pt-20">
         {/* Hero Section */}
-        <section className="relative px-6 py-32 md:py-48 max-w-7xl mx-auto overflow-hidden">
+        <section className="relative px-6 py-20 md:py-32 max-w-7xl mx-auto overflow-hidden">
           <SyntaxBackground />
           <div className="relative z-10 flex flex-col items-center text-center gap-8">
             <div className="flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-xs font-medium text-muted-foreground">
