@@ -34,8 +34,8 @@ export default function Navigation() {
         >
           <div className="w-8 h-8 bg-white rounded-md flex items-center justify-center">
             <span 
-              className="text-black font-black text-xs tracking-tighter" 
-              style={{ fontFamily: 'Impact, sans-serif' }}
+              className="text-black font-bold text-[13px] tracking-tight" 
+              style={{ fontFamily: '-apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Helvetica Neue", Helvetica, Arial, sans-serif' }}
             >
               CY
             </span>
