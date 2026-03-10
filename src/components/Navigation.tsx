@@ -14,6 +14,7 @@ import {
 } from "@/components/ui/sheet";
 
 const navItems = [
+  { name: "About", href: "#about" },
   { name: "Projects", href: "#projects" },
   { name: "Shop", href: "#shop" },
   { name: "Resources", href: "#resources" },
@@ -69,7 +70,7 @@ export default function Navigation() {
                 <Menu className="w-5 h-5" />
               </Button>
             </SheetTrigger>
-            <SheetContent side="top" className="bg-background/95 backdrop-blur-2xl border-white/10 h-fit pb-12 pt-16">
+            <SheetContent side="left" className="bg-background/95 backdrop-blur-2xl border-white/10 w-[80%] max-w-sm pb-12 pt-16">
               <SheetHeader className="mb-8 sr-only">
                 <SheetTitle>Navigation Menu</SheetTitle>
               </SheetHeader>

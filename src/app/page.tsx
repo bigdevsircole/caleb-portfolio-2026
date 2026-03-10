@@ -3,6 +3,7 @@ import SectionHeading from "@/components/SectionHeading";
 import { ProjectSection } from "@/components/sections/ProjectSection";
 import { SalesSection } from "@/components/sections/SalesSection";
 import { ResourceSection } from "@/components/sections/ResourceSection";
+import { AboutSection } from "@/components/sections/AboutSection";
 import { Button } from "@/components/ui/button";
 import { Mail } from "lucide-react";
 import SyntaxBackground from "@/components/SyntaxBackground";
@@ -26,7 +27,7 @@ export default function Home() {
               <h1 className="text-5xl md:text-8xl font-bold tracking-tighter leading-[0.9]">
                 CALEB YINUSA
               </h1>
-              <span className="text-sm md:text-lg text-muted-foreground italic font-light tracking-[0.3em] uppercase opacity-60">
+              <span className="text-xs md:text-sm text-muted-foreground italic font-light tracking-[0.4em] uppercase opacity-60">
                 DIGITAL SOLUTION ARCHITECT
               </span>
             </div>
@@ -40,6 +41,15 @@ export default function Home() {
               </Button>
             </div>
           </div>
+        </section>
+
+        {/* About Section */}
+        <section id="about" className="py-24 px-6 max-w-7xl mx-auto">
+          <SectionHeading 
+            title="About" 
+            subtitle="Architecting the digital future." 
+          />
+          <AboutSection />
         </section>
 
         {/* Selected Projects */}
