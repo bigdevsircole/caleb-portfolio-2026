@@ -50,18 +50,21 @@ export function ProjectSection() {
               className="object-cover transition-transform duration-700 group-hover:scale-105"
               data-ai-hint="minimalist project showcase"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60" />
+            {/* Reduced overlay opacity for the first project to ensure black text is visible */}
+            <div className={`absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent transition-opacity duration-300 ${index === 0 ? 'opacity-10 group-hover:opacity-20' : 'opacity-60'}`} />
           </div>
           
           <div className="absolute bottom-0 left-0 right-0 p-8 flex justify-between items-end">
             <div>
-              <span className="text-xs font-bold uppercase tracking-widest text-white/60 mb-2 block">
+              <span className={`text-xs font-bold uppercase tracking-widest mb-2 block ${index === 0 ? 'text-black/70' : 'text-white/60'}`}>
                 {project.category}
               </span>
-              <h3 className="text-3xl font-bold">{project.title}</h3>
+              <h3 className={`text-3xl font-bold ${index === 0 ? 'text-black' : 'text-white'}`}>
+                {project.title}
+              </h3>
             </div>
             
-            <div className="w-12 h-12 rounded-full bg-white text-black flex items-center justify-center transform translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
+            <div className={`w-12 h-12 rounded-full flex items-center justify-center transform translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300 shadow-xl ${index === 0 ? 'bg-black text-white' : 'bg-white text-black'}`}>
               <ArrowUpRight className="w-6 h-6" />
             </div>
           </div>
