@@ -6,7 +6,7 @@ export function AboutSection() {
   const stats = [
     { label: "Experience", value: "8+ Years" },
     { label: "Projects", value: "150+ Done" },
-    { label: "Frontend", value: "Next.js / TS" },
+    { label: "Frontend", value: "Next.js / TS / Tailwind" },
     { label: "Backend", value: "Firebase / Node" },
   ];
 
