@@ -15,8 +15,8 @@ import {
 const projects = [
   {
     id: "1",
-    title: "Quantum Dashboard",
-    category: "Web Application",
+    title: "Caleb Bank",
+    category: "Mobile Banking Dashboard",
     image: PlaceHolderImages[0].imageUrl,
     link: "https://mobile-banking-dashboard.vercel.app/",
     useModal: false,
