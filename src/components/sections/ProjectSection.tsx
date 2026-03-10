@@ -50,16 +50,16 @@ export function ProjectSection() {
               className="object-cover transition-transform duration-700 group-hover:scale-105"
               data-ai-hint="minimalist project showcase"
             />
-            {/* Reduced overlay opacity for the first project to ensure black text is visible */}
-            <div className={`absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent transition-opacity duration-300 ${index === 0 ? 'opacity-10 group-hover:opacity-20' : 'opacity-60'}`} />
+            {/* Standard overlay opacity restored for white text contrast */}
+            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent transition-opacity duration-300 opacity-60 group-hover:opacity-70" />
           </div>
           
           <div className="absolute bottom-0 left-0 right-0 p-8 flex justify-between items-end">
             <div>
-              <span className={`text-xs font-bold uppercase tracking-widest mb-2 block ${index === 0 ? 'text-black/70' : 'text-white/60'}`}>
+              <span className="text-xs font-bold uppercase tracking-widest mb-2 block text-white/60">
                 {project.category}
               </span>
-              <h3 className={`text-3xl font-bold ${index === 0 ? 'text-black' : 'text-white'}`}>
+              <h3 className="text-3xl font-bold text-white">
                 {project.title}
               </h3>
             </div>
