@@ -56,7 +56,7 @@ export default function Home() {
         <section id="projects" className="py-24 px-6 max-w-7xl mx-auto">
           <SectionHeading 
             title="Projects" 
-            subtitle="A collection of digital experiences crafted with precision." 
+            subtitle="Some selected projects" 
           />
           <ProjectSection />
         </section>
