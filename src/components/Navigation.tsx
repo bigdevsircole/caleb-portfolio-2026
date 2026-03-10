@@ -25,40 +25,42 @@ export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <div className="fixed top-6 md:top-8 left-0 right-0 z-50 px-4 md:px-6 flex justify-center pointer-events-none">
-      <nav className="glass-pill px-4 md:px-6 py-3 flex items-center justify-between md:justify-start gap-4 md:gap-8 pointer-events-auto w-full max-w-4xl shadow-2xl shadow-black/50">
-        <motion.a 
-          href="/"
-          className="flex items-center gap-2"
-          whileHover={{ scale: 1.05 }}
-        >
-          <div className="w-8 h-8 bg-white rounded-md flex items-center justify-center">
-            <span 
-              className="text-black font-bold text-[13px] tracking-tight" 
-              style={{ fontFamily: '-apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Helvetica Neue", Helvetica, Arial, sans-serif' }}
-            >
-              CY
-            </span>
+    <div className="fixed top-0 left-0 right-0 z-[100] w-full border-b border-white/5 bg-background/80 backdrop-blur-xl">
+      <nav className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+        <div className="flex items-center gap-8">
+          <motion.a 
+            href="/"
+            className="flex items-center gap-2"
+            whileHover={{ scale: 1.05 }}
+          >
+            <div className="w-9 h-9 bg-white rounded-md flex items-center justify-center">
+              <span 
+                className="text-black font-bold text-[14px] tracking-tight" 
+                style={{ fontFamily: '-apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Helvetica Neue", Helvetica, Arial, sans-serif' }}
+              >
+                CY
+              </span>
+            </div>
+          </motion.a>
+          
+          {/* Desktop Links */}
+          <div className="hidden md:flex items-center gap-8">
+            {navItems.map((item) => (
+              <a 
+                key={item.name} 
+                href={item.href}
+                className="text-xs font-bold uppercase tracking-widest text-muted-foreground hover:text-white transition-colors"
+              >
+                {item.name}
+              </a>
+            ))}
           </div>
-        </motion.a>
-        
-        {/* Desktop Links */}
-        <div className="hidden md:flex items-center gap-8">
-          {navItems.map((item) => (
-            <a 
-              key={item.name} 
-              href={item.href}
-              className="text-xs font-bold uppercase tracking-widest text-muted-foreground hover:text-white transition-colors"
-            >
-              {item.name}
-            </a>
-          ))}
         </div>
 
-        <div className="flex items-center gap-2 ml-auto">
+        <div className="flex items-center gap-4">
           <motion.button
             whileTap={{ scale: 0.95 }}
-            className="hidden md:block px-5 py-2 bg-white text-black rounded-full text-xs font-bold uppercase tracking-widest hover:bg-white/90 transition-all shadow-lg"
+            className="hidden md:block px-6 py-2.5 bg-white text-black rounded-full text-xs font-bold uppercase tracking-widest hover:bg-white/90 transition-all shadow-lg"
           >
             Work With Me
           </motion.button>
