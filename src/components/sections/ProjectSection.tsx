@@ -34,7 +34,7 @@ const projects = [
     id: "3",
     title: "EcoSphere",
     category: "E-commerce",
-    image: PlaceHolderImages[2].imageUrl,
+    image: "https://drive.google.com/uc?export=view&id=12ia_yGU5Byf-_-zR0MNnMvzgK6z0ItQn",
     link: "#",
     useModal: false,
   }
