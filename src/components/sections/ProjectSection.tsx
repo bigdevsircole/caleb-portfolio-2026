@@ -1,3 +1,4 @@
+
 "use client";
 
 import { motion } from "framer-motion";
@@ -24,9 +25,9 @@ const projects = [
   {
     id: "2",
     title: "Nebula Mobile",
-    category: "Mobile UI/UX",
+    category: "Digital Identity Platform",
     image: PlaceHolderImages[1].imageUrl,
-    link: "#",
+    link: "https://bravecard.vercel.app/",
     useModal: false,
   },
   {
