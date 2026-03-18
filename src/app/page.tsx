@@ -98,9 +98,30 @@ export default function Home() {
           <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6 text-muted-foreground text-sm font-medium">
             <p>&copy; {new Date().getFullYear()} Caleb Yinusa.</p>
             <div className="flex gap-8">
-              <a href="#" className="hover:text-white transition-colors">Twitter</a>
-              <a href="#" className="hover:text-white transition-colors">GitHub</a>
-              <a href="#" className="hover:text-white transition-colors">LinkedIn</a>
+              <a 
+                href="https://x.com/calebyinusaa" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="hover:text-white transition-colors"
+              >
+                Twitter
+              </a>
+              <a 
+                href="https://github.com/bigdevsircole" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="hover:text-white transition-colors"
+              >
+                GitHub
+              </a>
+              <a 
+                href="https://www.linkedin.com/in/caleb-yinusa/" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="hover:text-white transition-colors"
+              >
+                LinkedIn
+              </a>
             </div>
             <p>Made in Nigeria.</p>
           </div>
