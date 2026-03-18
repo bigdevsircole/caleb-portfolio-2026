@@ -37,6 +37,54 @@ const projects = [
     image: "https://drive.google.com/uc?export=view&id=12ia_yGU5Byf-_-zR0MNnMvzgK6z0ItQn",
     link: "#",
     useModal: false,
+  },
+  {
+    id: "4",
+    title: "Nebula OS",
+    category: "Cloud Infrastructure",
+    image: "https://picsum.photos/seed/42/800/600",
+    link: "#",
+    useModal: false,
+  },
+  {
+    id: "5",
+    title: "Vanguard",
+    category: "Cybersecurity Analytics",
+    image: "https://picsum.photos/seed/56/800/600",
+    link: "#",
+    useModal: false,
+  },
+  {
+    id: "6",
+    title: "Pulse Health",
+    category: "Medical Management",
+    image: "https://picsum.photos/seed/88/800/600",
+    link: "#",
+    useModal: false,
+  },
+  {
+    id: "7",
+    title: "Zenith AI",
+    category: "Content Automation",
+    image: "https://picsum.photos/seed/99/800/600",
+    link: "#",
+    useModal: false,
+  },
+  {
+    id: "8",
+    title: "Lumina CRM",
+    category: "Enterprise Relations",
+    image: "https://picsum.photos/seed/101/800/600",
+    link: "#",
+    useModal: false,
+  },
+  {
+    id: "9",
+    title: "Solaris",
+    category: "Energy Monitoring",
+    image: "https://picsum.photos/seed/112/800/600",
+    link: "#",
+    useModal: false,
   }
 ];
 
@@ -64,11 +112,11 @@ export function ProjectSection() {
             </div>
             
             <div className="absolute bottom-0 left-0 right-0 p-8 flex justify-between items-end">
-              <div>
+              <div className="text-left">
                 <span className="text-xs font-bold uppercase tracking-widest mb-2 block text-white/60 drop-shadow-md">
                   {project.category}
                 </span>
-                <h3 className="text-3xl font-bold text-white drop-shadow-lg text-left">
+                <h3 className="text-3xl font-bold text-white drop-shadow-lg">
                   {project.title}
                 </h3>
               </div>
