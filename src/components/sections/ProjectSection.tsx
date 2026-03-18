@@ -32,7 +32,7 @@ const projects = [
   },
   {
     id: "3",
-    title: "EcoSphere",
+    title: "Berrybby",
     category: "E-commerce",
     image: "https://drive.google.com/uc?export=view&id=12ia_yGU5Byf-_-zR0MNnMvzgK6z0ItQn",
     link: "#",
