@@ -66,7 +66,7 @@ export default function Home() {
           <div className="max-w-7xl mx-auto">
             <SectionHeading 
               title="Shop" 
-              subtitle="Premium assets and educational resources for developers." 
+              subtitle="Premium assets and educational resources for everyone." 
             />
             <SalesSection />
           </div>
