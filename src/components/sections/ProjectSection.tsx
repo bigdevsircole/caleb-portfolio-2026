@@ -42,7 +42,7 @@ const projects = [
     id: "4",
     title: "Nebula OS",
     category: "Cloud Infrastructure",
-    image: "https://picsum.photos/seed/42/800/600",
+    image: "https://drive.google.com/uc?export=view&id=1eGJj52zs5YDj0AOb_n_VD1dHLi5PdMTk",
     link: "https://whatsapp-msg-one.vercel.app/",
     useModal: false,
   },
