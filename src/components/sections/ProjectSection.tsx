@@ -47,7 +47,7 @@ const projects = [
   },
   {
     id: "5",
-    title: "Vanguard",
+    title: "Orion Manager",
     category: "Cybersecurity Analytics",
     image: "https://picsum.photos/seed/56/800/600",
     link: "#",
