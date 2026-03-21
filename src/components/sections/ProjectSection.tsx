@@ -55,7 +55,7 @@ const projects = [
   },
   {
     id: "6",
-    title: "Pulse Health",
+    title: "Rhoda Delight",
     category: "Medical Management",
     image: "https://picsum.photos/seed/88/800/600",
     link: "#",
