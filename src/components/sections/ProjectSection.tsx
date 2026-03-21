@@ -56,7 +56,7 @@ const projects = [
   {
     id: "6",
     title: "Rhoda Delight",
-    category: "Medical Management",
+    category: "Food Website",
     image: "https://picsum.photos/seed/88/800/600",
     link: "#",
     useModal: false,
