@@ -49,7 +49,7 @@ const projects = [
     id: "5",
     title: "Orion Manager",
     category: "Privacy Control App",
-    image: "https://picsum.photos/seed/56/800/600",
+    image: "https://drive.google.com/uc?export=view&id=1DRGMrL240DavTmIrQXSY6tTNntsmu3vd",
     link: "https://orion-manager.vercel.app/",
     useModal: false,
   },
