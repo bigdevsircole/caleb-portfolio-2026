@@ -48,7 +48,7 @@ const projects = [
   {
     id: "5",
     title: "Orion Manager",
-    category: "Cybersecurity Analytics",
+    category: "Privacy Control App",
     image: "https://picsum.photos/seed/56/800/600",
     link: "#",
     useModal: false,
