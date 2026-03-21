@@ -50,7 +50,7 @@ const projects = [
     title: "Orion Manager",
     category: "Privacy Control App",
     image: "https://picsum.photos/seed/56/800/600",
-    link: "#",
+    link: "https://orion-manager.vercel.app/",
     useModal: false,
   },
   {
