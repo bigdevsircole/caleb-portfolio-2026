@@ -63,9 +63,9 @@ const projects = [
   },
   {
     id: "7",
-    title: "Zenith AI",
-    category: "Content Automation",
-    image: "https://picsum.photos/seed/99/800/600",
+    title: "Bàtà Gidi",
+    category: "Hand-Crafted Footwear",
+    image: "https://drive.google.com/uc?export=view&id=1vCn9CfDnAZKcu3UuBqTiN12ejFbWEQ6x",
     link: "#",
     useModal: false,
   },
