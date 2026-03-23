@@ -65,7 +65,7 @@ export default function Navigation() {
             className="hidden md:flex px-6 py-2.5 bg-white text-black rounded-full text-xs font-bold uppercase tracking-widest hover:bg-white/90 transition-all shadow-lg h-auto"
           >
             <a href={cvUrl} target="_blank" rel="noopener noreferrer">
-              Download my CV
+              View My CV
             </a>
           </Button>
 
@@ -95,7 +95,7 @@ export default function Navigation() {
                 <SheetClose asChild>
                   <Button className="w-full h-16 rounded-2xl bg-white text-black text-xl font-bold shadow-xl shadow-white/5" asChild>
                     <a href={cvUrl} target="_blank" rel="noopener noreferrer">
-                      Download my CV
+                      View My CV
                     </a>
                   </Button>
                 </SheetClose>
