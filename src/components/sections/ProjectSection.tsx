@@ -66,7 +66,7 @@ const projects = [
     title: "Bàtà Gidi",
     category: "Hand-Crafted Footwear",
     image: "https://drive.google.com/uc?export=view&id=1vCn9CfDnAZKcu3UuBqTiN12ejFbWEQ6x",
-    link: "#",
+    link: "https://bata-gidi.vercel.app/",
     useModal: false,
   },
   {
