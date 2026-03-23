@@ -73,7 +73,7 @@ const projects = [
     id: "8",
     title: "QR Code Generator",
     category: "QR Generator App",
-    image: "https://picsum.photos/seed/101/800/600",
+    image: "https://drive.google.com/uc?export=view&id=1qxZD9osYwhJ5fC-dxvuWlzYyTy5f95mh",
     link: "#",
     useModal: false,
   },
