@@ -24,6 +24,7 @@ const navItems = [
 
 export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
+  const cvUrl = "https://docs.google.com/document/d/1yp6g2J-M7s3km0KJp8-Khogt1-VKCVF1/edit?usp=sharing&ouid=108900028355740409752&rtpof=true&sd=true";
 
   return (
     <div className="fixed top-0 left-0 right-0 z-[100] w-full border-b border-white/5 bg-background/80 backdrop-blur-xl">
@@ -59,12 +60,14 @@ export default function Navigation() {
         </div>
 
         <div className="flex items-center gap-4">
-          <motion.button
-            whileTap={{ scale: 0.95 }}
-            className="hidden md:block px-6 py-2.5 bg-white text-black rounded-full text-xs font-bold uppercase tracking-widest hover:bg-white/90 transition-all shadow-lg"
+          <Button
+            asChild
+            className="hidden md:flex px-6 py-2.5 bg-white text-black rounded-full text-xs font-bold uppercase tracking-widest hover:bg-white/90 transition-all shadow-lg h-auto"
           >
-            Work With Me
-          </motion.button>
+            <a href={cvUrl} target="_blank" rel="noopener noreferrer">
+              Download my CV
+            </a>
+          </Button>
 
           {/* Mobile Navigation */}
           <Sheet open={isOpen} onOpenChange={setIsOpen}>
@@ -90,8 +93,10 @@ export default function Navigation() {
                 ))}
                 <div className="h-px w-full bg-white/10 my-4" />
                 <SheetClose asChild>
-                  <Button className="w-full h-16 rounded-2xl bg-white text-black text-xl font-bold shadow-xl shadow-white/5">
-                    Work With Me
+                  <Button className="w-full h-16 rounded-2xl bg-white text-black text-xl font-bold shadow-xl shadow-white/5" asChild>
+                    <a href={cvUrl} target="_blank" rel="noopener noreferrer">
+                      Download my CV
+                    </a>
                   </Button>
                 </SheetClose>
               </div>
