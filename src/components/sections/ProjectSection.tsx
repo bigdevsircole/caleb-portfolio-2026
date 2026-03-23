@@ -71,8 +71,8 @@ const projects = [
   },
   {
     id: "8",
-    title: "Lumina CRM",
-    category: "Enterprise Relations",
+    title: "QR Code Generator",
+    category: "QR Generator App",
     image: "https://picsum.photos/seed/101/800/600",
     link: "#",
     useModal: false,
