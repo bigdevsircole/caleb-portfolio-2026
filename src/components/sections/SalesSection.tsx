@@ -8,17 +8,19 @@ import { PlaceHolderImages } from "@/lib/placeholder-images";
 const products = [
   {
     id: "p1",
-    name: "Full-Stack Mastery",
-    category: "Course",
-    price: "$199",
-    image: PlaceHolderImages[3].imageUrl
+    name: "Exclusive Training",
+    category: "Training",
+    price: "Make enquiry",
+    image: PlaceHolderImages[3].imageUrl,
+    link: "https://wa.me/2348180402086"
   },
   {
     id: "p2",
     name: "Ultimate UI Kit",
     category: "Digital Asset",
     price: "$49",
-    image: PlaceHolderImages[4].imageUrl
+    image: PlaceHolderImages[4].imageUrl,
+    link: "https://wa.me/2348180402086"
   }
 ];
 
@@ -72,9 +74,14 @@ export function SalesSection() {
               <h3 className="text-2xl font-bold mt-1">{product.name}</h3>
               <p className="text-2xl font-light mt-2">{product.price}</p>
             </div>
-            <button className="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center hover:bg-white hover:text-black transition-all duration-300">
+            <a 
+              href={product.link} 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center hover:bg-white hover:text-black transition-all duration-300"
+            >
               <ArrowUpRight className="w-5 h-5" />
-            </button>
+            </a>
           </div>
         </motion.div>
       ))}
