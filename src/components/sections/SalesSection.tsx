@@ -19,9 +19,9 @@ const products = [
     id: "p2",
     name: "Join my Telegram Group",
     category: "Community",
-    price: "₦10,000",
+    price: "Get Access",
     image: PlaceHolderImages[4].imageUrl,
-    link: "https://wa.me/2348180402086"
+    link: "https://paystack.shop/pay/learnwithcaleb"
   }
 ];
 
