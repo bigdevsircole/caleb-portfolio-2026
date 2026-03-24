@@ -17,9 +17,9 @@ const products = [
   },
   {
     id: "p2",
-    name: "Ultimate UI Kit",
-    category: "Digital Asset",
-    price: "$49",
+    name: "Join my Telegram Group",
+    category: "Community",
+    price: "₦10,000",
     image: PlaceHolderImages[4].imageUrl,
     link: "https://wa.me/2348180402086"
   }
