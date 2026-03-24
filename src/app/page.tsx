@@ -9,6 +9,8 @@ import { Mail } from "lucide-react";
 import SyntaxBackground from "@/components/SyntaxBackground";
 import * as motion from "framer-motion/client";
 
+const easeSmooth = [0.22, 1, 0.36, 1];
+
 export default function Home() {
   const whatsappUrl = "https://wa.me/2348180402086";
 
@@ -20,57 +22,72 @@ export default function Home() {
         {/* Hero Section */}
         <section id="home" className="relative px-6 py-20 md:py-32 max-w-7xl mx-auto overflow-hidden">
           <SyntaxBackground />
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: [0.21, 0.45, 0.32, 0.9] }}
-            className="relative z-10 flex flex-col items-center text-center gap-8"
-          >
+          <div className="relative z-10 flex flex-col items-center text-center gap-8">
+            {/* Availability Badge */}
             <motion.div 
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 0.2, duration: 0.5 }}
-              className="flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-xs font-medium text-muted-foreground"
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ 
+                opacity: 1, 
+                y: [0, -4, 0],
+              }}
+              transition={{ 
+                opacity: { duration: 0.5, delay: 0.2 },
+                y: { duration: 4, repeat: Infinity, ease: "easeInOut" }
+              }}
+              className="flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-xs font-medium text-muted-foreground backdrop-blur-sm"
             >
-              <span className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse" />
+              <motion.span 
+                animate={{ scale: [1, 1.3, 1], opacity: [1, 0.5, 1] }}
+                transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+                className="w-1.5 h-1.5 rounded-full bg-green-500 shadow-[0_0_8px_rgba(34,197,94,0.6)]" 
+              />
               Available for new opportunities
             </motion.div>
             
             <div className="flex flex-col gap-4">
+              {/* Name Reveal */}
               <motion.h1 
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.3, duration: 0.8, ease: [0.21, 0.45, 0.32, 0.9] }}
+                initial={{ opacity: 0, y: 20, filter: "blur(8px)" }}
+                animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+                transition={{ duration: 0.8, ease: easeSmooth, delay: 0.3 }}
                 className="text-5xl md:text-8xl font-bold tracking-tighter leading-[0.9]"
               >
                 CALEB YINUSA
               </motion.h1>
+
+              {/* Subtitle Tracking Animation */}
               <motion.span 
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 0.6 }}
-                transition={{ delay: 0.5, duration: 1 }}
-                className="text-xs md:text-sm text-muted-foreground italic font-light tracking-[0.4em] uppercase opacity-60"
+                initial={{ opacity: 0, letterSpacing: "0.8em" }}
+                animate={{ opacity: 0.6, letterSpacing: "0.4em" }}
+                transition={{ duration: 1.2, ease: easeSmooth, delay: 0.6 }}
+                className="text-[10px] md:text-xs text-muted-foreground italic font-light uppercase opacity-60 block"
               >
                 DIGITAL SOLUTION ARCHITECT
               </motion.span>
             </div>
 
+            {/* Buttons with Staggered Entrance and Micro-interactions */}
             <motion.div 
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.6, duration: 0.8 }}
+              transition={{ delay: 0.9, duration: 0.8, ease: easeSmooth }}
               className="flex flex-wrap justify-center gap-4 mt-4"
             >
-              <Button size="lg" className="rounded-full bg-white text-black hover:bg-white/90 px-8 h-14 text-base font-bold" asChild>
-                <a href="#projects">View My Work</a>
-              </Button>
-              <Button size="lg" variant="outline" className="rounded-full border-white/10 hover:bg-white/5 px-8 h-14 text-base font-bold" asChild>
-                <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">
-                  Get in touch
-                </a>
-              </Button>
+              <motion.div whileHover={{ scale: 1.03 }} transition={{ duration: 0.2 }}>
+                <Button size="lg" className="rounded-full bg-white text-black hover:bg-white/90 px-8 h-14 text-base font-bold shadow-xl shadow-white/5" asChild>
+                  <a href="#projects">View My Work</a>
+                </Button>
+              </motion.div>
+              
+              <motion.div whileHover={{ scale: 1.03 }} transition={{ duration: 0.2 }}>
+                <Button size="lg" variant="outline" className="rounded-full border-white/10 hover:bg-white/5 hover:border-white/20 px-8 h-14 text-base font-bold transition-all" asChild>
+                  <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">
+                    Get in touch
+                  </a>
+                </Button>
+              </motion.div>
             </motion.div>
-          </motion.div>
+          </div>
         </section>
 
         {/* About Section */}
@@ -117,7 +134,7 @@ export default function Home() {
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.8, ease: [0.21, 0.45, 0.32, 0.9] }}
+            transition={{ duration: 0.8, ease: easeSmooth }}
             className="p-12 md:p-24 bg-white/5 rounded-[2.5rem] border border-white/10 text-center flex flex-col items-center gap-8"
           >
             <h2 className="text-4xl md:text-6xl font-bold tracking-tight max-w-2xl">
