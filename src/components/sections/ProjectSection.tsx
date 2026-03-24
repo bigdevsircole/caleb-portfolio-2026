@@ -3,7 +3,6 @@
 import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 import Image from "next/image";
-import { PlaceHolderImages } from "@/lib/placeholder-images";
 import {
   Dialog,
   DialogContent,
@@ -87,16 +86,42 @@ const projects = [
   }
 ];
 
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.15,
+      delayChildren: 0.1
+    }
+  }
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 30 },
+  visible: { 
+    opacity: 1, 
+    y: 0,
+    transition: { 
+      duration: 0.8, 
+      ease: [0.21, 0.45, 0.32, 0.9] 
+    }
+  }
+};
+
 export function ProjectSection() {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+    <motion.div 
+      variants={containerVariants}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, margin: "-100px" }}
+      className="grid grid-cols-1 md:grid-cols-2 gap-12"
+    >
       {projects.map((project, index) => {
         const ProjectCard = (
           <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: index * 0.1, ease: [0.21, 0.45, 0.32, 0.9] }}
-            viewport={{ once: true }}
+            variants={itemVariants}
             className={`group relative overflow-hidden rounded-[2rem] bg-white/5 border border-white/10 card-hover cursor-pointer ${index === 0 ? 'md:col-span-2' : ''}`}
           >
             <div className={`relative w-full overflow-hidden ${index === 0 ? 'aspect-[21/9]' : 'aspect-[4/3]'}`}>
@@ -104,7 +129,7 @@ export function ProjectSection() {
                 src={project.image}
                 alt={project.title}
                 fill
-                className="object-cover transition-transform duration-700 group-hover:scale-105"
+                className="object-cover transition-transform duration-1000 group-hover:scale-105"
                 data-ai-hint="minimalist project showcase"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent transition-opacity duration-300 opacity-60 group-hover:opacity-70" />
@@ -120,7 +145,7 @@ export function ProjectSection() {
                 </h3>
               </div>
               
-              <div className={`w-12 h-12 rounded-full flex items-center justify-center transform translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300 shadow-xl ${index === 0 ? 'bg-black text-white' : 'bg-white text-black'}`}>
+              <div className={`w-12 h-12 rounded-full flex items-center justify-center transform translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500 shadow-xl ${index === 0 ? 'bg-black text-white' : 'bg-white text-black'}`}>
                 <ArrowUpRight className="w-6 h-6" />
               </div>
             </div>
@@ -163,6 +188,6 @@ export function ProjectSection() {
           </a>
         );
       })}
-    </div>
+    </motion.div>
   );
 }

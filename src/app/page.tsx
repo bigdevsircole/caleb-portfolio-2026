@@ -7,6 +7,7 @@ import { AboutSection } from "@/components/sections/AboutSection";
 import { Button } from "@/components/ui/button";
 import { Mail } from "lucide-react";
 import SyntaxBackground from "@/components/SyntaxBackground";
+import * as motion from "framer-motion/client";
 
 export default function Home() {
   const whatsappUrl = "https://wa.me/2348180402086";
@@ -19,22 +20,47 @@ export default function Home() {
         {/* Hero Section */}
         <section id="home" className="relative px-6 py-20 md:py-32 max-w-7xl mx-auto overflow-hidden">
           <SyntaxBackground />
-          <div className="relative z-10 flex flex-col items-center text-center gap-8">
-            <div className="flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-xs font-medium text-muted-foreground">
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: [0.21, 0.45, 0.32, 0.9] }}
+            className="relative z-10 flex flex-col items-center text-center gap-8"
+          >
+            <motion.div 
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ delay: 0.2, duration: 0.5 }}
+              className="flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-xs font-medium text-muted-foreground"
+            >
               <span className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse" />
               Available for new opportunities
-            </div>
+            </motion.div>
             
             <div className="flex flex-col gap-4">
-              <h1 className="text-5xl md:text-8xl font-bold tracking-tighter leading-[0.9]">
+              <motion.h1 
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.3, duration: 0.8, ease: [0.21, 0.45, 0.32, 0.9] }}
+                className="text-5xl md:text-8xl font-bold tracking-tighter leading-[0.9]"
+              >
                 CALEB YINUSA
-              </h1>
-              <span className="text-xs md:text-sm text-muted-foreground italic font-light tracking-[0.4em] uppercase opacity-60">
+              </motion.h1>
+              <motion.span 
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 0.6 }}
+                transition={{ delay: 0.5, duration: 1 }}
+                className="text-xs md:text-sm text-muted-foreground italic font-light tracking-[0.4em] uppercase opacity-60"
+              >
                 DIGITAL SOLUTION ARCHITECT
-              </span>
+              </motion.span>
             </div>
 
-            <div className="flex flex-wrap justify-center gap-4 mt-4">
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.6, duration: 0.8 }}
+              className="flex flex-wrap justify-center gap-4 mt-4"
+            >
               <Button size="lg" className="rounded-full bg-white text-black hover:bg-white/90 px-8 h-14 text-base font-bold" asChild>
                 <a href="#projects">View My Work</a>
               </Button>
@@ -43,8 +69,8 @@ export default function Home() {
                   Get in touch
                 </a>
               </Button>
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
         </section>
 
         {/* About Section */}
@@ -87,7 +113,13 @@ export default function Home() {
 
         {/* Contact CTA */}
         <section id="contact" className="py-24 px-6 max-w-7xl mx-auto">
-          <div className="p-12 md:p-24 bg-white/5 rounded-[2.5rem] border border-white/10 text-center flex flex-col items-center gap-8">
+          <motion.div 
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, ease: [0.21, 0.45, 0.32, 0.9] }}
+            className="p-12 md:p-24 bg-white/5 rounded-[2.5rem] border border-white/10 text-center flex flex-col items-center gap-8"
+          >
             <h2 className="text-4xl md:text-6xl font-bold tracking-tight max-w-2xl">
               Let's create something extraordinary together.
             </h2>
@@ -96,7 +128,7 @@ export default function Home() {
                 <Mail className="w-5 h-5" /> Start a conversation
               </a>
             </Button>
-          </div>
+          </motion.div>
         </section>
 
         {/* Footer */}

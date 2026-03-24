@@ -24,16 +24,38 @@ const resources = [
   }
 ];
 
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.1
+    }
+  }
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: { 
+    opacity: 1, 
+    y: 0,
+    transition: { duration: 0.6, ease: [0.21, 0.45, 0.32, 0.9] }
+  }
+};
+
 export function ResourceSection() {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-      {resources.map((res, index) => (
+    <motion.div 
+      variants={containerVariants}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true }}
+      className="grid grid-cols-1 md:grid-cols-3 gap-6"
+    >
+      {resources.map((res) => (
         <motion.div
           key={res.id}
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: index * 0.1 }}
+          variants={itemVariants}
           className="group p-8 bg-white/[0.03] border border-white/10 rounded-[2rem] card-hover flex flex-col gap-8"
         >
           <div className="w-12 h-12 bg-white/5 rounded-2xl flex items-center justify-center group-hover:bg-white group-hover:text-black transition-all duration-300">
@@ -47,11 +69,11 @@ export function ResourceSection() {
             <h4 className="text-xl font-bold">{res.title}</h4>
           </div>
           
-          <button className="flex items-center gap-2 text-sm font-bold uppercase tracking-widest hover:text-white text-muted-foreground transition-colors mt-auto">
+          <button className="flex items-center gap-2 text-sm font-bold uppercase tracking-widest hover:text-white text-muted-foreground transition-colors mt-auto group-hover:text-white">
             <Download className="w-4 h-4" /> Download
           </button>
         </motion.div>
       ))}
-    </div>
+    </motion.div>
   );
 }
