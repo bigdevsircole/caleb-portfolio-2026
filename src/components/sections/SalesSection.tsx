@@ -1,3 +1,4 @@
+
 "use client";
 
 import { motion } from "framer-motion";
@@ -59,7 +60,7 @@ export function SalesSection() {
           variants={itemVariants}
           className="group p-6 bg-white/[0.03] rounded-3xl border border-white/10 card-hover flex flex-col gap-6"
         >
-          <div className="relative aspect-video w-full rounded-2xl overflow-hidden">
+          <div className="relative aspect-video w-full rounded-2xl overflow-hidden bg-black/20">
             <Image
               src={product.image}
               alt={product.name}
