@@ -1,3 +1,4 @@
+
 'use client';
 
 import { useState } from 'react';
@@ -11,6 +12,7 @@ import { MessageSquare, Send } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { errorEmitter } from '@/firebase/error-emitter';
 import { FirestorePermissionError } from '@/firebase/errors';
+import { sendContactEmailNotification } from '@/app/actions/contact';
 
 export function ContactForm() {
   const firestore = useFirestore();
@@ -37,12 +39,20 @@ export function ContactForm() {
 
     const messagesRef = collection(firestore, 'messages');
 
+    // 1. Save to Firestore (Client-side)
     addDoc(messagesRef, messageData)
-      .then(() => {
+      .then(async () => {
+        // 2. Trigger Email Notification (Server-side)
+        // We do this immediately after a successful database write.
+        const emailResult = await sendContactEmailNotification(formData);
+
         toast({
-          title: "Message sent!",
-          description: "Thank you for reaching out. I'll get back to you soon.",
+          title: emailResult.success ? "Message sent!" : "Saved (No email sent)",
+          description: emailResult.success 
+            ? "Thank you for reaching out. A copy has been sent to Caleb." 
+            : "Message saved to database, but notification failed. Caleb will check it soon.",
         });
+        
         setFormData({ name: '', email: '', message: '' });
       })
       .catch(async (error) => {
