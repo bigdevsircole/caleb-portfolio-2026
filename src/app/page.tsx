@@ -22,7 +22,6 @@ export default function Home() {
     setMounted(true);
   }, []);
 
-  // Use a stable value for server-side rendering, then update on client
   const currentYear = mounted ? new Date().getFullYear().toString() : "2025";
 
   return (
