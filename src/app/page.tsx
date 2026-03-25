@@ -9,20 +9,22 @@ import { ResourceSection } from "@/components/sections/ResourceSection";
 import { AboutSection } from "@/components/sections/AboutSection";
 import { Button } from "@/components/ui/button";
 import SyntaxBackground from "@/components/SyntaxBackground";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import { ContactForm } from "@/components/ContactForm";
 import TypingAnimation from "@/components/TypingAnimation";
 
 const easeSmooth = [0.22, 1, 0.36, 1];
 
 export default function Home() {
-  const [isMounted, setIsMounted] = useState(false);
-  const [currentYear, setCurrentYear] = useState<string>("");
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    setIsMounted(true);
-    setCurrentYear(new Date().getFullYear().toString());
+    setMounted(true);
   }, []);
+
+  // We avoid 'if (!mounted) return null' to ensure the server sends a visible shell.
+  // This prevents a "blank" screen while JavaScript is loading.
+  const currentYear = mounted ? new Date().getFullYear().toString() : "2025";
 
   return (
     <div className="relative min-h-screen bg-background selection:bg-primary selection:text-white" suppressHydrationWarning>
@@ -127,7 +129,7 @@ export default function Home() {
 
         <footer className="py-12 px-6 border-t border-white/5 mt-24">
           <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6 text-muted-foreground text-sm font-medium">
-            <p>&copy; {currentYear || '...'} Caleb Yinusa.</p>
+            <p>&copy; {currentYear} Caleb Yinusa.</p>
             <div className="flex gap-8">
               <a href="https://x.com/calebyinusaa" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">Twitter</a>
               <a href="https://github.com/bigdevsircole" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">GitHub</a>
