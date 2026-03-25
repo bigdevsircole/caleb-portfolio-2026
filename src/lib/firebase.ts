@@ -1,12 +1,11 @@
-
 import { initializeApp, getApps, getApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
 
 const firebaseConfig = {
   apiKey: "placeholder",
-  authDomain: "pixelforge-portfolio.firebaseapp.com",
-  projectId: "pixelforge-portfolio",
-  storageBucket: "pixelforge-portfolio.firebasestorage.app",
+  authDomain: "calebyinusa.firebaseapp.com",
+  projectId: "calebyinusa",
+  storageBucket: "calebyinusa.firebasestorage.app",
   messagingSenderId: "placeholder",
   appId: "placeholder"
 };

@@ -1,12 +1,11 @@
-
 'use client';
 
 export const firebaseConfig = {
   apiKey: "placeholder", // This will be populated by the Firebase Console
-  authDomain: "studio-7576378024-bbf27.firebaseapp.com",
-  projectId: "studio-7576378024-bbf27",
-  storageBucket: "studio-7576378024-bbf27.firebasestorage.app",
+  authDomain: "calebyinusa.firebaseapp.com",
+  projectId: "calebyinusa",
+  storageBucket: "calebyinusa.firebasestorage.app",
   messagingSenderId: "placeholder",
   appId: "placeholder",
-  databaseURL: "https://studio-7576378024-bbf27-default-rtdb.firebaseio.com"
+  databaseURL: "https://calebyinusa-default-rtdb.firebaseio.com"
 };
