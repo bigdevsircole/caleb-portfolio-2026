@@ -24,7 +24,6 @@ export default function Home() {
     setCurrentYear(new Date().getFullYear());
   }, []);
 
-  // Avoid hydration mismatch by rendering a stable skeleton or nothing until mounted
   if (!isMounted) {
     return <div className="min-h-screen bg-background" />;
   }
@@ -34,11 +33,9 @@ export default function Home() {
       <Navigation />
       
       <main className="relative z-10 pt-20">
-        {/* Hero Section */}
         <section id="home" className="relative px-6 py-20 md:py-32 max-w-7xl mx-auto overflow-hidden">
           <SyntaxBackground />
           <div className="relative z-10 flex flex-col items-center text-center gap-8">
-            {/* Availability Badge */}
             <motion.div 
               initial={{ opacity: 0, y: 10 }}
               animate={{ 
@@ -60,7 +57,6 @@ export default function Home() {
             </motion.div>
             
             <div className="flex flex-col gap-4">
-              {/* Name Reveal with Neon Effect */}
               <motion.h1 
                 initial={{ opacity: 0, y: 20, filter: "blur(8px)" }}
                 animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
@@ -70,12 +66,10 @@ export default function Home() {
                 CALEB YINUSA
               </motion.h1>
 
-              {/* Cycling Typing Animation */}
               <div className="h-6 flex items-center justify-center">
                 <TypingAnimation />
               </div>
 
-              {/* Subtitle Tracking Animation */}
               <motion.span 
                 initial={{ opacity: 0, letterSpacing: "0.8em" }}
                 animate={{ opacity: 0.6, letterSpacing: "0.4em" }}
@@ -86,7 +80,6 @@ export default function Home() {
               </motion.span>
             </div>
 
-            {/* Buttons with Micro-interactions */}
             <motion.div 
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -110,78 +103,39 @@ export default function Home() {
           </div>
         </section>
 
-        {/* About Section */}
         <section id="about" className="py-24 px-6 max-w-7xl mx-auto">
-          <SectionHeading 
-            title="About" 
-            subtitle="Architecting the digital future." 
-          />
+          <SectionHeading title="About" subtitle="Architecting the digital future." />
           <AboutSection />
         </section>
 
-        {/* Selected Projects */}
         <section id="projects" className="py-24 px-6 max-w-7xl mx-auto">
-          <SectionHeading 
-            title="Projects" 
-            subtitle="Some selected projects" 
-          />
+          <SectionHeading title="Projects" subtitle="Some selected projects" />
           <ProjectSection />
         </section>
 
-        {/* Services / Tools */}
         <section id="shop" className="py-24 px-6 bg-primary/[0.02] border-y border-primary/10">
           <div className="max-w-7xl mx-auto">
-            <SectionHeading 
-              title="Shop" 
-              subtitle="Premium assets and educational resources." 
-            />
+            <SectionHeading title="Shop" subtitle="Premium assets and educational resources." />
             <SalesSection />
           </div>
         </section>
 
-        {/* Resources */}
         <section id="resources" className="py-24 px-6 max-w-7xl mx-auto">
-          <SectionHeading 
-            title="Resources" 
-            subtitle="Free tools to accelerate your workflow." 
-          />
+          <SectionHeading title="Resources" subtitle="Free tools to accelerate your workflow." />
           <ResourceSection />
         </section>
 
-        {/* Contact Form Section */}
         <section id="contact" className="py-24 px-6 max-w-7xl mx-auto">
           <ContactForm />
         </section>
 
-        {/* Footer */}
         <footer className="py-12 px-6 border-t border-white/5 mt-24">
           <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6 text-muted-foreground text-sm font-medium">
             <p>&copy; {currentYear || '...'} Caleb Yinusa.</p>
             <div className="flex gap-8">
-              <a 
-                href="https://x.com/calebyinusaa" 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                className="hover:text-primary transition-colors"
-              >
-                Twitter
-              </a>
-              <a 
-                href="https://github.com/bigdevsircole" 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                className="hover:text-primary transition-colors"
-              >
-                GitHub
-              </a>
-              <a 
-                href="https://www.linkedin.com/in/caleb-yinusa/" 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                className="hover:text-primary transition-colors"
-              >
-                LinkedIn
-              </a>
+              <a href="https://x.com/calebyinusaa" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">Twitter</a>
+              <a href="https://github.com/bigdevsircole" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">GitHub</a>
+              <a href="https://www.linkedin.com/in/caleb-yinusa/" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">LinkedIn</a>
             </div>
             <p>Made in Nigeria.</p>
           </div>
