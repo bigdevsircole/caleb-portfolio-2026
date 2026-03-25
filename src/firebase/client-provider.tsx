@@ -1,26 +1,37 @@
 'use client';
 
-import React, { useMemo } from 'react';
+import React, { useState, useEffect } from 'react';
 import { initializeFirebase } from './index';
 import { FirebaseProvider } from './provider';
+import { FirebaseApp } from 'firebase/app';
+import { Firestore } from 'firebase/firestore';
+import { Auth } from 'firebase/auth';
 
 export function FirebaseClientProvider({ children }: { children: React.ReactNode }) {
-  // Always initialize, even if it returns nulls on server.
-  // The result is memoized to prevent re-initialization on every render.
-  const firebase = useMemo(() => {
+  const [instances, setInstances] = useState<{
+    app: FirebaseApp | null;
+    firestore: Firestore | null;
+    auth: Auth | null;
+  }>({
+    app: null,
+    firestore: null,
+    auth: null,
+  });
+
+  useEffect(() => {
     try {
-      return initializeFirebase();
+      const initialized = initializeFirebase();
+      setInstances(initialized);
     } catch (e) {
-      // Prevent initialization errors from breaking the entire render tree
-      return { app: null, firestore: null, auth: null };
+      console.error('Firebase initialization failed:', e);
     }
   }, []);
 
   return (
     <FirebaseProvider 
-      app={firebase.app} 
-      firestore={firebase.firestore} 
-      auth={firebase.auth}
+      app={instances.app} 
+      firestore={instances.firestore} 
+      auth={instances.auth}
     >
       {children}
     </FirebaseProvider>

@@ -22,8 +22,6 @@ export default function Home() {
     setMounted(true);
   }, []);
 
-  // We avoid 'if (!mounted) return null' to ensure the server sends a visible shell.
-  // This prevents a "blank" screen while JavaScript is loading.
   const currentYear = mounted ? new Date().getFullYear().toString() : "2025";
 
   return (
@@ -56,8 +54,8 @@ export default function Home() {
             
             <div className="flex flex-col gap-4">
               <motion.h1 
-                initial={{ opacity: 0, y: 20, filter: "blur(8px)" }}
-                animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, ease: easeSmooth, delay: 0.3 }}
                 className="text-5xl md:text-8xl font-bold tracking-tighter leading-[0.9] neon-text"
               >
@@ -69,10 +67,10 @@ export default function Home() {
               </div>
 
               <motion.span 
-                initial={{ opacity: 0, letterSpacing: "0.8em" }}
-                animate={{ opacity: 0.6, letterSpacing: "0.4em" }}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 0.6 }}
                 transition={{ duration: 1.2, ease: easeSmooth, delay: 0.6 }}
-                className="text-[10px] md:text-xs text-muted-foreground italic font-light uppercase opacity-60 block mt-2"
+                className="text-[10px] md:text-xs text-muted-foreground italic font-light uppercase opacity-60 block mt-2 tracking-[0.4em]"
               >
                 DIGITAL SOLUTION ARCHITECT
               </motion.span>
