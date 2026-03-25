@@ -25,77 +25,65 @@ export default function Home() {
   const currentYear = mounted ? new Date().getFullYear().toString() : "2025";
 
   return (
-    <div className="relative min-h-screen bg-background text-foreground">
+    <div className="relative min-h-screen bg-background text-foreground selection:bg-primary selection:text-white">
       <Navigation />
       
+      {/* Background stays at z-0 */}
+      <SyntaxBackground />
+
       <main className="relative z-10 pt-20">
-        {/* HERO SECTION - FORCED VISIBILITY */}
-        <section id="home" className="relative px-6 py-20 md:py-32 max-w-7xl mx-auto overflow-hidden">
-          <SyntaxBackground />
-          <div className="relative z-20 flex flex-col items-center text-center gap-8">
-            <motion.div 
-              initial={{ opacity: 0.5, y: 10 }}
-              animate={{ 
-                opacity: 1, 
-                y: [0, -4, 0],
-              }}
-              transition={{ 
-                opacity: { duration: 0.5, delay: 0.2 },
-                y: { duration: 4, repeat: Infinity, ease: "easeInOut" }
-              }}
-              className="flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-xs font-medium text-primary backdrop-blur-sm"
+        {/* HERO SECTION - REDUCED ANIMATION RISK */}
+        <section id="home" className="relative px-6 py-20 md:py-32 max-w-7xl mx-auto flex flex-col items-center text-center gap-8">
+          <motion.div 
+            initial={{ opacity: 1, y: 0 }}
+            animate={{ 
+              y: [0, -4, 0],
+            }}
+            transition={{ 
+              y: { duration: 4, repeat: Infinity, ease: "easeInOut" }
+            }}
+            className="flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-xs font-medium text-primary backdrop-blur-sm"
+          >
+            <motion.span 
+              animate={{ scale: [1, 1.3, 1], opacity: [1, 0.5, 1] }}
+              transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+              className="w-1.5 h-1.5 rounded-full bg-green-500 shadow-[0_0_8px_rgba(34,197,94,0.6)]" 
+            />
+            Available for new opportunities
+          </motion.div>
+          
+          <div className="flex flex-col gap-4">
+            <motion.h1 
+              initial={{ opacity: 1, scale: 0.98 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.8, ease: easeSmooth }}
+              className="text-5xl md:text-8xl font-bold tracking-tighter leading-[0.9] neon-text text-white"
             >
-              <motion.span 
-                animate={{ scale: [1, 1.3, 1], opacity: [1, 0.5, 1] }}
-                transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-                className="w-1.5 h-1.5 rounded-full bg-green-500 shadow-[0_0_8px_rgba(34,197,94,0.6)]" 
-              />
-              Available for new opportunities
-            </motion.div>
-            
-            <div className="flex flex-col gap-4">
-              <motion.h1 
-                initial={{ opacity: 0.8, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, ease: easeSmooth, delay: 0.1 }}
-                className="text-5xl md:text-8xl font-bold tracking-tighter leading-[0.9] neon-text text-white"
-              >
-                CALEB YINUSA
-              </motion.h1>
+              CALEB YINUSA
+            </motion.h1>
 
-              <div className="h-6 flex items-center justify-center">
-                <TypingAnimation />
-              </div>
-
-              <motion.span 
-                initial={{ opacity: 0.5 }}
-                animate={{ opacity: 0.7 }}
-                transition={{ duration: 1.2, ease: easeSmooth, delay: 0.4 }}
-                className="text-[10px] md:text-xs text-muted-foreground italic font-light uppercase tracking-[0.4em] mt-2 block"
-              >
-                DIGITAL SOLUTION ARCHITECT
-              </motion.span>
+            <div className="h-6 flex items-center justify-center">
+              <TypingAnimation />
             </div>
 
-            <motion.div 
-              initial={{ opacity: 0.8, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.6, duration: 0.8, ease: easeSmooth }}
-              className="flex flex-wrap justify-center gap-4 mt-4"
+            <motion.span 
+              className="text-[10px] md:text-xs text-muted-foreground italic font-light uppercase tracking-[0.4em] mt-2 block"
             >
-              <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} transition={{ duration: 0.2 }}>
-                <Button size="lg" className="rounded-full bg-primary text-white hover:bg-primary/90 px-8 h-14 text-base font-bold shadow-xl shadow-primary/20" asChild>
-                  <a href="#projects">View My Work</a>
-                </Button>
-              </motion.div>
-              
-              <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} transition={{ duration: 0.2 }}>
-                <Button size="lg" variant="outline" className="rounded-full border-primary/20 hover:bg-primary/5 hover:border-primary/40 px-8 h-14 text-base font-bold transition-all text-white" asChild>
-                  <a href="#contact">
-                    Get in touch
-                  </a>
-                </Button>
-              </motion.div>
+              DIGITAL SOLUTION ARCHITECT
+            </motion.span>
+          </div>
+
+          <div className="flex flex-wrap justify-center gap-4 mt-4">
+            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+              <Button size="lg" className="rounded-full bg-primary text-white hover:bg-primary/90 px-8 h-14 text-base font-bold shadow-xl shadow-primary/20" asChild>
+                <a href="#projects">View My Work</a>
+              </Button>
+            </motion.div>
+            
+            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+              <Button size="lg" variant="outline" className="rounded-full border-primary/20 hover:bg-primary/5 hover:border-primary/40 px-8 h-14 text-base font-bold transition-all text-white" asChild>
+                <a href="#contact">Get in touch</a>
+              </Button>
             </motion.div>
           </div>
         </section>

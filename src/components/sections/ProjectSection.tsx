@@ -3,13 +3,6 @@
 import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 import Image from "next/image";
-import {
-  Dialog,
-  DialogContent,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
-} from "@/components/ui/dialog";
 
 const projects = [
   {
@@ -18,7 +11,6 @@ const projects = [
     category: "Mobile Banking Dashboard",
     image: "https://drive.google.com/uc?export=view&id=1EcXJVTa8hCOds1B6_G0TFULu8GK3w1i1",
     link: "https://mobile-banking-dashboard.vercel.app/",
-    useModal: false,
   },
   {
     id: "2",
@@ -26,7 +18,6 @@ const projects = [
     category: "Digital Identity Platform",
     image: "https://drive.google.com/uc?export=view&id=1KJ9Ryf1-12xYSfPeLfs-V1U_vZrt49Bp",
     link: "https://bravecard.vercel.app/",
-    useModal: false,
   },
   {
     id: "3",
@@ -34,7 +25,6 @@ const projects = [
     category: "E-commerce",
     image: "https://drive.google.com/uc?export=view&id=12ia_yGU5Byf-_-zR0MNnMvzgK6z0ItQn",
     link: "#",
-    useModal: false,
   },
   {
     id: "4",
@@ -42,7 +32,6 @@ const projects = [
     category: "WhatsApp Messaging App",
     image: "https://drive.google.com/uc?export=view&id=1eGJj52zs5YDj0AOb_n_VD1dHLi5PdMTk",
     link: "https://whatsapp-msg-one.vercel.app/",
-    useModal: false,
   },
   {
     id: "5",
@@ -50,7 +39,6 @@ const projects = [
     category: "Privacy Control App",
     image: "https://drive.google.com/uc?export=view&id=1DRGMrL240DavTmIrQXSY6tTNntsmu3vd",
     link: "https://orion-manager.vercel.app/",
-    useModal: false,
   },
   {
     id: "6",
@@ -58,7 +46,6 @@ const projects = [
     category: "Food Website",
     image: "https://drive.google.com/uc?export=view&id=1m9b6r36mGA3CZQqZ2n8ZIv3LpoetbUd5",
     link: "#",
-    useModal: false,
   },
   {
     id: "7",
@@ -66,7 +53,6 @@ const projects = [
     category: "Hand-Crafted Footwear",
     image: "https://drive.google.com/uc?export=view&id=1vCn9CfDnAZKcu3UuBqTiN12ejFbWEQ6x",
     link: "https://bata-gidi.vercel.app/",
-    useModal: false,
   },
   {
     id: "8",
@@ -74,7 +60,6 @@ const projects = [
     category: "QR Generator App",
     image: "https://drive.google.com/uc?export=view&id=1qxZD9osYwhJ5fC-dxvuWlzYyTy5f95mh",
     link: "#",
-    useModal: false,
   },
   {
     id: "9",
@@ -82,33 +67,22 @@ const projects = [
     category: "Portfolio",
     image: "https://drive.google.com/uc?export=view&id=1Rz85uKtStAOL4HCMvMYxuQmGMEWICvst",
     link: "https://shinar930.vercel.app/",
-    useModal: false,
   }
 ];
-
-const itemVariants = {
-  hidden: { opacity: 0.6, y: 20 },
-  visible: { 
-    opacity: 1, 
-    y: 0,
-    transition: { 
-      duration: 0.6, 
-      ease: [0.22, 1, 0.36, 1] 
-    }
-  }
-};
 
 export function ProjectSection() {
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 gap-12 relative z-10">
       {projects.map((project, index) => {
-        const ProjectCard = (
-          <motion.div
-            variants={itemVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0 }}
-            className={`group relative overflow-hidden rounded-[2rem] bg-white/5 border border-white/10 card-hover cursor-pointer ${index === 0 ? 'md:col-span-2' : ''}`}
+        const isExternal = project.link.startsWith('http');
+        
+        return (
+          <a 
+            key={project.id} 
+            href={project.link} 
+            target={isExternal ? "_blank" : undefined}
+            rel={isExternal ? "noopener noreferrer" : undefined}
+            className={`group relative overflow-hidden rounded-[2rem] bg-white/5 border border-white/10 card-hover ${index === 0 ? 'md:col-span-2' : ''}`}
           >
             <div className={`relative w-full overflow-hidden ${index === 0 ? 'aspect-[21/9]' : 'aspect-[4/3]'}`}>
               <Image
@@ -116,8 +90,7 @@ export function ProjectSection() {
                 alt={project.title}
                 fill
                 className="object-cover transition-transform duration-1000 group-hover:scale-105"
-                sizes="(max-width: 768px) 100vw, 50vw"
-                priority={index < 2}
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60 group-hover:opacity-70 transition-opacity" />
             </div>
@@ -132,24 +105,10 @@ export function ProjectSection() {
                 </h3>
               </div>
               
-              <div className={`w-12 h-12 rounded-full flex items-center justify-center transform translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500 shadow-xl bg-white text-black`}>
+              <div className="w-12 h-12 rounded-full flex items-center justify-center transform translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500 shadow-xl bg-white text-black">
                 <ArrowUpRight className="w-6 h-6" />
               </div>
             </div>
-          </motion.div>
-        );
-
-        const isExternal = project.link.startsWith('http');
-
-        return (
-          <a 
-            key={project.id} 
-            href={project.link} 
-            target={isExternal ? "_blank" : undefined}
-            rel={isExternal ? "noopener noreferrer" : undefined}
-            className={index === 0 ? 'md:col-span-2' : ''}
-          >
-            {ProjectCard}
           </a>
         );
       })}

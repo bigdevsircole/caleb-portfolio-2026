@@ -42,15 +42,13 @@ export default function SyntaxBackground() {
 
   if (!mounted) {
     return (
-      <div className="absolute inset-0 pointer-events-none -z-[1] overflow-hidden">
-        <div className="absolute inset-0 opacity-[0.01] bg-black/5" />
-      </div>
+      <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden bg-background" aria-hidden="true" />
     );
   }
 
   return (
-    <div className="absolute inset-0 pointer-events-none -z-[1] overflow-hidden">
-      <div className="absolute inset-0 opacity-[0.02] pointer-events-none bg-[url('https://grainy-gradients.vercel.app/noise.svg')]" />
+    <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden" aria-hidden="true">
+      <div className="absolute inset-0 opacity-[0.02] bg-[url('https://grainy-gradients.vercel.app/noise.svg')]" />
       
       <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-white/[0.03] blur-[120px] rounded-full" />
       <div className="absolute bottom-[-10%] right-[-10%] w-[30%] h-[30%] bg-white/[0.02] blur-[100px] rounded-full" />
@@ -60,12 +58,12 @@ export default function SyntaxBackground() {
           <motion.div
             key={i}
             initial={{ 
-              opacity: 0.3, 
+              opacity: 0.2, 
               x: configs[i]?.x || 0,
               y: configs[i]?.y || 0 
             }}
             animate={{ 
-              opacity: [0.2, 0.4, 0.2],
+              opacity: [0.1, 0.3, 0.1],
               x: [configs[i]?.x || 0, (configs[i]?.x || 0) + 15, configs[i]?.x || 0],
               y: [configs[i]?.y || 0, (configs[i]?.y || 0) + 5, configs[i]?.y || 0]
             }}
