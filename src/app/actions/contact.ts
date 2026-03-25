@@ -8,12 +8,11 @@ import nodemailer from 'nodemailer';
 export async function sendContactEmailNotification(data: { name: string; email: string; message: string }) {
   const { name, email, message } = data;
 
-  // This uses your Gmail account (caleb.yinusa@gmail.com) as the sender.
+  // Using the provided App Password: gnge ppoz iyac rsqf
   const transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
       user: 'caleb.yinusa@gmail.com',
-      // Using the App Password provided by the user: gnge ppoz iyac rsqf
       pass: 'gnge ppoz iyac rsqf',
     },
   });
