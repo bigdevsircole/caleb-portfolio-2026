@@ -22,10 +22,11 @@ export default function Home() {
     setMounted(true);
   }, []);
 
+  // Use a stable value for server-side rendering, then update on client
   const currentYear = mounted ? new Date().getFullYear().toString() : "2025";
 
   return (
-    <div className="relative min-h-screen bg-background selection:bg-primary selection:text-white" suppressHydrationWarning>
+    <div className="relative min-h-screen bg-background selection:bg-primary selection:text-white">
       <Navigation />
       
       <main className="relative z-10 pt-20">

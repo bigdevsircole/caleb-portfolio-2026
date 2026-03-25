@@ -19,12 +19,9 @@ export function FirebaseClientProvider({ children }: { children: React.ReactNode
   });
 
   useEffect(() => {
-    try {
-      const initialized = initializeFirebase();
-      setInstances(initialized);
-    } catch (e) {
-      console.error('Firebase initialization failed:', e);
-    }
+    // Only initialize on the client to avoid hydration mismatches
+    const initialized = initializeFirebase();
+    setInstances(initialized);
   }, []);
 
   return (

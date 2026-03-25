@@ -40,6 +40,7 @@ export default function SyntaxBackground() {
     setMounted(true);
   }, []);
 
+  // Avoid rendering dynamic positions on the server
   if (!mounted) {
     return (
       <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden">
