@@ -54,7 +54,7 @@ export default function Home() {
             
             <div className="flex flex-col gap-4">
               <motion.h1 
-                initial={{ opacity: 0.5, y: 20 }}
+                initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, ease: easeSmooth, delay: 0.1 }}
                 className="text-5xl md:text-8xl font-bold tracking-tighter leading-[0.9] neon-text text-white"

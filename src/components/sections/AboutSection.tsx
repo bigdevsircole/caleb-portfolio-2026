@@ -13,10 +13,10 @@ export function AboutSection() {
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
       <motion.div
-        initial={{ opacity: 0, x: -30 }}
+        initial={{ opacity: 0.3, x: -20 }}
         whileInView={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.8, ease: [0.21, 0.45, 0.32, 0.9] }}
-        viewport={{ once: true }}
+        viewport={{ once: true, amount: 0.1 }}
         className="space-y-6"
       >
         <p className="text-xl md:text-3xl font-medium leading-tight text-white">
@@ -26,9 +26,9 @@ export function AboutSection() {
           As a Digital Solutions Architect, I bridge the gap between complex business challenges and scalable tech solutions. Whether you are looking to streamline operations, automate processes, or build a robust digital infrastructure from the ground up, I'm here to help you navigate it.
         </p>
         <motion.p 
-          initial={{ opacity: 0, scale: 0.95 }}
+          initial={{ opacity: 0.5, scale: 0.98 }}
           whileInView={{ opacity: 1, scale: 1 }}
-          transition={{ delay: 0.4, duration: 0.8 }}
+          transition={{ delay: 0.2, duration: 0.8 }}
           viewport={{ once: true }}
           className="text-lg text-white font-medium border-l-2 border-white/20 pl-4 py-2"
         >
@@ -39,7 +39,7 @@ export function AboutSection() {
       <motion.div 
         initial="hidden"
         whileInView="visible"
-        viewport={{ once: true }}
+        viewport={{ once: true, amount: 0.1 }}
         variants={{
           visible: { transition: { staggerChildren: 0.1 } }
         }}
@@ -49,8 +49,8 @@ export function AboutSection() {
           <motion.div
             key={i}
             variants={{
-              hidden: { opacity: 0, y: 20 },
-              visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.21, 0.45, 0.32, 0.9] } }
+              hidden: { opacity: 0.3, y: 10 },
+              visible: { opacity: 1, y: 0, transition: { duration: 0.6 } }
             }}
             className="p-6 md:p-8 rounded-[2rem] bg-white/[0.03] border border-white/10 card-hover"
           >

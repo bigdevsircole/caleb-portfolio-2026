@@ -87,7 +87,7 @@ const projects = [
 ];
 
 const containerVariants = {
-  hidden: { opacity: 0.01 },
+  hidden: { opacity: 0.5 },
   visible: {
     opacity: 1,
     transition: {
@@ -98,7 +98,7 @@ const containerVariants = {
 };
 
 const itemVariants = {
-  hidden: { opacity: 0.01, y: 20 },
+  hidden: { opacity: 0.5, y: 10 },
   visible: { 
     opacity: 1, 
     y: 0,
@@ -115,7 +115,7 @@ export function ProjectSection() {
       variants={containerVariants}
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: true, margin: "0px" }}
+      viewport={{ once: true, amount: 0.05 }}
       className="grid grid-cols-1 md:grid-cols-2 gap-12"
     >
       {projects.map((project, index) => {
