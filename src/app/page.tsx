@@ -1,4 +1,3 @@
-
 'use client';
 
 import { useState, useEffect } from "react";
@@ -17,11 +16,16 @@ import TypingAnimation from "@/components/TypingAnimation";
 const easeSmooth = [0.22, 1, 0.36, 1];
 
 export default function Home() {
-  const [year, setYear] = useState<number | null>(null);
+  const [isMounted, setIsMounted] = useState(false);
 
   useEffect(() => {
-    setYear(new Date().getFullYear());
+    setIsMounted(true);
   }, []);
+
+  // Avoid hydration mismatch by rendering a stable skeleton or nothing until mounted
+  if (!isMounted) {
+    return <div className="min-h-screen bg-background" />;
+  }
 
   return (
     <div className="relative min-h-screen bg-background selection:bg-primary selection:text-white">
@@ -150,7 +154,7 @@ export default function Home() {
         {/* Footer */}
         <footer className="py-12 px-6 border-t border-white/5 mt-24">
           <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6 text-muted-foreground text-sm font-medium">
-            <p>&copy; {year || '...'} Caleb Yinusa.</p>
+            <p>&copy; {new Date().getFullYear()} Caleb Yinusa.</p>
             <div className="flex gap-8">
               <a 
                 href="https://x.com/calebyinusaa" 

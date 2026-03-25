@@ -13,7 +13,7 @@ export async function sendContactEmailNotification(data: { name: string; email: 
     service: 'gmail',
     auth: {
       user: 'caleb.yinusa@gmail.com',
-      // Using the App Password provided by the user
+      // Using the App Password provided by the user: gnge ppoz iyac rsqf
       pass: 'gnge ppoz iyac rsqf',
     },
   });

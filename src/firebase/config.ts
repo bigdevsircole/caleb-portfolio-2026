@@ -1,7 +1,7 @@
 'use client';
 
 export const firebaseConfig = {
-  apiKey: "placeholder", // This will be populated by the Firebase Console
+  apiKey: "placeholder", 
   authDomain: "calebyinusa.firebaseapp.com",
   projectId: "calebyinusa",
   storageBucket: "calebyinusa.firebasestorage.app",
