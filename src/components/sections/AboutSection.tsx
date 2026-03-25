@@ -13,7 +13,7 @@ export function AboutSection() {
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center relative z-10">
       <motion.div
-        initial={{ opacity: 0.5, x: -20 }}
+        initial={{ opacity: 0.5, x: -10 }}
         whileInView={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.8, ease: [0.21, 0.45, 0.32, 0.9] }}
         viewport={{ once: true, amount: 0 }}
@@ -26,7 +26,7 @@ export function AboutSection() {
           As a Digital Solutions Architect, I bridge the gap between complex business challenges and scalable tech solutions. Whether you are looking to streamline operations, automate processes, or build a robust digital infrastructure from the ground up, I'm here to help you navigate it.
         </p>
         <motion.p 
-          initial={{ opacity: 0.8, scale: 0.98 }}
+          initial={{ opacity: 0.8, scale: 0.99 }}
           whileInView={{ opacity: 1, scale: 1 }}
           transition={{ delay: 0.2, duration: 0.8 }}
           viewport={{ once: true, amount: 0 }}
@@ -49,7 +49,7 @@ export function AboutSection() {
           <motion.div
             key={i}
             variants={{
-              hidden: { opacity: 0.5, y: 10 },
+              hidden: { opacity: 0.5, y: 5 },
               visible: { opacity: 1, y: 0, transition: { duration: 0.6 } }
             }}
             initial="hidden"

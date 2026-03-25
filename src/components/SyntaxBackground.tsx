@@ -42,30 +42,30 @@ export default function SyntaxBackground() {
 
   if (!mounted) {
     return (
-      <div className="absolute inset-0 pointer-events-none -z-10 overflow-hidden">
-        <div className="absolute inset-0 opacity-[0.02] bg-black/5" />
+      <div className="absolute inset-0 pointer-events-none -z-[1] overflow-hidden">
+        <div className="absolute inset-0 opacity-[0.01] bg-black/5" />
       </div>
     );
   }
 
   return (
-    <div className="absolute inset-0 pointer-events-none -z-10 overflow-hidden">
+    <div className="absolute inset-0 pointer-events-none -z-[1] overflow-hidden">
       <div className="absolute inset-0 opacity-[0.02] pointer-events-none bg-[url('https://grainy-gradients.vercel.app/noise.svg')]" />
       
-      <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-white/5 blur-[120px] rounded-full" />
-      <div className="absolute bottom-[-10%] right-[-10%] w-[30%] h-[30%] bg-white/[0.03] blur-[100px] rounded-full" />
+      <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-white/[0.03] blur-[120px] rounded-full" />
+      <div className="absolute bottom-[-10%] right-[-10%] w-[30%] h-[30%] bg-white/[0.02] blur-[100px] rounded-full" />
 
-      <div className="absolute inset-0 flex flex-wrap content-start gap-12 p-20 opacity-[0.04]">
+      <div className="absolute inset-0 flex flex-wrap content-start gap-12 p-20 opacity-[0.03]">
         {codeSnippets.map((code, i) => (
           <motion.div
             key={i}
             initial={{ 
-              opacity: 0, 
+              opacity: 0.3, 
               x: configs[i]?.x || 0,
               y: configs[i]?.y || 0 
             }}
             animate={{ 
-              opacity: [0.3, 0.6, 0.3],
+              opacity: [0.2, 0.4, 0.2],
               x: [configs[i]?.x || 0, (configs[i]?.x || 0) + 15, configs[i]?.x || 0],
               y: [configs[i]?.y || 0, (configs[i]?.y || 0) + 5, configs[i]?.y || 0]
             }}
@@ -75,7 +75,7 @@ export default function SyntaxBackground() {
               ease: "linear",
               delay: configs[i]?.delay || 0
             }}
-            className="text-[10px] md:text-xs font-code whitespace-nowrap select-none text-white"
+            className="text-[10px] md:text-xs font-code whitespace-nowrap select-none text-white/40"
           >
             {code}
           </motion.div>
