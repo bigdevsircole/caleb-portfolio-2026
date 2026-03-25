@@ -2,6 +2,7 @@ import type {Metadata} from 'next';
 import './globals.css';
 import { Toaster } from "@/components/ui/toaster";
 import BackToTop from "@/components/BackToTop";
+import Script from 'next/script';
 
 export const metadata: Metadata = {
   title: 'Caleb Yinusa Portfolio',
@@ -13,6 +14,10 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  // Replace these with your actual IDs
+  const GA_MEASUREMENT_ID = 'G-XXXXXXXXXX'; // Your Google Analytics ID
+  const GOOGLE_ADS_ID = 'AW-XXXXXXXXXX';    // Your Google Ads ID
+
   return (
     <html lang="en" className="dark" suppressHydrationWarning>
       <head>
@@ -21,6 +26,22 @@ export default function RootLayout({
         <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
       </head>
       <body className="font-body antialiased bg-background text-foreground overflow-x-hidden">
+        {/* Google Tag (gtag.js) */}
+        <Script
+          src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', '${GA_MEASUREMENT_ID}');
+            gtag('config', '${GOOGLE_ADS_ID}');
+          `}
+        </Script>
+
         {children}
         <BackToTop />
         <Toaster />
