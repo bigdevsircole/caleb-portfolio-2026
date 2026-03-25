@@ -1,4 +1,3 @@
-
 'use client';
 
 import { useState } from 'react';
@@ -8,7 +7,7 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { useToast } from '@/hooks/use-toast';
-import { Mail, MessageSquare, Send } from 'lucide-react';
+import { MessageSquare, Send } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { errorEmitter } from '@/firebase/error-emitter';
 import { FirestorePermissionError } from '@/firebase/errors';
@@ -24,7 +23,6 @@ export function ContactForm() {
   });
 
   const whatsappUrl = "https://wa.me/2348180402086";
-  const emailAddress = "calebyinusa@gmail.com";
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -73,7 +71,7 @@ export function ContactForm() {
           Let's create something extraordinary together.
         </h2>
         <p className="text-muted-foreground text-lg max-w-xl mx-auto">
-          Send a direct message below or reach out via my preferred channels.
+          Send a direct message below or reach out via my preferred channel.
         </p>
       </div>
 
@@ -81,7 +79,7 @@ export function ContactForm() {
         {/* Left: Contact Info & Buttons */}
         <div className="flex flex-col justify-center gap-6">
           <div className="space-y-4">
-            <h3 className="text-2xl font-bold">Direct Channels</h3>
+            <h3 className="text-2xl font-bold">Direct Channel</h3>
             <p className="text-muted-foreground">Prefer instant messaging? I'm most active on WhatsApp.</p>
           </div>
           
@@ -89,11 +87,6 @@ export function ContactForm() {
             <Button size="lg" className="rounded-full bg-white text-black hover:bg-white/90 h-16 px-12 text-lg gap-3 flex-1 md:flex-none" asChild>
               <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">
                 <MessageSquare className="w-5 h-5" /> WhatsApp
-              </a>
-            </Button>
-            <Button size="lg" variant="outline" className="rounded-full border-white/10 hover:bg-white/5 hover:border-white/20 h-16 px-12 text-lg gap-3 flex-1 md:flex-none" asChild>
-              <a href={`mailto:${emailAddress}`}>
-                <Mail className="w-5 h-5" /> Email Me
               </a>
             </Button>
           </div>
