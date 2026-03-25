@@ -1,4 +1,3 @@
-
 import type {Metadata} from 'next';
 import './globals.css';
 import { Toaster } from "@/components/ui/toaster";
@@ -16,9 +15,8 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  // Replace these with your actual IDs
-  const GA_MEASUREMENT_ID = 'G-F37FJYP8TR'; // Your Google Analytics ID
-  const GOOGLE_ADS_ID = 'AW-XXXXXXXXXX';    // Your Google Ads ID
+  const GA_MEASUREMENT_ID = 'G-F37FJYP8TR';
+  const GOOGLE_ADS_ID = 'AW-XXXXXXXXXX';
 
   return (
     <html lang="en" className="dark" suppressHydrationWarning>
@@ -31,7 +29,6 @@ export default function RootLayout({
         className="font-body antialiased bg-background text-foreground overflow-x-hidden"
         suppressHydrationWarning
       >
-        {/* Google Tag (gtag.js) */}
         <Script
           src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
           strategy="afterInteractive"
