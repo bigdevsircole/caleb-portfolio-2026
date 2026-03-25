@@ -86,19 +86,8 @@ const projects = [
   }
 ];
 
-const containerVariants = {
-  hidden: { opacity: 0.5 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.1,
-      delayChildren: 0.1
-    }
-  }
-};
-
 const itemVariants = {
-  hidden: { opacity: 0.5, y: 10 },
+  hidden: { opacity: 0.6, y: 20 },
   visible: { 
     opacity: 1, 
     y: 0,
@@ -111,17 +100,14 @@ const itemVariants = {
 
 export function ProjectSection() {
   return (
-    <motion.div 
-      variants={containerVariants}
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true, amount: 0.05 }}
-      className="grid grid-cols-1 md:grid-cols-2 gap-12"
-    >
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-12 relative z-10">
       {projects.map((project, index) => {
         const ProjectCard = (
           <motion.div
             variants={itemVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0 }}
             className={`group relative overflow-hidden rounded-[2rem] bg-white/5 border border-white/10 card-hover cursor-pointer ${index === 0 ? 'md:col-span-2' : ''}`}
           >
             <div className={`relative w-full overflow-hidden ${index === 0 ? 'aspect-[21/9]' : 'aspect-[4/3]'}`}>
@@ -131,9 +117,9 @@ export function ProjectSection() {
                 fill
                 className="object-cover transition-transform duration-1000 group-hover:scale-105"
                 sizes="(max-width: 768px) 100vw, 50vw"
-                data-ai-hint="minimalist project showcase"
+                priority={index < 2}
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent transition-opacity duration-300 opacity-60 group-hover:opacity-70" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60 group-hover:opacity-70 transition-opacity" />
             </div>
             
             <div className="absolute bottom-0 left-0 right-0 p-8 flex justify-between items-end">
@@ -146,34 +132,12 @@ export function ProjectSection() {
                 </h3>
               </div>
               
-              <div className={`w-12 h-12 rounded-full flex items-center justify-center transform translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500 shadow-xl ${index === 0 ? 'bg-black text-white' : 'bg-white text-black'}`}>
+              <div className={`w-12 h-12 rounded-full flex items-center justify-center transform translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500 shadow-xl bg-white text-black`}>
                 <ArrowUpRight className="w-6 h-6" />
               </div>
             </div>
           </motion.div>
         );
-
-        if (project.useModal) {
-          return (
-            <Dialog key={project.id}>
-              <DialogTrigger asChild>
-                {ProjectCard}
-              </DialogTrigger>
-              <DialogContent className="max-w-[95vw] w-full h-[90vh] p-0 bg-background border-white/10 overflow-hidden flex flex-col">
-                <DialogHeader className="p-4 border-b border-white/5 flex flex-row items-center justify-between space-y-0">
-                  <DialogTitle className="text-lg font-bold uppercase tracking-widest">{project.title}</DialogTitle>
-                </DialogHeader>
-                <div className="flex-1 w-full relative bg-white/5">
-                  <iframe 
-                    src={project.link} 
-                    className="w-full h-full border-none"
-                    title={project.title}
-                  />
-                </div>
-              </DialogContent>
-            </Dialog>
-          );
-        }
 
         const isExternal = project.link.startsWith('http');
 
@@ -189,6 +153,6 @@ export function ProjectSection() {
           </a>
         );
       })}
-    </motion.div>
+    </div>
   );
 }

@@ -38,10 +38,8 @@ export function ContactForm() {
 
     const messagesRef = collection(firestore, 'messages');
 
-    // Step 1: Save to Firestore
     addDoc(messagesRef, messageData)
       .then(async () => {
-        // Step 2: Trigger Server Action Email Notification
         const emailResult = await sendContactEmailNotification(formData);
 
         if (emailResult.success) {
@@ -51,11 +49,10 @@ export function ContactForm() {
           });
           setFormData({ name: '', email: '', message: '' });
         } else {
-          // Surfacing the specific error for debugging
           toast({
             variant: "destructive",
             title: "Database saved, but email failed",
-            description: `Message is in your database, but the email notification failed: ${emailResult.error || 'Check EMAIL_APP_PASSWORD.'}`,
+            description: `Message is in your database, but the email notification failed.`,
           });
         }
       })
@@ -74,14 +71,14 @@ export function ContactForm() {
 
   return (
     <motion.div 
-      initial={{ opacity: 0, y: 40 }}
+      initial={{ opacity: 0.8, y: 40 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-      className="p-12 md:p-24 bg-white/5 rounded-[2.5rem] border border-white/10 flex flex-col items-center gap-12"
+      viewport={{ once: true, amount: 0 }}
+      transition={{ duration: 0.8 }}
+      className="relative z-10 p-12 md:p-24 bg-white/5 rounded-[2.5rem] border border-white/10 flex flex-col items-center gap-12"
     >
       <div className="text-center space-y-4">
-        <h2 className="text-4xl md:text-6xl font-bold tracking-tight max-w-2xl mx-auto">
+        <h2 className="text-4xl md:text-6xl font-bold tracking-tight max-w-2xl mx-auto text-white">
           Let's create something extraordinary together.
         </h2>
         <p className="text-muted-foreground text-lg max-w-xl mx-auto">
@@ -92,7 +89,7 @@ export function ContactForm() {
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 w-full max-w-5xl">
         <div className="flex flex-col justify-center gap-6">
           <div className="space-y-4">
-            <h3 className="text-2xl font-bold">Direct Channel</h3>
+            <h3 className="text-2xl font-bold text-white">Direct Channel</h3>
             <p className="text-muted-foreground">Prefer instant messaging? I'm most active on WhatsApp.</p>
           </div>
           
@@ -112,7 +109,7 @@ export function ContactForm() {
               required
               disabled={loading}
               placeholder="Your name"
-              className="h-14 bg-white/5 border-white/10 rounded-xl focus:ring-white/20"
+              className="h-14 bg-white/5 border-white/10 rounded-xl focus:ring-white/20 text-white"
               value={formData.name}
               onChange={(e) => setFormData({ ...formData, name: e.target.value })}
             />
@@ -124,7 +121,7 @@ export function ContactForm() {
               disabled={loading}
               type="email"
               placeholder="your@email.com"
-              className="h-14 bg-white/5 border-white/10 rounded-xl focus:ring-white/20"
+              className="h-14 bg-white/5 border-white/10 rounded-xl focus:ring-white/20 text-white"
               value={formData.email}
               onChange={(e) => setFormData({ ...formData, email: e.target.value })}
             />
@@ -135,7 +132,7 @@ export function ContactForm() {
               required
               disabled={loading}
               placeholder="Tell me about your project..."
-              className="min-h-[150px] bg-white/5 border-white/10 rounded-xl focus:ring-white/20 resize-none"
+              className="min-h-[150px] bg-white/5 border-white/10 rounded-xl focus:ring-white/20 resize-none text-white"
               value={formData.message}
               onChange={(e) => setFormData({ ...formData, message: e.target.value })}
             />
