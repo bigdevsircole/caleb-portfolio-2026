@@ -1,4 +1,3 @@
-
 'use client';
 
 import { useState } from 'react';
@@ -8,7 +7,7 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { useToast } from '@/hooks/use-toast';
-import { MessageSquare, Send } from 'lucide-react';
+import { MessageSquare, Send, Loader2 } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { errorEmitter } from '@/firebase/error-emitter';
 import { FirestorePermissionError } from '@/firebase/errors';
@@ -39,19 +38,24 @@ export function ContactForm() {
 
     const messagesRef = collection(firestore, 'messages');
 
-    // 1. Save to Firestore (Client-side)
+    // Step 1: Save to Firestore
     addDoc(messagesRef, messageData)
       .then(async () => {
-        // 2. Trigger Email Notification (Server-side)
-        // We do this immediately after a successful database write.
+        // Step 2: Trigger Server Action Email Notification
         const emailResult = await sendContactEmailNotification(formData);
 
-        toast({
-          title: emailResult.success ? "Message sent!" : "Saved (No email sent)",
-          description: emailResult.success 
-            ? "Thank you for reaching out. A copy has been sent to Caleb." 
-            : "Message saved to database, but notification failed. Caleb will check it soon.",
-        });
+        if (emailResult.success) {
+          toast({
+            title: "Message sent!",
+            description: "Thanks for reaching out! Caleb has been notified.",
+          });
+        } else {
+          toast({
+            variant: "destructive",
+            title: "Database saved, but email failed",
+            description: "Caleb will see your message in the dashboard, but the email notification hit a snag.",
+          });
+        }
         
         setFormData({ name: '', email: '', message: '' });
       })
@@ -86,7 +90,6 @@ export function ContactForm() {
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 w-full max-w-5xl">
-        {/* Left: Contact Info & Buttons */}
         <div className="flex flex-col justify-center gap-6">
           <div className="space-y-4">
             <h3 className="text-2xl font-bold">Direct Channel</h3>
@@ -102,12 +105,12 @@ export function ContactForm() {
           </div>
         </div>
 
-        {/* Right: Actual Form */}
         <form onSubmit={handleSubmit} className="space-y-6 bg-white/[0.02] p-8 rounded-3xl border border-white/5 shadow-2xl">
           <div className="space-y-2">
             <label className="text-sm font-bold uppercase tracking-widest text-muted-foreground ml-1">Name</label>
             <Input 
               required
+              disabled={loading}
               placeholder="Your name"
               className="h-14 bg-white/5 border-white/10 rounded-xl focus:ring-white/20"
               value={formData.name}
@@ -118,6 +121,7 @@ export function ContactForm() {
             <label className="text-sm font-bold uppercase tracking-widest text-muted-foreground ml-1">Email</label>
             <Input 
               required
+              disabled={loading}
               type="email"
               placeholder="your@email.com"
               className="h-14 bg-white/5 border-white/10 rounded-xl focus:ring-white/20"
@@ -129,6 +133,7 @@ export function ContactForm() {
             <label className="text-sm font-bold uppercase tracking-widest text-muted-foreground ml-1">Message</label>
             <Textarea 
               required
+              disabled={loading}
               placeholder="Tell me about your project..."
               className="min-h-[150px] bg-white/5 border-white/10 rounded-xl focus:ring-white/20 resize-none"
               value={formData.message}
@@ -139,8 +144,17 @@ export function ContactForm() {
             disabled={loading}
             className="w-full h-16 rounded-xl bg-white text-black hover:bg-white/90 text-lg font-bold gap-2"
           >
-            {loading ? "Sending..." : "Send Message"}
-            <Send className="w-5 h-5" />
+            {loading ? (
+              <>
+                <Loader2 className="w-5 h-5 animate-spin" />
+                Sending...
+              </>
+            ) : (
+              <>
+                Send Message
+                <Send className="w-5 h-5" />
+              </>
+            )}
           </Button>
         </form>
       </div>
