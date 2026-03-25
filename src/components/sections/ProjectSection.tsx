@@ -80,7 +80,7 @@ const projects = [
     id: "9",
     title: "Shinar 930",
     category: "Portfolio",
-    image: "https://picsum.photos/seed/112/800/600",
+    image: "https://drive.google.com/uc?export=view&id=1Rz85uKtStAOL4HCMvMYxuQmGMEWICvst",
     link: "https://shinar930.vercel.app/",
     useModal: false,
   }
