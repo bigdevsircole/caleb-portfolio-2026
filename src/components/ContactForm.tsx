@@ -49,15 +49,15 @@ export function ContactForm() {
             title: "Message sent!",
             description: "Thanks for reaching out! Caleb has been notified.",
           });
+          setFormData({ name: '', email: '', message: '' });
         } else {
+          // Surfacing the specific error for debugging
           toast({
             variant: "destructive",
             title: "Database saved, but email failed",
-            description: "Caleb will see your message in the dashboard, but the email notification hit a snag.",
+            description: `Message is in your database, but the email notification failed: ${emailResult.error || 'Check EMAIL_APP_PASSWORD.'}`,
           });
         }
-        
-        setFormData({ name: '', email: '', message: '' });
       })
       .catch(async (error) => {
         const permissionError = new FirestorePermissionError({
