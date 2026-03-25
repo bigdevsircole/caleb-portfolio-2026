@@ -4,26 +4,26 @@
 
 @layer base {
   :root {
-    --background: 0 0% 0%;
+    --background: 267 17% 6%;
     --foreground: 0 0% 100%;
-    --card: 0 0% 3%;
+    --card: 267 17% 10%;
     --card-foreground: 0 0% 100%;
-    --popover: 0 0% 3%;
+    --popover: 267 17% 8%;
     --popover-foreground: 0 0% 100%;
-    --primary: 0 0% 100%;
-    --primary-foreground: 0 0% 0%;
-    --secondary: 0 0% 15%;
+    --primary: 268 77% 60%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 227 92% 65%;
     --secondary-foreground: 0 0% 100%;
-    --muted: 0 0% 10%;
-    --muted-foreground: 0 0% 63%;
-    --accent: 0 0% 15%;
+    --muted: 267 10% 15%;
+    --muted-foreground: 267 10% 60%;
+    --accent: 268 77% 60%;
     --accent-foreground: 0 0% 100%;
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 0 0% 98%;
-    --border: 0 0% 15%;
-    --input: 0 0% 15%;
-    --ring: 0 0% 100%;
-    --radius: 1rem;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 267 10% 20%;
+    --input: 267 10% 20%;
+    --ring: 268 77% 60%;
+    --radius: 1.25rem;
   }
 }
 
@@ -39,12 +39,22 @@
 }
 
 @layer components {
+  .neon-text {
+    text-shadow: 0 0 10px hsla(var(--primary), 0.5),
+                 0 0 20px hsla(var(--primary), 0.3),
+                 0 0 30px hsla(var(--primary), 0.2);
+  }
+
+  .neon-border {
+    box-shadow: 0 0 15px hsla(var(--primary), 0.2);
+  }
+  
   .glass-pill {
-    @apply bg-background/50 backdrop-blur-xl border border-white/10 rounded-full;
+    @apply bg-white/5 backdrop-blur-xl border border-white/10 rounded-full;
   }
   
   .card-hover {
-    @apply transition-all duration-500 hover:border-white/30 hover:bg-white/[0.02];
+    @apply transition-all duration-500 hover:border-primary/50 hover:bg-primary/[0.03];
   }
 
   .text-balance {

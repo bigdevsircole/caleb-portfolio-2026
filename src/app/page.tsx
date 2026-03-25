@@ -1,4 +1,3 @@
-
 import Navigation from "@/components/Navigation";
 import SectionHeading from "@/components/SectionHeading";
 import { ProjectSection } from "@/components/sections/ProjectSection";
@@ -9,12 +8,13 @@ import { Button } from "@/components/ui/button";
 import SyntaxBackground from "@/components/SyntaxBackground";
 import * as motion from "framer-motion/client";
 import { ContactForm } from "@/components/ContactForm";
+import TypingAnimation from "@/components/TypingAnimation";
 
 const easeSmooth = [0.22, 1, 0.36, 1];
 
 export default function Home() {
   return (
-    <div className="relative min-h-screen bg-background selection:bg-white selection:text-black">
+    <div className="relative min-h-screen bg-background selection:bg-primary selection:text-white">
       <Navigation />
       
       <main className="relative z-10 pt-20">
@@ -33,7 +33,7 @@ export default function Home() {
                 opacity: { duration: 0.5, delay: 0.2 },
                 y: { duration: 4, repeat: Infinity, ease: "easeInOut" }
               }}
-              className="flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-xs font-medium text-muted-foreground backdrop-blur-sm"
+              className="flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-xs font-medium text-primary backdrop-blur-sm"
             >
               <motion.span 
                 animate={{ scale: [1, 1.3, 1], opacity: [1, 0.5, 1] }}
@@ -44,42 +44,47 @@ export default function Home() {
             </motion.div>
             
             <div className="flex flex-col gap-4">
-              {/* Name Reveal */}
+              {/* Name Reveal with Neon Effect */}
               <motion.h1 
                 initial={{ opacity: 0, y: 20, filter: "blur(8px)" }}
                 animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
                 transition={{ duration: 0.8, ease: easeSmooth, delay: 0.3 }}
-                className="text-5xl md:text-8xl font-bold tracking-tighter leading-[0.9]"
+                className="text-5xl md:text-8xl font-bold tracking-tighter leading-[0.9] neon-text"
               >
                 CALEB YINUSA
               </motion.h1>
+
+              {/* Cycling Typing Animation */}
+              <div className="h-6 flex items-center justify-center">
+                <TypingAnimation />
+              </div>
 
               {/* Subtitle Tracking Animation */}
               <motion.span 
                 initial={{ opacity: 0, letterSpacing: "0.8em" }}
                 animate={{ opacity: 0.6, letterSpacing: "0.4em" }}
                 transition={{ duration: 1.2, ease: easeSmooth, delay: 0.6 }}
-                className="text-[10px] md:text-xs text-muted-foreground italic font-light uppercase opacity-60 block"
+                className="text-[10px] md:text-xs text-muted-foreground italic font-light uppercase opacity-60 block mt-2"
               >
                 DIGITAL SOLUTION ARCHITECT
               </motion.span>
             </div>
 
-            {/* Buttons with Staggered Entrance and Micro-interactions */}
+            {/* Buttons with Micro-interactions */}
             <motion.div 
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.9, duration: 0.8, ease: easeSmooth }}
               className="flex flex-wrap justify-center gap-4 mt-4"
             >
-              <motion.div whileHover={{ scale: 1.03 }} transition={{ duration: 0.2 }}>
-                <Button size="lg" className="rounded-full bg-white text-black hover:bg-white/90 px-8 h-14 text-base font-bold shadow-xl shadow-white/5" asChild>
+              <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} transition={{ duration: 0.2 }}>
+                <Button size="lg" className="rounded-full bg-primary text-white hover:bg-primary/90 px-8 h-14 text-base font-bold shadow-xl shadow-primary/20" asChild>
                   <a href="#projects">View My Work</a>
                 </Button>
               </motion.div>
               
-              <motion.div whileHover={{ scale: 1.03 }} transition={{ duration: 0.2 }}>
-                <Button size="lg" variant="outline" className="rounded-full border-white/10 hover:bg-white/5 hover:border-white/20 px-8 h-14 text-base font-bold transition-all" asChild>
+              <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} transition={{ duration: 0.2 }}>
+                <Button size="lg" variant="outline" className="rounded-full border-primary/20 hover:bg-primary/5 hover:border-primary/40 px-8 h-14 text-base font-bold transition-all" asChild>
                   <a href="#contact">
                     Get in touch
                   </a>
@@ -108,11 +113,11 @@ export default function Home() {
         </section>
 
         {/* Services / Tools */}
-        <section id="shop" className="py-24 px-6 bg-white/[0.02] border-y border-white/5">
+        <section id="shop" className="py-24 px-6 bg-primary/[0.02] border-y border-primary/10">
           <div className="max-w-7xl mx-auto">
             <SectionHeading 
               title="Shop" 
-              subtitle="Premium assets and educational resources for everyone." 
+              subtitle="Premium assets and educational resources." 
             />
             <SalesSection />
           </div>
@@ -122,7 +127,7 @@ export default function Home() {
         <section id="resources" className="py-24 px-6 max-w-7xl mx-auto">
           <SectionHeading 
             title="Resources" 
-            subtitle="Free tools and snippets to accelerate your workflow." 
+            subtitle="Free tools to accelerate your workflow." 
           />
           <ResourceSection />
         </section>
@@ -141,7 +146,7 @@ export default function Home() {
                 href="https://x.com/calebyinusaa" 
                 target="_blank" 
                 rel="noopener noreferrer" 
-                className="hover:text-white transition-colors"
+                className="hover:text-primary transition-colors"
               >
                 Twitter
               </a>
@@ -149,7 +154,7 @@ export default function Home() {
                 href="https://github.com/bigdevsircole" 
                 target="_blank" 
                 rel="noopener noreferrer" 
-                className="hover:text-white transition-colors"
+                className="hover:text-primary transition-colors"
               >
                 GitHub
               </a>
@@ -157,7 +162,7 @@ export default function Home() {
                 href="https://www.linkedin.com/in/caleb-yinusa/" 
                 target="_blank" 
                 rel="noopener noreferrer" 
-                className="hover:text-white transition-colors"
+                className="hover:text-primary transition-colors"
               >
                 LinkedIn
               </a>
