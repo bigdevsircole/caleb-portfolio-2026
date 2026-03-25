@@ -8,14 +8,13 @@ import nodemailer from 'nodemailer';
 export async function sendContactEmailNotification(data: { name: string; email: string; message: string }) {
   const { name, email, message } = data;
 
-  // IMPORTANT: You need to set the EMAIL_APP_PASSWORD environment variable in your deployment platform.
   // This uses your Gmail account (caleb.yinusa@gmail.com) as the sender.
   const transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
       user: 'caleb.yinusa@gmail.com',
-      // Generate this at: https://myaccount.google.com/apppasswords
-      pass: process.env.EMAIL_APP_PASSWORD,
+      // Using the App Password provided by the user
+      pass: 'gnge ppoz iyac rsqf',
     },
   });
 
@@ -44,9 +43,6 @@ ${message}
   };
 
   try {
-    if (!process.env.EMAIL_APP_PASSWORD) {
-      throw new Error('EMAIL_APP_PASSWORD not configured');
-    }
     await transporter.sendMail(mailOptions);
     return { success: true };
   } catch (error: any) {
