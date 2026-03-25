@@ -17,7 +17,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   // Replace these with your actual IDs
-  const GA_MEASUREMENT_ID = 'G-XXXXXXXXXX'; // Your Google Analytics ID
+  const GA_MEASUREMENT_ID = 'G-F37FJYP8TR'; // Your Google Analytics ID
   const GOOGLE_ADS_ID = 'AW-XXXXXXXXXX';    // Your Google Ads ID
 
   return (
