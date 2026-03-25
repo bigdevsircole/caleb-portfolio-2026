@@ -5,7 +5,7 @@ import { SalesSection } from "@/components/sections/SalesSection";
 import { ResourceSection } from "@/components/sections/ResourceSection";
 import { AboutSection } from "@/components/sections/AboutSection";
 import { Button } from "@/components/ui/button";
-import { Mail } from "lucide-react";
+import { Mail, MessageSquare } from "lucide-react";
 import SyntaxBackground from "@/components/SyntaxBackground";
 import * as motion from "framer-motion/client";
 
@@ -13,6 +13,7 @@ const easeSmooth = [0.22, 1, 0.36, 1];
 
 export default function Home() {
   const whatsappUrl = "https://wa.me/2348180402086";
+  const emailAddress = "calebyinusa@gmail.com";
 
   return (
     <div className="relative min-h-screen bg-background selection:bg-white selection:text-black">
@@ -140,11 +141,18 @@ export default function Home() {
             <h2 className="text-4xl md:text-6xl font-bold tracking-tight max-w-2xl">
               Let's create something extraordinary together.
             </h2>
-            <Button size="lg" className="rounded-full bg-white text-black hover:bg-white/90 h-16 px-12 text-lg gap-3" asChild>
-              <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">
-                <Mail className="w-5 h-5" /> Start a conversation
-              </a>
-            </Button>
+            <div className="flex flex-wrap justify-center gap-4">
+              <Button size="lg" className="rounded-full bg-white text-black hover:bg-white/90 h-16 px-12 text-lg gap-3" asChild>
+                <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">
+                  <MessageSquare className="w-5 h-5" /> Start a conversation
+                </a>
+              </Button>
+              <Button size="lg" variant="outline" className="rounded-full border-white/10 hover:bg-white/5 hover:border-white/20 h-16 px-12 text-lg gap-3" asChild>
+                <a href={`mailto:${emailAddress}`}>
+                  <Mail className="w-5 h-5" /> Email me
+                </a>
+              </Button>
+            </div>
           </motion.div>
         </section>
 
