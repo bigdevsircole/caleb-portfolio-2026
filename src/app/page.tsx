@@ -17,9 +17,11 @@ const easeSmooth = [0.22, 1, 0.36, 1];
 
 export default function Home() {
   const [isMounted, setIsMounted] = useState(false);
+  const [currentYear, setCurrentYear] = useState<number | null>(null);
 
   useEffect(() => {
     setIsMounted(true);
+    setCurrentYear(new Date().getFullYear());
   }, []);
 
   // Avoid hydration mismatch by rendering a stable skeleton or nothing until mounted
@@ -154,7 +156,7 @@ export default function Home() {
         {/* Footer */}
         <footer className="py-12 px-6 border-t border-white/5 mt-24">
           <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6 text-muted-foreground text-sm font-medium">
-            <p>&copy; {new Date().getFullYear()} Caleb Yinusa.</p>
+            <p>&copy; {currentYear || '...'} Caleb Yinusa.</p>
             <div className="flex gap-8">
               <a 
                 href="https://x.com/calebyinusaa" 
