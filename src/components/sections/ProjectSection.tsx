@@ -78,10 +78,10 @@ const projects = [
   },
   {
     id: "9",
-    title: "Solaris",
-    category: "Energy Monitoring",
+    title: "Shinar 930",
+    category: "Portfolio",
     image: "https://picsum.photos/seed/112/800/600",
-    link: "#",
+    link: "https://shinar930.vercel.app/",
     useModal: false,
   }
 ];
@@ -104,7 +104,7 @@ const itemVariants = {
     y: 0,
     transition: { 
       duration: 0.8, 
-      ease: [0.21, 0.45, 0.32, 0.9] 
+      ease: [0.22, 1, 0.36, 1] 
     }
   }
 };
