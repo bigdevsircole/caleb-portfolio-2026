@@ -5,13 +5,16 @@ import { initializeFirebase } from './index';
 import { FirebaseProvider } from './provider';
 
 export function FirebaseClientProvider({ children }: { children: React.ReactNode }) {
-  // initializeFirebase handles checking for window internally
-  const { app, firestore, auth } = useMemo(() => initializeFirebase(), []);
+  // Always initialize, even if it returns nulls on server.
+  // The result is memoized to prevent re-initialization on every render.
+  const firebase = useMemo(() => initializeFirebase(), []);
 
-  // We MUST render the same structure on server and client to avoid hydration mismatch.
-  // The hooks (useFirestore, etc.) are designed to handle null values.
   return (
-    <FirebaseProvider app={app} firestore={firestore} auth={auth}>
+    <FirebaseProvider 
+      app={firebase.app} 
+      firestore={firebase.firestore} 
+      auth={firebase.auth}
+    >
       {children}
     </FirebaseProvider>
   );

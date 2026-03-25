@@ -16,7 +16,6 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   const GA_MEASUREMENT_ID = 'G-F37FJYP8TR';
-  const GOOGLE_ADS_ID = 'AW-XXXXXXXXXX';
 
   return (
     <html lang="en" className="dark" suppressHydrationWarning>
@@ -40,7 +39,6 @@ export default function RootLayout({
             gtag('js', new Date());
 
             gtag('config', '${GA_MEASUREMENT_ID}');
-            gtag('config', '${GOOGLE_ADS_ID}');
           `}
         </Script>
 

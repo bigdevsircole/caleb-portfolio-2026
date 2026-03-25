@@ -9,7 +9,7 @@ import { ResourceSection } from "@/components/sections/ResourceSection";
 import { AboutSection } from "@/components/sections/AboutSection";
 import { Button } from "@/components/ui/button";
 import SyntaxBackground from "@/components/SyntaxBackground";
-import * as motion from "framer-motion/client";
+import { motion, AnimatePresence } from "framer-motion";
 import { ContactForm } from "@/components/ContactForm";
 import TypingAnimation from "@/components/TypingAnimation";
 
@@ -17,19 +17,15 @@ const easeSmooth = [0.22, 1, 0.36, 1];
 
 export default function Home() {
   const [isMounted, setIsMounted] = useState(false);
-  const [currentYear, setCurrentYear] = useState<number | null>(null);
+  const [currentYear, setCurrentYear] = useState<string>("");
 
   useEffect(() => {
     setIsMounted(true);
-    setCurrentYear(new Date().getFullYear());
+    setCurrentYear(new Date().getFullYear().toString());
   }, []);
 
-  if (!isMounted) {
-    return <div className="min-h-screen bg-background" />;
-  }
-
   return (
-    <div className="relative min-h-screen bg-background selection:bg-primary selection:text-white">
+    <div className="relative min-h-screen bg-background selection:bg-primary selection:text-white" suppressHydrationWarning>
       <Navigation />
       
       <main className="relative z-10 pt-20">
