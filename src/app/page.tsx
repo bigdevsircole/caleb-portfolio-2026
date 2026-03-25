@@ -1,3 +1,7 @@
+
+'use client';
+
+import { useState, useEffect } from "react";
 import Navigation from "@/components/Navigation";
 import SectionHeading from "@/components/SectionHeading";
 import { ProjectSection } from "@/components/sections/ProjectSection";
@@ -13,6 +17,12 @@ import TypingAnimation from "@/components/TypingAnimation";
 const easeSmooth = [0.22, 1, 0.36, 1];
 
 export default function Home() {
+  const [year, setYear] = useState<number | null>(null);
+
+  useEffect(() => {
+    setYear(new Date().getFullYear());
+  }, []);
+
   return (
     <div className="relative min-h-screen bg-background selection:bg-primary selection:text-white">
       <Navigation />
@@ -140,7 +150,7 @@ export default function Home() {
         {/* Footer */}
         <footer className="py-12 px-6 border-t border-white/5 mt-24">
           <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6 text-muted-foreground text-sm font-medium">
-            <p>&copy; {new Date().getFullYear()} Caleb Yinusa.</p>
+            <p>&copy; {year || '...'} Caleb Yinusa.</p>
             <div className="flex gap-8">
               <a 
                 href="https://x.com/calebyinusaa" 
