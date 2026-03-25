@@ -1,8 +1,10 @@
+
 import type {Metadata} from 'next';
 import './globals.css';
 import { Toaster } from "@/components/ui/toaster";
 import BackToTop from "@/components/BackToTop";
 import Script from 'next/script';
+import { FirebaseClientProvider } from '@/firebase/client-provider';
 
 export const metadata: Metadata = {
   title: 'Caleb Yinusa Portfolio',
@@ -42,9 +44,11 @@ export default function RootLayout({
           `}
         </Script>
 
-        {children}
-        <BackToTop />
-        <Toaster />
+        <FirebaseClientProvider>
+          {children}
+          <BackToTop />
+          <Toaster />
+        </FirebaseClientProvider>
       </body>
     </html>
   );

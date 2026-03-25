@@ -1,3 +1,4 @@
+
 import Navigation from "@/components/Navigation";
 import SectionHeading from "@/components/SectionHeading";
 import { ProjectSection } from "@/components/sections/ProjectSection";
@@ -5,16 +6,13 @@ import { SalesSection } from "@/components/sections/SalesSection";
 import { ResourceSection } from "@/components/sections/ResourceSection";
 import { AboutSection } from "@/components/sections/AboutSection";
 import { Button } from "@/components/ui/button";
-import { Mail, MessageSquare } from "lucide-react";
 import SyntaxBackground from "@/components/SyntaxBackground";
 import * as motion from "framer-motion/client";
+import { ContactForm } from "@/components/ContactForm";
 
 const easeSmooth = [0.22, 1, 0.36, 1];
 
 export default function Home() {
-  const whatsappUrl = "https://wa.me/2348180402086";
-  const emailAddress = "calebyinusa@gmail.com";
-
   return (
     <div className="relative min-h-screen bg-background selection:bg-white selection:text-black">
       <Navigation />
@@ -82,7 +80,7 @@ export default function Home() {
               
               <motion.div whileHover={{ scale: 1.03 }} transition={{ duration: 0.2 }}>
                 <Button size="lg" variant="outline" className="rounded-full border-white/10 hover:bg-white/5 hover:border-white/20 px-8 h-14 text-base font-bold transition-all" asChild>
-                  <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">
+                  <a href="#contact">
                     Get in touch
                   </a>
                 </Button>
@@ -129,31 +127,9 @@ export default function Home() {
           <ResourceSection />
         </section>
 
-        {/* Contact CTA */}
+        {/* Contact Form Section */}
         <section id="contact" className="py-24 px-6 max-w-7xl mx-auto">
-          <motion.div 
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, ease: easeSmooth }}
-            className="p-12 md:p-24 bg-white/5 rounded-[2.5rem] border border-white/10 text-center flex flex-col items-center gap-8"
-          >
-            <h2 className="text-4xl md:text-6xl font-bold tracking-tight max-w-2xl">
-              Let's create something extraordinary together.
-            </h2>
-            <div className="flex flex-wrap justify-center gap-4">
-              <Button size="lg" className="rounded-full bg-white text-black hover:bg-white/90 h-16 px-12 text-lg gap-3" asChild>
-                <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">
-                  <MessageSquare className="w-5 h-5" /> Start a conversation
-                </a>
-              </Button>
-              <Button size="lg" variant="outline" className="rounded-full border-white/10 hover:bg-white/5 hover:border-white/20 h-16 px-12 text-lg gap-3" asChild>
-                <a href={`mailto:${emailAddress}`}>
-                  <Mail className="w-5 h-5" /> Email me
-                </a>
-              </Button>
-            </div>
-          </motion.div>
+          <ContactForm />
         </section>
 
         {/* Footer */}
