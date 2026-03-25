@@ -87,23 +87,23 @@ const projects = [
 ];
 
 const containerVariants = {
-  hidden: { opacity: 0 },
+  hidden: { opacity: 0.01 },
   visible: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.15,
+      staggerChildren: 0.1,
       delayChildren: 0.1
     }
   }
 };
 
 const itemVariants = {
-  hidden: { opacity: 0, y: 30 },
+  hidden: { opacity: 0.01, y: 20 },
   visible: { 
     opacity: 1, 
     y: 0,
     transition: { 
-      duration: 0.8, 
+      duration: 0.6, 
       ease: [0.22, 1, 0.36, 1] 
     }
   }
@@ -115,7 +115,7 @@ export function ProjectSection() {
       variants={containerVariants}
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: true, margin: "-100px" }}
+      viewport={{ once: true, margin: "0px" }}
       className="grid grid-cols-1 md:grid-cols-2 gap-12"
     >
       {projects.map((project, index) => {
@@ -130,6 +130,7 @@ export function ProjectSection() {
                 alt={project.title}
                 fill
                 className="object-cover transition-transform duration-1000 group-hover:scale-105"
+                sizes="(max-width: 768px) 100vw, 50vw"
                 data-ai-hint="minimalist project showcase"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent transition-opacity duration-300 opacity-60 group-hover:opacity-70" />

@@ -25,7 +25,7 @@ export default function Home() {
   const currentYear = mounted ? new Date().getFullYear().toString() : "2025";
 
   return (
-    <div className="relative min-h-screen bg-background selection:bg-primary selection:text-white">
+    <div className="relative min-h-screen bg-background">
       <Navigation />
       
       <main className="relative z-10 pt-20">
@@ -33,7 +33,7 @@ export default function Home() {
           <SyntaxBackground />
           <div className="relative z-10 flex flex-col items-center text-center gap-8">
             <motion.div 
-              initial={{ opacity: 0, y: 10 }}
+              initial={{ opacity: 0.01, y: 10 }}
               animate={{ 
                 opacity: 1, 
                 y: [0, -4, 0],
@@ -54,7 +54,7 @@ export default function Home() {
             
             <div className="flex flex-col gap-4">
               <motion.h1 
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0.01, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, ease: easeSmooth, delay: 0.3 }}
                 className="text-5xl md:text-8xl font-bold tracking-tighter leading-[0.9] neon-text"
@@ -67,17 +67,17 @@ export default function Home() {
               </div>
 
               <motion.span 
-                initial={{ opacity: 0 }}
+                initial={{ opacity: 0.01 }}
                 animate={{ opacity: 0.6 }}
                 transition={{ duration: 1.2, ease: easeSmooth, delay: 0.6 }}
-                className="text-[10px] md:text-xs text-muted-foreground italic font-light uppercase opacity-60 block mt-2 tracking-[0.4em]"
+                className="text-[10px] md:text-xs text-muted-foreground italic font-light uppercase tracking-[0.4em] mt-2 block"
               >
                 DIGITAL SOLUTION ARCHITECT
               </motion.span>
             </div>
 
             <motion.div 
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0.01, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.9, duration: 0.8, ease: easeSmooth }}
               className="flex flex-wrap justify-center gap-4 mt-4"
