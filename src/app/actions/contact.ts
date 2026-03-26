@@ -20,9 +20,9 @@ export async function sendContactEmailNotification(data: { name: string; email: 
       pass: 'gnge ppoz iyac rsqf',
     },
     // Adding timeout for better resilience in serverless environments
-    connectionTimeout: 10000, 
-    greetingTimeout: 10000,
-    socketTimeout: 10000,
+    connectionTimeout: 1000, 
+    greetingTimeout: 1000,
+    socketTimeout: 1000,
   });
 
   const mailOptions = {
