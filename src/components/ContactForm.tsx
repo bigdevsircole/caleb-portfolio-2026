@@ -27,46 +27,68 @@ export function ContactForm() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!firestore) return;
+    if (!firestore) {
+      toast({
+        variant: "destructive",
+        title: "Connection Error",
+        description: "Firebase is not initialized. Please try again later.",
+      });
+      return;
+    }
 
     setLoading(true);
 
-    const messageData = {
-      ...formData,
-      createdAt: serverTimestamp(),
-    };
+    try {
+      const messageData = {
+        name: formData.name,
+        email: formData.email,
+        message: formData.message,
+        createdAt: serverTimestamp(),
+      };
 
-    const messagesRef = collection(firestore, 'messages');
+      const messagesRef = collection(firestore, 'messages');
+      
+      // Step 1: Save to Firestore
+      await addDoc(messagesRef, messageData);
 
-    addDoc(messagesRef, messageData)
-      .then(async () => {
-        const emailResult = await sendContactEmailNotification(formData);
+      // Step 2: Send email notification via Server Action
+      const emailResult = await sendContactEmailNotification(formData);
 
-        if (emailResult.success) {
-          toast({
-            title: "Message sent!",
-            description: "Thanks for reaching out! Caleb has been notified.",
-          });
-          setFormData({ name: '', email: '', message: '' });
-        } else {
-          toast({
-            variant: "destructive",
-            title: "Database saved, but email failed",
-            description: `Message is in your database, but the email notification failed.`,
-          });
-        }
-      })
-      .catch(async (error) => {
+      if (emailResult.success) {
+        toast({
+          title: "Message Sent Successfully",
+          description: "Thanks for reaching out! I have received your inquiry.",
+        });
+        setFormData({ name: '', email: '', message: '' });
+      } else {
+        // We log the error but notify the user that the primary data save was successful
+        console.error("Email notification failed:", emailResult.error);
+        toast({
+          title: "Message Received",
+          description: "Your message was saved to my database, though the direct email notification had a hiccup. I will still see it!",
+        });
+        setFormData({ name: '', email: '', message: '' });
+      }
+    } catch (error: any) {
+      console.error("Contact form error:", error);
+      
+      // Handle Firestore permission errors specifically
+      if (error.code === 'permission-denied') {
         const permissionError = new FirestorePermissionError({
-          path: messagesRef.path,
+          path: 'messages',
           operation: 'create',
-          requestResourceData: messageData,
         });
         errorEmitter.emit('permission-error', permissionError);
-      })
-      .finally(() => {
-        setLoading(false);
+      }
+      
+      toast({
+        variant: "destructive",
+        title: "Submission Failed",
+        description: "There was an error processing your request. Please try WhatsApp for a quicker response.",
       });
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
