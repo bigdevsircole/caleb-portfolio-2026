@@ -4,6 +4,19 @@ import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 import Image from "next/image";
 
+/**
+ * Utility to convert standard Google Drive view links to direct image links.
+ * Standard: https://drive.google.com/file/d/FILE_ID/view?usp=sharing
+ * Direct: https://drive.google.com/uc?id=FILE_ID
+ */
+const getDirectDriveLink = (url: string) => {
+  if (url.includes('drive.google.com') && url.includes('/file/d/')) {
+    const fileId = url.split('/file/d/')[1]?.split('/')[0];
+    return `https://drive.google.com/uc?id=${fileId}`;
+  }
+  return url;
+};
+
 const projects = [
   {
     id: "1",
@@ -75,19 +88,23 @@ export function ProjectSection() {
     <div className="grid grid-cols-1 md:grid-cols-2 gap-12 relative z-10">
       {projects.map((project, index) => {
         const isExternal = project.link.startsWith('http');
-        const isGoogleDrive = project.image.includes('drive.google.com');
+        const imageUrl = getDirectDriveLink(project.image);
+        const isGoogleDrive = imageUrl.includes('drive.google.com');
         
         return (
-          <a 
+          <motion.a 
             key={project.id} 
             href={project.link} 
             target={isExternal ? "_blank" : undefined}
             rel={isExternal ? "noopener noreferrer" : undefined}
+            initial={{ opacity: 1, y: 0 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0 }}
             className={`group relative overflow-hidden rounded-[2rem] bg-white/5 border border-white/10 transition-all duration-500 hover:border-primary/50 hover:bg-primary/[0.03] ${index === 0 ? 'md:col-span-2' : ''}`}
           >
             <div className={`relative w-full overflow-hidden ${index === 0 ? 'aspect-[21/9]' : 'aspect-[4/3]'}`}>
               <Image
-                src={project.image}
+                src={imageUrl}
                 alt={project.title}
                 fill
                 unoptimized={isGoogleDrive}
@@ -107,11 +124,11 @@ export function ProjectSection() {
                 </h3>
               </div>
               
-              <div className="w-12 h-12 rounded-full flex items-center justify-center transform translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500 shadow-xl bg-white text-black">
+              <div className="w-12 h-12 rounded-full flex items-center justify-center translate-y-0 opacity-100 md:translate-y-4 md:opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500 shadow-xl bg-white text-black">
                 <ArrowUpRight className="w-6 h-6" />
               </div>
             </div>
-          </a>
+          </motion.a>
         );
       })}
     </div>

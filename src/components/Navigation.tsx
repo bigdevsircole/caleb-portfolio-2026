@@ -1,9 +1,8 @@
-
 "use client";
 
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Menu } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
   Sheet,
@@ -76,16 +75,16 @@ export default function Navigation() {
               <Button 
                 variant="ghost" 
                 size="icon" 
-                className="md:hidden rounded-full w-10 h-10 border border-white/10 bg-white/5 hover:bg-white/10"
+                className="md:hidden rounded-full w-10 h-10 border border-white/10 bg-white/5 hover:bg-white/10 active:bg-white/20 transition-colors"
                 aria-label="Toggle Menu"
               >
                 <Menu className="w-6 h-6 text-white" />
               </Button>
             </SheetTrigger>
-            <SheetContent side="right" className="bg-background/95 backdrop-blur-2xl border-white/10 w-[85%] max-w-sm p-0 flex flex-col">
-              <SheetHeader className="p-6 border-b border-white/5">
+            <SheetContent side="right" className="bg-[#0c0a0f] border-white/10 w-[85%] max-w-sm p-0 flex flex-col shadow-2xl">
+              <SheetHeader className="p-6 border-b border-white/5 flex flex-row items-center justify-between">
                 <SheetTitle className="text-left text-xs font-bold uppercase tracking-[0.3em] text-muted-foreground">
-                  Navigation
+                  Menu
                 </SheetTitle>
               </SheetHeader>
               
@@ -94,15 +93,22 @@ export default function Navigation() {
                   <SheetClose asChild key={item.name}>
                     <a 
                       href={item.href}
-                      className="text-3xl font-bold tracking-tight text-white hover:text-primary transition-colors py-4 border-b border-white/[0.03]"
+                      className="text-3xl font-bold tracking-tight text-white hover:text-primary transition-colors py-4 border-b border-white/[0.03] flex items-center justify-between group"
                     >
                       {item.name}
+                      <motion.span 
+                        initial={{ opacity: 0, x: -10 }}
+                        whileHover={{ opacity: 1, x: 0 }}
+                        className="text-primary text-xl"
+                      >
+                        →
+                      </motion.span>
                     </a>
                   </SheetClose>
                 ))}
               </div>
 
-              <div className="p-6 border-t border-white/5 bg-white/[0.02]">
+              <div className="p-6 border-t border-white/5 bg-white/[0.02] mt-auto">
                 <SheetClose asChild>
                   <Button className="w-full h-16 rounded-2xl bg-white text-black text-lg font-bold shadow-xl hover:bg-white/90" asChild>
                     <a href={cvUrl} target="_blank" rel="noopener noreferrer">
@@ -110,8 +116,12 @@ export default function Navigation() {
                     </a>
                   </Button>
                 </SheetClose>
-                <div className="mt-6 flex justify-center gap-6 opacity-40">
-                  <span className="text-[10px] font-bold uppercase tracking-widest">© 2025 Caleb Yinusa</span>
+                <div className="mt-6 flex flex-col items-center gap-4 opacity-40">
+                   <div className="flex gap-6">
+                    <a href="https://x.com/calebyinusaa" target="_blank" className="text-[10px] font-bold uppercase tracking-widest hover:text-white transition-colors">Twitter</a>
+                    <a href="https://github.com/bigdevsircole" target="_blank" className="text-[10px] font-bold uppercase tracking-widest hover:text-white transition-colors">GitHub</a>
+                  </div>
+                  <span className="text-[10px] font-bold uppercase tracking-widest italic">© 2025 Caleb Yinusa</span>
                 </div>
               </div>
             </SheetContent>
