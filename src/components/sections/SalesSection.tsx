@@ -41,6 +41,7 @@ export function SalesSection() {
               src={product.image}
               alt={product.name}
               fill
+              unoptimized={product.image.includes('googleusercontent')}
               className="object-cover transition-transform duration-700 group-hover:scale-105"
             />
           </div>

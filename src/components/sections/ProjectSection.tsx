@@ -5,16 +5,22 @@ import { ArrowUpRight } from "lucide-react";
 import Image from "next/image";
 
 /**
- * Utility to convert standard Google Drive view links to direct image links.
- * Standard: https://drive.google.com/file/d/FILE_ID/view?usp=sharing
- * Direct: https://drive.google.com/uc?id=FILE_ID
+ * Enhanced utility to convert Google Drive links to high-performance direct image links.
+ * Works for: /file/d/ID/view, /uc?id=ID, and /open?id=ID
+ * Converts to: https://lh3.googleusercontent.com/d/ID
  */
 const getDirectDriveLink = (url: string) => {
-  if (url.includes('drive.google.com') && url.includes('/file/d/')) {
-    const fileId = url.split('/file/d/')[1]?.split('/')[0];
-    return `https://drive.google.com/uc?id=${fileId}`;
+  if (!url || !url.includes('drive.google.com')) return url;
+
+  let fileId = '';
+  
+  if (url.includes('/file/d/')) {
+    fileId = url.split('/file/d/')[1]?.split('/')[0];
+  } else if (url.includes('id=')) {
+    fileId = url.split('id=')[1]?.split('&')[0];
   }
-  return url;
+
+  return fileId ? `https://lh3.googleusercontent.com/d/${fileId}` : url;
 };
 
 const projects = [
@@ -22,7 +28,7 @@ const projects = [
     id: "1",
     title: "Caleb Bank",
     category: "Mobile Banking Dashboard",
-    image: "https://drive.google.com/uc?id=1KV1aWxu5NMYZ2t_znz-jt25_zONN4KEN",
+    image: "https://drive.google.com/file/d/1KV1aWxu5NMYZ2t_znz-jt25_zONN4KEN/view?usp=drive_link",
     link: "https://mobile-banking-dashboard.vercel.app/",
   },
   {
@@ -89,7 +95,7 @@ export function ProjectSection() {
       {projects.map((project, index) => {
         const isExternal = project.link.startsWith('http');
         const imageUrl = getDirectDriveLink(project.image);
-        const isGoogleDrive = imageUrl.includes('drive.google.com');
+        const isGoogleImage = imageUrl.includes('googleusercontent.com') || imageUrl.includes('drive.google.com');
         
         return (
           <motion.a 
@@ -107,7 +113,7 @@ export function ProjectSection() {
                 src={imageUrl}
                 alt={project.title}
                 fill
-                unoptimized={isGoogleDrive}
+                unoptimized={isGoogleImage}
                 className="object-cover transition-transform duration-1000 group-hover:scale-105"
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
               />
