@@ -11,7 +11,6 @@ import { Button } from "@/components/ui/button";
 import SyntaxBackground from "@/components/SyntaxBackground";
 import { motion } from "framer-motion";
 import { ContactForm } from "@/components/ContactForm";
-import TypingAnimation from "@/components/TypingAnimation";
 
 const easeSmooth = [0.22, 1, 0.36, 1];
 
@@ -32,7 +31,7 @@ export default function Home() {
       <SyntaxBackground />
 
       <main className="relative z-10 pt-20">
-        {/* HERO SECTION - REDUCED ANIMATION RISK */}
+        {/* HERO SECTION */}
         <section id="home" className="relative px-6 py-20 md:py-32 max-w-7xl mx-auto flex flex-col items-center text-center gap-8">
           <motion.div 
             initial={{ opacity: 1, y: 0 }}
@@ -54,16 +53,17 @@ export default function Home() {
           
           <div className="flex flex-col gap-4">
             <motion.h1 
-              initial={{ opacity: 1, scale: 0.98 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.8, ease: easeSmooth }}
+              initial={{ opacity: 1 }}
+              animate={{ opacity: 1 }}
               className="text-5xl md:text-8xl font-bold tracking-tighter leading-[0.9] neon-text text-white"
             >
               CALEB YINUSA
             </motion.h1>
 
             <div className="h-6 flex items-center justify-center">
-              <TypingAnimation />
+              <span className="text-secondary font-code text-sm md:text-base tracking-wide uppercase">
+                Frontend Developer • Designer • Digital Architect
+              </span>
             </div>
 
             <motion.span 
