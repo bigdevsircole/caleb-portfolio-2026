@@ -1,3 +1,4 @@
+
 {
   "apphosting": {
     "backendId": "studio",
@@ -5,12 +6,6 @@
   },
   "hosting": {
     "site": "calebyinusa",
-    "public": "public",
-    "rewrites": [
-      {
-        "source": "**",
-        "destination": "/index.html"
-      }
-    ]
+    "public": "public"
   }
 }

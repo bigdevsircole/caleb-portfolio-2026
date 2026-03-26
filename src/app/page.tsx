@@ -1,3 +1,4 @@
+
 'use client';
 
 import { useState, useEffect } from "react";
@@ -25,40 +26,34 @@ export default function Home() {
     <div className="relative min-h-screen bg-background text-foreground selection:bg-primary selection:text-white">
       <Navigation />
       
-      {/* Background stays at z-0 */}
       <SyntaxBackground />
 
       <main className="relative z-10 pt-20">
         {/* HERO SECTION */}
         <section id="home" className="relative px-6 py-20 md:py-32 max-w-7xl mx-auto flex flex-col items-center text-center gap-8">
           <motion.div 
-            initial={{ opacity: 1, y: 0 }}
-            animate={{ 
-              y: [0, -4, 0],
-            }}
-            transition={{ 
-              y: { duration: 4, repeat: Infinity, ease: "easeInOut" }
-            }}
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
             className="flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-xs font-medium text-primary backdrop-blur-sm"
           >
-            <motion.span 
-              animate={{ scale: [1, 1.3, 1], opacity: [1, 0.5, 1] }}
-              transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-              className="w-1.5 h-1.5 rounded-full bg-green-500 shadow-[0_0_8px_rgba(34,197,94,0.6)]" 
-            />
+            <span className="w-1.5 h-1.5 rounded-full bg-green-500 shadow-[0_0_8px_rgba(34,197,94,0.6)] animate-pulse" />
             Available for new opportunities
           </motion.div>
           
           <div className="flex flex-col gap-4">
             <motion.h1 
-              initial={{ opacity: 1 }}
-              animate={{ opacity: 1 }}
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.8, ease: "easeOut" }}
               className="text-5xl md:text-8xl font-bold tracking-tighter leading-[0.9] neon-text text-white"
             >
               CALEB YINUSA
             </motion.h1>
 
             <motion.span 
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.4 }}
               className="text-[10px] md:text-xs text-muted-foreground italic font-light uppercase tracking-[0.4em] mt-2 block"
             >
               DIGITAL SOLUTION ARCHITECT
@@ -66,17 +61,13 @@ export default function Home() {
           </div>
 
           <div className="flex flex-wrap justify-center gap-4 mt-4">
-            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-              <Button size="lg" className="rounded-full bg-primary text-white hover:bg-primary/90 px-8 h-14 text-base font-bold shadow-xl shadow-primary/20" asChild>
-                <a href="#projects">View My Work</a>
-              </Button>
-            </motion.div>
+            <Button size="lg" className="rounded-full bg-primary text-white hover:bg-primary/90 px-8 h-14 text-base font-bold shadow-xl shadow-primary/20" asChild>
+              <a href="#projects">View My Work</a>
+            </Button>
             
-            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-              <Button size="lg" variant="outline" className="rounded-full border-primary/20 hover:bg-primary/5 hover:border-primary/40 px-8 h-14 text-base font-bold transition-all text-white" asChild>
-                <a href="#contact">Get in touch</a>
-              </Button>
-            </motion.div>
+            <Button size="lg" variant="outline" className="rounded-full border-primary/20 hover:bg-primary/5 hover:border-primary/40 px-8 h-14 text-base font-bold transition-all text-white" asChild>
+              <a href="#contact">Get in touch</a>
+            </Button>
           </div>
         </section>
 
