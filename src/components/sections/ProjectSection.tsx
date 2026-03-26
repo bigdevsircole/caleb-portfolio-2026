@@ -9,7 +9,7 @@ const projects = [
     id: "1",
     title: "Caleb Bank",
     category: "Mobile Banking Dashboard",
-    image: "https://drive.google.com/uc?export=view&id=1EcXJVTa8hCOds1B6_G0TFULu8GK3w1i1",
+    image: "https://drive.google.com/uc?export=view&id=1KV1aWxu5NMYZ2t_znz-jt25_zONN4KEN",
     link: "https://mobile-banking-dashboard.vercel.app/",
   },
   {
@@ -23,7 +23,7 @@ const projects = [
     id: "3",
     title: "Berrybby",
     category: "E-commerce",
-    image: "https://drive.google.com/uc?export=view&id=12ia_yGU5Byf-_-zR0MNnMvzgK6z0ItQn",
+    image: "https://picsum.photos/seed/125/600/400",
     link: "#",
   },
   {
