@@ -1,3 +1,4 @@
+
 "use client";
 
 import { useState } from "react";
@@ -81,7 +82,7 @@ export default function Navigation() {
                 <Menu className="w-6 h-6 text-white" />
               </Button>
             </SheetTrigger>
-            <SheetContent side="right" className="bg-[#0c0a0f] border-white/10 w-[85%] max-w-sm p-0 flex flex-col shadow-2xl">
+            <SheetContent side="right" className="bg-[#0c0a0f] border-white/10 w-[85%] max-w-sm p-0 flex flex-col shadow-2xl overflow-hidden">
               <SheetHeader className="p-6 border-b border-white/5 flex flex-row items-center justify-between">
                 <SheetTitle className="text-left text-xs font-bold uppercase tracking-[0.3em] text-muted-foreground">
                   Menu
@@ -118,8 +119,8 @@ export default function Navigation() {
                 </SheetClose>
                 <div className="mt-6 flex flex-col items-center gap-4 opacity-40">
                    <div className="flex gap-6">
-                    <a href="https://x.com/calebyinusaa" target="_blank" className="text-[10px] font-bold uppercase tracking-widest hover:text-white transition-colors">Twitter</a>
-                    <a href="https://github.com/bigdevsircole" target="_blank" className="text-[10px] font-bold uppercase tracking-widest hover:text-white transition-colors">GitHub</a>
+                    <a href="https://x.com/calebyinusaa" target="_blank" rel="noopener noreferrer" className="text-[10px] font-bold uppercase tracking-widest hover:text-white transition-colors">Twitter</a>
+                    <a href="https://github.com/bigdevsircole" target="_blank" rel="noopener noreferrer" className="text-[10px] font-bold uppercase tracking-widest hover:text-white transition-colors">GitHub</a>
                   </div>
                   <span className="text-[10px] font-bold uppercase tracking-widest italic">© 2025 Caleb Yinusa</span>
                 </div>
