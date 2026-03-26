@@ -1,3 +1,4 @@
+
 "use client";
 
 import { motion } from "framer-motion";
@@ -22,7 +23,7 @@ export function AboutSection() {
           Every business has a bottleneck. My job is to make sure <span className="text-muted-foreground italic">technology isn’t yours</span>.
         </p>
         <p className="text-lg text-muted-foreground leading-relaxed">
-          As a Digital Solutions Architect, I bridge the gap between complex business challenges and scalable tech solutions. Whether you are looking to streamline operations, automate processes, or build a robust digital infrastructure from the ground up, I'm here to help you navigate it.
+          As a Frontend Developer, I bridge the gap between complex business challenges and scalable tech solutions. Whether you are looking to streamline operations, automate processes, or build a robust digital infrastructure from the ground up, I'm here to help you navigate it.
         </p>
         <div className="text-lg text-white font-medium border-l-2 border-white/20 pl-4 py-2">
           What digital challenge is slowing your business down right now?

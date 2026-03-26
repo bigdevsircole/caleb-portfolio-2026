@@ -30,7 +30,7 @@ export default function Home() {
         {/* HERO SECTION */}
         <section id="home" className="relative px-6 py-24 md:py-32 max-w-7xl mx-auto flex flex-col items-center text-center gap-10">
           <motion.div 
-            initial={{ opacity: 0, y: 10 }}
+            initial={{ opacity: 0.5, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             className="flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-xs font-semibold text-primary backdrop-blur-md"
           >
@@ -40,7 +40,7 @@ export default function Home() {
           
           <div className="flex flex-col gap-6">
             <motion.h1 
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0.8, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, ease: "easeOut" }}
               className="text-6xl md:text-9xl font-bold tracking-tighter leading-[0.85] neon-text text-white"
@@ -49,17 +49,17 @@ export default function Home() {
             </motion.h1>
 
             <motion.span 
-              initial={{ opacity: 0 }}
+              initial={{ opacity: 0.8 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.4 }}
               className="text-xs md:text-sm text-muted-foreground italic font-light uppercase tracking-[0.5em] mt-4 block"
             >
-              DIGITAL SOLUTION ARCHITECT
+              FRONTEND DEVELOPER
             </motion.span>
           </div>
 
           <motion.div 
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0.8, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.6 }}
             className="flex flex-wrap justify-center gap-5 mt-6"
