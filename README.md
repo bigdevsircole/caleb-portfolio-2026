@@ -1,31 +1,39 @@
-
 # Caleb Yinusa Portfolio - PixelForge Edition
 
-A high-performance, modern digital architect portfolio built with Next.js, Framer Motion, and Firebase. This project features the signature **PixelForge** aesthetic: a deep charcoal environment paired with vibrant neon purple accents and high-tech syntax-inspired animations.
+A professional, high-performance digital architect portfolio built with Next.js, Framer Motion, and Firebase. This project features a custom-designed dark theme with vibrant accents and industry-standard architecture.
 
 ## 🚀 Deployment
 
-This project is configured for **Firebase App Hosting**. 
+This project is optimized for **Firebase App Hosting**. 
 
 To deploy your changes, simply push your code to your connected Git repository:
 
 ```bash
 git add .
-git commit -m "Update portfolio features"
+git commit -m "Enhance backend stability"
 git push
 ```
 
-Firebase will automatically detect the push, build the Next.js application, and deploy it to your global infrastructure.
+Firebase will automatically detect the push, build the Next.js application, and deploy it globally.
 
-## 🛠 Key Features
+## 🛠 Backend Configuration Checklist
 
-- **PixelForge Aesthetic**: A custom-designed dark theme using HSL variables for consistent neon glow effects and deep contrast.
-- **Dynamic Hero Section**: High-impact entrance motions focused on clarity and impact.
-- **Project Showcase**: A responsive grid featuring curated digital solutions with category tagging.
-- **Firebase Integration**:
-  - **Firestore**: Robust message handling for the contact form.
-  - **App Hosting**: Configured for seamless server-side rendering and deployment.
-- **Performance Optimized**: Built with Next.js Server Components and Framer Motion's "Visible-First" patterns.
+To ensure the contact form and projects work perfectly, follow these steps:
+
+1. **Firestore Database**: 
+   - Enable Firestore in your Firebase Console.
+   - Create a collection named `messages`.
+   - Ensure your security rules allow `create` operations for the `messages` collection.
+
+2. **API Keys**:
+   - Update `src/firebase/config.ts` with your actual Firebase project credentials.
+
+3. **Email System**:
+   - The contact form is configured to send notifications via Nodemailer using Gmail. 
+   - If you change the recipient email, ensure you update the `transporter` settings in `src/app/actions/contact.ts`.
+
+4. **Image Hosting**:
+   - Project thumbnails use Google Drive. Ensure your images are set to "Anyone with the link can view" to allow the portfolio's direct link logic to function.
 
 ## 🛠 Tech Stack
 
@@ -38,4 +46,4 @@ Firebase will automatically detect the push, build the Next.js application, and 
 
 ## 📄 License
 
-&copy; 2025 Caleb Yinusa. All rights reserved. Built with passion for high-performance digital solutions.
+&copy; 2025 Caleb Yinusa. All rights reserved.
