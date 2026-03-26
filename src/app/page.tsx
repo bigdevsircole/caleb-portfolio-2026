@@ -28,9 +28,9 @@ export default function Home() {
 
       <main className="relative z-10 pt-20">
         {/* HERO SECTION */}
-        <section id="home" className="relative px-6 py-24 md:py-32 max-w-7xl mx-auto flex flex-col items-center text-center gap-10">
+        <section id="home" className="relative px-6 py-20 md:py-32 max-w-7xl mx-auto flex flex-col items-center text-center gap-10">
           <motion.div 
-            initial={{ opacity: 0.5, y: 10 }}
+            initial={{ opacity: 0.8, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             className="flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-xs font-semibold text-primary backdrop-blur-md"
           >
@@ -38,12 +38,11 @@ export default function Home() {
             Available for new projects
           </motion.div>
           
-          <div className="flex flex-col gap-6">
+          <div className="flex flex-col gap-6 w-full">
             <motion.h1 
-              initial={{ opacity: 0.8, y: 20 }}
+              initial={{ opacity: 1, y: 0 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, ease: "easeOut" }}
-              className="text-6xl md:text-9xl font-bold tracking-tighter leading-[0.85] neon-text text-white"
+              className="text-5xl sm:text-7xl md:text-9xl font-bold tracking-tighter leading-[0.85] neon-text text-white break-words"
             >
               CALEB YINUSA
             </motion.h1>
@@ -51,8 +50,8 @@ export default function Home() {
             <motion.span 
               initial={{ opacity: 0.8 }}
               animate={{ opacity: 1 }}
-              transition={{ delay: 0.4 }}
-              className="text-xs md:text-sm text-muted-foreground italic font-light uppercase tracking-[0.5em] mt-4 block"
+              transition={{ delay: 0.2 }}
+              className="text-xs md:text-sm text-muted-foreground italic font-light uppercase tracking-[0.5em] mt-2 block"
             >
               FRONTEND DEVELOPER
             </motion.span>
@@ -61,21 +60,21 @@ export default function Home() {
           <motion.div 
             initial={{ opacity: 0.8, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.6 }}
-            className="flex flex-wrap justify-center gap-5 mt-6"
+            transition={{ delay: 0.4 }}
+            className="flex flex-wrap justify-center gap-4 mt-4"
           >
-            <Button size="lg" className="rounded-full bg-primary text-white hover:bg-primary/90 px-10 h-16 text-lg font-bold shadow-2xl shadow-primary/30" asChild>
+            <Button size="lg" className="rounded-full bg-primary text-white hover:bg-primary/90 px-8 h-14 md:px-10 md:h-16 text-lg font-bold shadow-2xl shadow-primary/30" asChild>
               <a href="#projects">Explore Work</a>
             </Button>
             
-            <Button size="lg" variant="outline" className="rounded-full border-white/10 hover:bg-white/5 hover:border-white/20 px-10 h-16 text-lg font-bold transition-all text-white backdrop-blur-sm" asChild>
+            <Button size="lg" variant="outline" className="rounded-full border-white/10 hover:bg-white/5 hover:border-white/20 px-8 h-14 md:px-10 md:h-16 text-lg font-bold transition-all text-white backdrop-blur-sm" asChild>
               <a href="#contact">Get in touch</a>
             </Button>
           </motion.div>
         </section>
 
         <section id="about" className="py-24 px-6 max-w-7xl mx-auto">
-          <SectionHeading title="About" subtitle="Architecting the digital future." />
+          <SectionHeading title="About" subtitle="Bridging the gap between design and engineering." />
           <AboutSection />
         </section>
 

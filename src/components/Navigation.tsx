@@ -85,7 +85,7 @@ export default function Navigation() {
             <SheetContent side="right" className="bg-[#0c0a0f] border-white/10 w-[85%] max-w-sm p-0 flex flex-col shadow-2xl overflow-hidden">
               <SheetHeader className="p-6 border-b border-white/5 flex flex-row items-center justify-between">
                 <SheetTitle className="text-left text-xs font-bold uppercase tracking-[0.3em] text-muted-foreground">
-                  Menu
+                  Menu Navigation
                 </SheetTitle>
               </SheetHeader>
               
