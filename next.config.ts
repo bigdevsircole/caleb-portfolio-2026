@@ -1,12 +1,6 @@
 import type {NextConfig} from 'next';
 
 const nextConfig: NextConfig = {
-  typescript: {
-    ignoreBuildErrors: true,
-  },
-  eslint: {
-    ignoreDuringBuilds: true,
-  },
   images: {
     remotePatterns: [
       {
@@ -35,13 +29,13 @@ const nextConfig: NextConfig = {
       },
       {
         protocol: 'https',
-        hostname: '**.googleusercontent.com',
+        hostname: 'lh3.googleusercontent.com',
         port: '',
         pathname: '/**',
       },
       {
         protocol: 'https',
-        hostname: '**.google.com',
+        hostname: 'firebasestorage.googleapis.com',
         port: '',
         pathname: '/**',
       },

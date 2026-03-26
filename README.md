@@ -1,49 +1,46 @@
-# Caleb Yinusa Portfolio - PixelForge Edition
+# Caleb Yinusa Portfolio
 
-A professional, high-performance digital architect portfolio built with Next.js, Framer Motion, and Firebase. This project features a custom-designed dark theme with vibrant accents and industry-standard architecture.
+A professional, high-performance frontend developer portfolio built with Next.js 15, Framer Motion, and Tailwind CSS. This project features a custom-designed dark theme with vibrant accents and a modular architecture.
 
 ## 🚀 Deployment
 
-This project is optimized for **Firebase App Hosting**. 
+This project is optimized for modern cloud hosting platforms like **Vercel**, **Netlify**, or **Firebase App Hosting**.
 
 To deploy your changes, simply push your code to your connected Git repository:
 
 ```bash
 git add .
-git commit -m "Enhance backend stability"
+git commit -m "Update portfolio features"
 git push
 ```
 
-Firebase will automatically detect the push, build the Next.js application, and deploy it globally.
+## 🛠 Features & Configuration
 
-## 🛠 Backend Configuration Checklist
+### 1. Contact Integration (WhatsApp)
+The contact form is designed for high conversion by redirecting inquiries directly to WhatsApp. 
+- **Configuration**: Update your WhatsApp number in `src/components/ContactForm.tsx` (line 21).
+- **Behavior**: The form validates user input (Name, Email, Message) using Zod and React Hook Form, then generates a pre-filled WhatsApp message.
 
-To ensure the contact form and projects work perfectly, follow these steps:
+### 2. Project Media (Google Drive)
+This portfolio uses Google Drive to host project thumbnails, providing a flexible and free CDN-like experience.
+- **Utility**: The `getDirectDriveLink` function in `src/components/sections/ProjectSection.tsx` automatically converts standard Drive sharing links into high-performance direct image URLs.
+- **Requirement**: Ensure your images on Google Drive are set to "Anyone with the link can view".
 
-1. **Firestore Database**: 
-   - Enable Firestore in your Firebase Console.
-   - Create a collection named `messages`.
-   - Ensure your security rules allow `create` operations for the `messages` collection.
-
-2. **API Keys**:
-   - Update `src/firebase/config.ts` with your actual Firebase project credentials.
-
-3. **Email System**:
-   - The contact form is configured to send notifications via Nodemailer using Gmail. 
-   - If you change the recipient email, ensure you update the `transporter` settings in `src/app/actions/contact.ts`.
-
-4. **Image Hosting**:
-   - Project thumbnails use Google Drive. Ensure your images are set to "Anyone with the link can view" to allow the portfolio's direct link logic to function.
-
-## 🛠 Tech Stack
-
-- **Framework**: Next.js 15+ (App Router)
-- **Styling**: Tailwind CSS
-- **UI Components**: Shadcn UI
+### 3. Modern Tech Stack
+- **Framework**: Next.js 15 (App Router)
+- **Styling**: Tailwind CSS & Lucide Icons
+- **Components**: Shadcn UI (Radix UI)
 - **Animations**: Framer Motion
-- **Database**: Firebase Firestore
-- **Icons**: Lucide React
+- **Form Handling**: React Hook Form & Zod
+- **Type Safety**: TypeScript
+
+## 📂 Project Structure
+
+- `src/app`: Next.js App Router pages and global styles.
+- `src/components`: Reusable UI components and page sections.
+- `src/hooks`: Custom React hooks (e.g., `use-toast`).
+- `src/lib`: Utility functions and shared data.
 
 ## 📄 License
 
-&copy; 2025 Caleb Yinusa. All rights reserved.
+&copy; 2026 Caleb Yinusa. All rights reserved.

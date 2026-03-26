@@ -1,20 +1,14 @@
 'use client';
 
 import { useState } from 'react';
-import { useFirestore } from '@/firebase/provider';
-import { collection, addDoc, serverTimestamp } from 'firebase/firestore';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { useToast } from '@/hooks/use-toast';
-import { MessageSquare, Send, Loader2, AlertCircle } from 'lucide-react';
+import { MessageSquare, Send, Loader2 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { errorEmitter } from '@/firebase/error-emitter';
-import { FirestorePermissionError } from '@/firebase/errors';
-import { sendContactEmailNotification } from '@/app/actions/contact';
 
 export function ContactForm() {
-  const firestore = useFirestore();
   const { toast } = useToast();
   const [loading, setLoading] = useState(false);
   const [status, setStatus] = useState<'idle' | 'success' | 'error'>('idle');
@@ -28,77 +22,25 @@ export function ContactForm() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
-    if (!firestore) {
-      toast({
-        variant: "destructive",
-        title: "Connection Error",
-        description: "Firebase backend not detected. Please refresh and try again.",
-      });
-      return;
-    }
-
     setLoading(true);
     setStatus('idle');
 
-    try {
-      const messageData = {
-        name: formData.name,
-        email: formData.email,
-        message: formData.message,
-        createdAt: serverTimestamp(),
-        source: 'portfolio_contact_form'
-      };
-
-      const messagesRef = collection(firestore, 'messages');
-      
-      // Phase 1: Persistence
-      await addDoc(messagesRef, messageData);
-
-      // Phase 2: Notification
-      const emailResult = await sendContactEmailNotification(formData);
-
-      if (emailResult.success) {
-        toast({
-          title: "Message Transmitted",
-          description: "I've received your request and will get back to you shortly.",
-        });
-        setStatus('success');
-        setFormData({ name: '', email: '', message: '' });
-      } else {
-        // Log the internal error but show a partial success to the user
-        console.warn("Backend notification delayed:", emailResult.error);
-        toast({
-          title: "Message Archived",
-          description: "Your inquiry was saved to the database, though the direct email had a minor delay. No action needed!",
-        });
-        setStatus('success');
-        setFormData({ name: '', email: '', message: '' });
-      }
-    } catch (error: any) {
-      console.error("Critical submission error:", error);
-      setStatus('error');
-      
-      if (error.code === 'permission-denied') {
-        const permissionError = new FirestorePermissionError({
-          path: 'messages',
-          operation: 'create',
-        });
-        errorEmitter.emit('permission-error', permissionError);
-      }
-      
-      toast({
-        variant: "destructive",
-        title: "Submission Failed",
-        description: "An error occurred. Please use the WhatsApp button for immediate contact.",
-      });
-    } finally {
+    // Frontend-only simulation of success, then redirect to WhatsApp
+    setTimeout(() => {
       setLoading(false);
-      // Reset success state after 5 seconds
-      if (status === 'success') {
-        setTimeout(() => setStatus('idle'), 5000);
-      }
-    }
+      setStatus('success');
+      toast({
+        title: "Message Prepared",
+        description: "Redirecting you to WhatsApp to send your message directly.",
+      });
+      
+      const message = `Hello Caleb, my name is ${formData.name}. ${formData.message}`;
+      const encodedMessage = encodeURIComponent(message);
+      window.open(`${whatsappUrl}?text=${encodedMessage}`, '_blank');
+      
+      setFormData({ name: '', email: '', message: '' });
+      setTimeout(() => setStatus('idle'), 5000);
+    }, 1000);
   };
 
   return (

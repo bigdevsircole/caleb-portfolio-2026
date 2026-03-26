@@ -3,7 +3,7 @@ import './globals.css';
 import { Toaster } from "@/components/ui/toaster";
 import BackToTop from "@/components/BackToTop";
 import Script from 'next/script';
-import { FirebaseClientProvider } from '@/firebase/client-provider';
+
 
 export const metadata: Metadata = {
   title: 'Caleb Yinusa Portfolio',
@@ -42,11 +42,9 @@ export default function RootLayout({
           `}
         </Script>
 
-        <FirebaseClientProvider>
-          {children}
-          <BackToTop />
-          <Toaster />
-        </FirebaseClientProvider>
+        {children}
+        <BackToTop />
+        <Toaster />
       </body>
     </html>
   );
