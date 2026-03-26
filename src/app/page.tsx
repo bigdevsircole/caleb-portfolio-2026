@@ -12,8 +12,6 @@ import SyntaxBackground from "@/components/SyntaxBackground";
 import { motion } from "framer-motion";
 import { ContactForm } from "@/components/ContactForm";
 
-const easeSmooth = [0.22, 1, 0.36, 1];
-
 export default function Home() {
   const [mounted, setMounted] = useState(false);
 
@@ -59,12 +57,6 @@ export default function Home() {
             >
               CALEB YINUSA
             </motion.h1>
-
-            <div className="h-6 flex items-center justify-center">
-              <span className="text-secondary font-code text-sm md:text-base tracking-wide uppercase">
-                Frontend Developer • Designer • Digital Architect
-              </span>
-            </div>
 
             <motion.span 
               className="text-[10px] md:text-xs text-muted-foreground italic font-light uppercase tracking-[0.4em] mt-2 block"
