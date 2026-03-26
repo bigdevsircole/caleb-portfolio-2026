@@ -3,9 +3,5 @@
   "apphosting": {
     "backendId": "studio",
     "rootDir": "/"
-  },
-  "hosting": {
-    "site": "calebyinusa",
-    "public": "public"
   }
 }
