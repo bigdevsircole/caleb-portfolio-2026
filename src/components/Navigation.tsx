@@ -1,8 +1,9 @@
+
 "use client";
 
 import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X } from "lucide-react";
+import { motion } from "framer-motion";
+import { Menu } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
   Sheet,
@@ -69,36 +70,49 @@ export default function Navigation() {
             </a>
           </Button>
 
-          {/* Mobile Navigation */}
+          {/* Mobile Navigation Trigger */}
           <Sheet open={isOpen} onOpenChange={setIsOpen}>
-            <SheetTrigger asChild className="md:hidden">
-              <Button variant="ghost" size="icon" className="rounded-full w-10 h-10 border border-white/10 bg-white/5 hover:bg-white/10">
-                <Menu className="w-5 h-5" />
+            <SheetTrigger asChild>
+              <Button 
+                variant="ghost" 
+                size="icon" 
+                className="md:hidden rounded-full w-10 h-10 border border-white/10 bg-white/5 hover:bg-white/10"
+                aria-label="Toggle Menu"
+              >
+                <Menu className="w-6 h-6 text-white" />
               </Button>
             </SheetTrigger>
-            <SheetContent side="left" className="bg-background/95 backdrop-blur-2xl border-white/10 w-[80%] max-w-sm pb-12 pt-16">
-              <SheetHeader className="mb-8 sr-only">
-                <SheetTitle>Navigation Menu</SheetTitle>
+            <SheetContent side="right" className="bg-background/95 backdrop-blur-2xl border-white/10 w-[85%] max-w-sm p-0 flex flex-col">
+              <SheetHeader className="p-6 border-b border-white/5">
+                <SheetTitle className="text-left text-xs font-bold uppercase tracking-[0.3em] text-muted-foreground">
+                  Navigation
+                </SheetTitle>
               </SheetHeader>
-              <div className="flex flex-col gap-6">
+              
+              <div className="flex-1 overflow-y-auto p-6 flex flex-col gap-2">
                 {navItems.map((item) => (
                   <SheetClose asChild key={item.name}>
                     <a 
                       href={item.href}
-                      className="text-3xl font-bold tracking-tight hover:text-muted-foreground transition-colors py-2"
+                      className="text-3xl font-bold tracking-tight text-white hover:text-primary transition-colors py-4 border-b border-white/[0.03]"
                     >
                       {item.name}
                     </a>
                   </SheetClose>
                 ))}
-                <div className="h-px w-full bg-white/10 my-4" />
+              </div>
+
+              <div className="p-6 border-t border-white/5 bg-white/[0.02]">
                 <SheetClose asChild>
-                  <Button className="w-full h-16 rounded-2xl bg-white text-black text-xl font-bold shadow-xl shadow-white/5" asChild>
+                  <Button className="w-full h-16 rounded-2xl bg-white text-black text-lg font-bold shadow-xl hover:bg-white/90" asChild>
                     <a href={cvUrl} target="_blank" rel="noopener noreferrer">
                       View My CV
                     </a>
                   </Button>
                 </SheetClose>
+                <div className="mt-6 flex justify-center gap-6 opacity-40">
+                  <span className="text-[10px] font-bold uppercase tracking-widest">© 2025 Caleb Yinusa</span>
+                </div>
               </div>
             </SheetContent>
           </Sheet>
