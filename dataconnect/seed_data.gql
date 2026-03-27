@@ -1,0 +1,138 @@
+mutation SeedData @transaction @auth(level: USER, insecureReason: "Seed data operations are administrative and should only be performed by authenticated users.") {
+  user_insertMany(data: [
+    {
+      id: "9f9a2e6e-c6e8-4b71-9c6a-6a7e0a2d4f8b",
+      displayName: "Caleb Denio",
+      email: "caleb.denio@example.com",
+      createdAt: "2023-01-01T10:00:00Z",
+      photoUrl: "https://example.com/caleb.jpg",
+      bio: "Full-stack developer with a passion for creating impactful web applications.",
+      contactEmail: "caleb.denio@example.com",
+      linkedinUrl: "https://linkedin.com/in/calebdenio",
+      githubUrl: "https://github.com/calebdenio",
+      websiteUrl: "https://calebdenio.com"
+    },
+    {
+      id: "8c7b6a5a-4d3c-2b1a-0e9f-8d7c6b5a4d3c",
+      displayName: "Alice Wonderland",
+      email: "alice.wonderland@example.com",
+      createdAt: "2023-02-15T11:30:00Z",
+      photoUrl: "https://example.com/alice.jpg",
+      bio: "UI/UX Designer focused on user-centered design principles.",
+      contactEmail: "alice.wonderland@example.com",
+      linkedinUrl: "https://linkedin.com/in/alicewonderland",
+      githubUrl: "https://github.com/alicewonderland",
+      websiteUrl: "https://alicewonderland.com"
+    }
+  ])
+  portfolio_insertMany(data: [
+    {
+      id: "b1c2d3e4-f5a6-7b8c-9d0e-1f2a3b4c5d6e",
+      userId: "9f9a2e6e-c6e8-4b71-9c6a-6a7e0a2d4f8b",
+      name: "My Awesome Portfolio",
+      isPublic: true,
+      createdAt: "2023-03-01T12:00:00Z",
+      updatedAt: "2023-03-01T12:00:00Z",
+      description: "A collection of my best work."
+    },
+    {
+      id: "a0b1c2d3-e4f5-6a7b-8c9d-0e1f2a3b4c5d",
+      userId: "8c7b6a5a-4d3c-2b1a-0e9f-8d7c6b5a4d3c",
+      name: "Alice's Design Showcase",
+      isPublic: true,
+      createdAt: "2023-04-01T13:00:00Z",
+      updatedAt: "2023-04-01T13:00:00Z",
+      description: "Selected UI/UX projects."
+    }
+  ])
+  project_insertMany(data: [
+    {
+      id: "c1d2e3f4-a5b6-7c8d-9e0f-1a2b3c4d5e6f",
+      portfolioId: "b1c2d3e4-f5a6-7b8c-9d0e-1f2a3b4c5d6e",
+      title: "E-commerce Website",
+      description: "Developed a full-stack e-commerce platform.",
+      position: 1,
+      createdAt: "2023-05-01T14:00:00Z",
+      updatedAt: "2023-05-01T14:00:00Z",
+      category: "Web Development",
+      liveUrl: "https://ecommerce.calebdenio.com",
+      repositoryUrl: "https://github.com/calebdenio/ecommerce"
+    },
+    {
+      id: "d0e1f2a3-b4c5-6d7e-8f9a-0b1c2d3e4f5a",
+      portfolioId: "b1c2d3e4-f5a6-7b8c-9d0e-1f2a3b4c5d6e",
+      title: "Mobile Game",
+      description: "Created a casual mobile game for Android and iOS.",
+      position: 2,
+      createdAt: "2023-06-01T15:00:00Z",
+      updatedAt: "2023-06-01T15:00:00Z",
+      category: "Game Development",
+      liveUrl: "https://playstore.calebdenio.com/game",
+      repositoryUrl: "https://github.com/calebdenio/mobile-game"
+    },
+    {
+      id: "e0f1a2b3-c4d5-6e7f-8a9b-0c1d2e3f4a5b",
+      portfolioId: "a0b1c2d3-e4f5-6a7b-8c9d-0e1f2a3b4c5d",
+      title: "Redesign Project",
+      description: "Redesigned a popular social media application.",
+      position: 1,
+      createdAt: "2023-07-01T16:00:00Z",
+      updatedAt: "2023-07-01T16:00:00Z",
+      category: "UI/UX Design",
+      liveUrl: "https://dribbble.com/alicewonderland/redesign",
+      repositoryUrl: null
+    }
+  ])
+  projectMedia_insertMany(data: [
+    {
+      projectId: "c1d2e3f4-a5b6-7c8d-9e0f-1a2b3c4d5e6f",
+      mediaUrl: "https://example.com/ecommerce_screenshot1.png",
+      mediaType: "image",
+      position: 1,
+      caption: "Homepage screenshot"
+    },
+    {
+      projectId: "c1d2e3f4-a5b6-7c8d-9e0f-1a2b3c4d5e6f",
+      mediaUrl: "https://example.com/ecommerce_screenshot2.png",
+      mediaType: "image",
+      position: 2,
+      caption: "Product detail page"
+    },
+    {
+      projectId: "d0e1f2a3-b4c5-6d7e-8f9a-0b1c2d3e4f5a",
+      mediaUrl: "https://example.com/mobilegame_trailer.mp4",
+      mediaType: "video",
+      position: 1,
+      caption: "Game trailer"
+    },
+    {
+      projectId: "e0f1a2b3-c4d5-6e7f-8a9b-0c1d2e3f4a5b",
+      mediaUrl: "https://example.com/redesign_mockup1.png",
+      mediaType: "image",
+      position: 1,
+      caption: "Before and after redesign mockup"
+    }
+  ])
+  skill_insertMany(data: [
+    {
+      userId: "9f9a2e6e-c6e8-4b71-9c6a-6a7e0a2d4f8b",
+      name: "React",
+      level: "Expert"
+    },
+    {
+      userId: "9f9a2e6e-c6e8-4b71-9c6a-6a7e0a2d4f8b",
+      name: "Node.js",
+      level: "Advanced"
+    },
+    {
+      userId: "8c7b6a5a-4d3c-2b1a-0e9f-8d7c6b5a4d3c",
+      name: "Figma",
+      level: "Expert"
+    },
+    {
+      userId: "8c7b6a5a-4d3c-2b1a-0e9f-8d7c6b5a4d3c",
+      name: "User Research",
+      level: "Advanced"
+    }
+  ])
+}

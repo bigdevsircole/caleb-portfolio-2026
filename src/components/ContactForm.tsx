@@ -8,6 +8,8 @@ import { useToast } from '@/hooks/use-toast';
 import { MessageSquare, Send, Loader2 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import emailjs from '@emailjs/browser';
+import { db } from '@/lib/firebase';
+import { collection, addDoc, serverTimestamp } from 'firebase/firestore';
 
 declare global {
   interface Window {
@@ -52,6 +54,21 @@ export function ContactForm() {
         },
         publicKey
       );
+
+      // Save to Firebase Firestore
+      try {
+        await addDoc(collection(db, 'contacts'), {
+          name: formData.name,
+          email: formData.email,
+          message: formData.message,
+          submittedAt: serverTimestamp(),
+        });
+        console.log('Document successfully written to Firestore');
+      } catch (firebaseError) {
+        console.error('Firebase Error:', firebaseError);
+        // We don't necessarily want to fail the whole process if Firebase fails but EmailJS succeeds,
+        // but we should log it. If both fail, the outer catch will handle it.
+      }
 
       setLoading(false);
       setStatus('success');

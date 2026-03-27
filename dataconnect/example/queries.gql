@@ -1,0 +1,48 @@
+query ListPublicPortfolios @auth(level: PUBLIC, insecureReason: "This operation is safe to expose to the public") {
+  portfolios(where: {isPublic: {eq: true}}) {
+    id
+    name
+    description
+    user {
+      displayName
+      email
+    }
+  }
+}
+
+query GetMyProjects @auth(level: USER, insecureReason: "This operation is safe to expose to all logged in users.") {
+  projects(where: {portfolio: {userId: {eq_expr: "auth.uid"}}}) {
+    id
+    title
+    description
+    category
+    liveUrl
+    repositoryUrl
+    position
+    projectMedias_on_project {
+      mediaUrl
+      mediaType
+      caption
+      position
+    }
+  }
+}
+
+mutation CreatePortfolio($name: String!, $description: String, $isPublic: Boolean!) @auth(level: USER) {
+  portfolio_insert(data: {
+    userId_expr: "auth.uid",
+    name: $name,
+    description: $description,
+    isPublic: $isPublic,
+    createdAt_expr: "request.time",
+    updatedAt_expr: "request.time"
+  })
+}
+
+# mutation UpdateMySkill($skillId: UUID!, $level: String!) @auth(level: USER) {
+#   skill_update(key: {id: $skillId}, data: {
+#     level: $level
+#   }, where: {userId: {eq_expr: "auth.uid"}}) {
+#     id
+#   }
+# }
