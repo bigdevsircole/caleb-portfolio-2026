@@ -15,7 +15,7 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const GA_MEASUREMENT_ID = 'G-F37FJYP8TR';
+  const GA_MEASUREMENT_ID = 'G-EHH6B5V9MH';
 
   return (
     <html lang="en" className="dark" suppressHydrationWarning>
