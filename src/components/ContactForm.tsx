@@ -7,6 +7,13 @@ import { Textarea } from '@/components/ui/textarea';
 import { useToast } from '@/hooks/use-toast';
 import { MessageSquare, Send, Loader2 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+import emailjs from '@emailjs/browser';
+
+declare global {
+  interface Window {
+    gtag: (command: string, action: string, params?: object) => void;
+  }
+}
 
 export function ContactForm() {
   const { toast } = useToast();
@@ -25,22 +32,61 @@ export function ContactForm() {
     setLoading(true);
     setStatus('idle');
 
-    // Frontend-only simulation of success, then redirect to WhatsApp
-    setTimeout(() => {
+    try {
+      const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID || '';
+      const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID || '';
+      const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY || '';
+
+      if (!serviceId || !templateId || !publicKey) {
+        throw new Error('EmailJS configuration missing');
+      }
+
+      await emailjs.send(
+        serviceId,
+        templateId,
+        {
+          from_name: formData.name,
+          from_email: formData.email,
+          message: formData.message,
+          to_name: 'Caleb',
+        },
+        publicKey
+      );
+
       setLoading(false);
       setStatus('success');
+      
+      // Track event in Google Analytics
+      if (typeof window !== 'undefined' && window.gtag) {
+        window.gtag('event', 'contact_form_submission', {
+          'event_category': 'Contact',
+          'event_label': 'Success',
+          'value': 1
+        });
+      }
+
       toast({
-        title: "Message Prepared",
-        description: "Redirecting you to WhatsApp to send your message directly.",
+        title: "Message Sent!",
+        description: "Your message has been delivered. I'll get back to you soon.",
       });
       
-      const message = `Hello Caleb, my name is ${formData.name}. ${formData.message}`;
-      const encodedMessage = encodeURIComponent(message);
-      window.open(`${whatsappUrl}?text=${encodedMessage}`, '_blank');
+      // Optional: Redirect to WhatsApp after a short delay if needed, 
+      // but usually email is enough. Letting user decide if they want both.
+      // For now, let's just stay on success state.
       
       setFormData({ name: '', email: '', message: '' });
-      setTimeout(() => setStatus('idle'), 5000);
-    }, 1000);
+      setTimeout(() => setStatus('idle'), 1000);
+    } catch (error) {
+      console.error('EmailJS Error:', error);
+      setLoading(false);
+      setStatus('error');
+      
+      toast({
+        title: "Error Sending Message",
+        description: "There was a problem delivering your message. Please try again or use WhatsApp.",
+        variant: "destructive"
+      });
+    }
   };
 
   return (
@@ -77,7 +123,7 @@ export function ContactForm() {
                 <MessageSquare className="w-6 h-6 fill-black" /> Chat via WhatsApp
               </a>
             </Button>
-            <p className="text-xs text-center text-muted-foreground uppercase tracking-widest font-bold opacity-40">Typically replies in under 2 hours</p>
+            <p className="text-xs text-center text-muted-foreground uppercase tracking-widest font-bold opacity-40">Typically replies in under 2 minutes</p>
           </div>
         </div>
 
@@ -95,7 +141,7 @@ export function ContactForm() {
               />
             </div>
             <div className="space-y-2">
-              <label className="text-xs font-bold uppercase tracking-[0.2em] text-muted-foreground/60 ml-1">Email Address</label>
+              <label className="text-xs font-bold uppercase tracking-[0.2em] text-muted-foreground/60 ml-1">Input Your Email</label>
               <Input 
                 required
                 disabled={loading}
