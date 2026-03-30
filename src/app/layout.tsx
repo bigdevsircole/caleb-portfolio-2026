@@ -16,6 +16,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   const GA_MEASUREMENT_ID = 'G-EHH6B5V9MH';
+  const GTAG_ID = 'AW-18037669008';
 
   return (
     <html lang="en" className="dark" suppressHydrationWarning>
@@ -39,6 +40,7 @@ export default function RootLayout({
             gtag('js', new Date());
 
             gtag('config', '${GA_MEASUREMENT_ID}');
+            gtag('config', '${GTAG_ID}');
           `}
         </Script>
 
