@@ -22,9 +22,9 @@ export function AboutSection() {
         <p className="text-xl md:text-3xl font-medium leading-tight text-white">
           Crafting seamless digital experiences where <span className="text-primary">performance</span> meets <span className="text-muted-foreground italic">pixel-perfect design</span>.
         </p>
-        <div className="space-y-4 text-lg text-muted-foreground leading-relaxed">
+        <div className="space-y-4 text-lg text-muted-foreground leading-relaxed text-justify">
           <p>
-            As a Senior Frontend Developer, I specialize in building high-performance, scalable web applications that drive business value. I bridge the gap between complex design visions and robust technical implementation, ensuring every interaction is fluid and every component is optimized.
+            Think of me as the architect and builder of your digital storefront. You don't need to worry about the code, the servers, or the maintenance. I design and build highly responsive, secure websites that not only reflect your brand's excellence but are engineered to convert visitors into loyal clients.
           </p>
           <p>
             My philosophy is simple: technology should be an accelerator, not a constraint. I focus on modern architectural patterns, accessibility, and clean, maintainable code to help brands scale their digital presence without technical friction.

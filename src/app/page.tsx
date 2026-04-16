@@ -107,7 +107,6 @@ export default function Home() {
               <a href="https://github.com/bigdevsircole" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-all hover:scale-105">GitHub</a>
               <a href="https://www.linkedin.com/in/caleb-yinusa/" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-all hover:scale-105">LinkedIn</a>
             </div>
-            <p className="opacity-60">Engineered in Lagos, Nigeria.</p>
           </div>
         </footer>
       </main>

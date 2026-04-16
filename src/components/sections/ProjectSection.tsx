@@ -86,7 +86,21 @@ const projects = [
     category: "Portfolio",
     image: "https://drive.google.com/uc?id=1Rz85uKtStAOL4HCMvMYxuQmGMEWICvst",
     link: "https://shinar930.vercel.app/",
-  }
+  },
+  {
+    id: "10",
+    title: "DevSearch Engine",
+    category: "Unified Developer Search Tool",
+    image: "https://api.microlink.io/?url=https://devsearchengine.vercel.app&screenshot=true&meta=false&embed=screenshot.url",
+    link: "https://devsearchengine.vercel.app",
+  },
+  {
+    id: "11",
+    title: "Baps Car Tracker",
+    category: "Vehicle Tracking Platform",
+    image: "https://api.microlink.io/?url=https://bapscartracker.web.app&screenshot=true&meta=false&embed=screenshot.url",
+    link: "https://bapscartracker.web.app/",
+  },
 ];
 
 export function ProjectSection() {
@@ -95,7 +109,7 @@ export function ProjectSection() {
       {projects.map((project, index) => {
         const isExternal = project.link.startsWith('http');
         const imageUrl = getDirectDriveLink(project.image);
-        const isGoogleImage = imageUrl.includes('googleusercontent.com') || imageUrl.includes('drive.google.com');
+        const isGoogleImage = imageUrl.includes('googleusercontent.com') || imageUrl.includes('drive.google.com') || imageUrl.includes('microlink.io');
         
         return (
           <motion.a 
