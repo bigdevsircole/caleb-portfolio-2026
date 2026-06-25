@@ -112,7 +112,7 @@ export function ContactForm() {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.8 }}
-      className="relative z-10 p-12 md:p-24 bg-white/[0.02] backdrop-blur-3xl rounded-[3rem] border border-white/10 flex flex-col items-center gap-12 overflow-hidden"
+      className="relative z-10 px-4 py-12 md:p-24 bg-white/[0.02] backdrop-blur-3xl rounded-[2.5rem] md:rounded-[3rem] border border-white/10 flex flex-col items-center gap-8 md:gap-12 overflow-hidden"
     >
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-px bg-gradient-to-r from-transparent via-primary/50 to-transparent" />
       
@@ -124,7 +124,7 @@ export function ContactForm() {
           I'm currently accepting new projects and consulting inquiries.
         </p>
       </div>
-
+ 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 w-full max-w-6xl">
         <div className="flex flex-col justify-center gap-10">
           <div className="space-y-6">
@@ -143,16 +143,16 @@ export function ContactForm() {
             <p className="text-xs text-center text-muted-foreground uppercase tracking-widest font-bold opacity-40">Typically replies in under 2 minutes</p>
           </div>
         </div>
-
+ 
         <div className="relative">
-          <form onSubmit={handleSubmit} className="space-y-6 bg-white/[0.03] p-10 rounded-[2.5rem] border border-white/5 shadow-2xl relative z-10">
+          <form onSubmit={handleSubmit} className="space-y-6 bg-white/[0.03] p-6 md:p-10 rounded-[2rem] md:rounded-[2.5rem] border border-white/5 shadow-2xl relative z-10">
             <div className="space-y-2">
               <label className="text-xs font-bold uppercase tracking-[0.2em] text-muted-foreground/60 ml-1">Full Name</label>
               <Input 
                 required
                 disabled={loading}
                 placeholder="How should I address you?"
-                className="h-16 bg-white/5 border-white/10 rounded-2xl focus:ring-primary/40 text-white placeholder:text-white/20"
+                className="h-16 px-6 bg-white/5 border-white/10 rounded-2xl focus:ring-primary/40 text-white placeholder:text-white/20"
                 value={formData.name}
                 onChange={(e) => setFormData({ ...formData, name: e.target.value })}
               />
@@ -164,7 +164,7 @@ export function ContactForm() {
                 disabled={loading}
                 type="email"
                 placeholder="Where should I send my reply?"
-                className="h-16 bg-white/5 border-white/10 rounded-2xl focus:ring-primary/40 text-white placeholder:text-white/20"
+                className="h-16 px-6 bg-white/5 border-white/10 rounded-2xl focus:ring-primary/40 text-white placeholder:text-white/20"
                 value={formData.email}
                 onChange={(e) => setFormData({ ...formData, email: e.target.value })}
               />

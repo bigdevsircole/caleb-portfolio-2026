@@ -6,7 +6,6 @@ import Navigation from "@/components/Navigation";
 import SectionHeading from "@/components/SectionHeading";
 import { ProjectSection } from "@/components/sections/ProjectSection";
 import { SalesSection } from "@/components/sections/SalesSection";
-import { ResourceSection } from "@/components/sections/ResourceSection";
 import { AboutSection } from "@/components/sections/AboutSection";
 import { Button } from "@/components/ui/button";
 import SyntaxBackground from "@/components/SyntaxBackground";
@@ -79,7 +78,6 @@ export default function Home() {
         </section>
 
         <section id="projects" className="py-24 px-6 max-w-7xl mx-auto">
-          <SectionHeading title="Projects" subtitle="Selected digital solutions." />
           <ProjectSection />
         </section>
 
@@ -88,11 +86,6 @@ export default function Home() {
             <SectionHeading title="Shop" subtitle="Premium tools and training." />
             <SalesSection />
           </div>
-        </section>
-
-        <section id="resources" className="py-24 px-6 max-w-7xl mx-auto">
-          <SectionHeading title="Resources" subtitle="Free assets for your workflow." />
-          <ResourceSection />
         </section>
 
         <section id="contact" className="py-24 px-6 max-w-7xl mx-auto">
