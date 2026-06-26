@@ -52,7 +52,7 @@ export default function Home() {
               transition={{ delay: 0.2 }}
               className="text-xs md:text-sm text-muted-foreground italic font-light uppercase tracking-[0.3em] mt-2 block font-medium"
             >
-              Website Development & Business Automation
+              Websites, Web Apps & Digital Solution Expert
             </motion.span>
           </div>
 

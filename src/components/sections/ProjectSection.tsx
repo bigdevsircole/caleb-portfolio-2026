@@ -2,17 +2,6 @@
 
 const projects = [
   {
-    id: "1",
-    title: "Caleb Bank",
-    category: "Mobile Banking Dashboard",
-    image: "https://drive.google.com/file/d/1KV1aWxu5NMYZ2t_znz-jt25_zONN4KEN/view?usp=drive_link",
-    link: "https://mobile-banking-dashboard.vercel.app/",
-    description: "A modern mobile banking dashboard featuring high-fidelity interactive charts, real-time transaction tracking, and customizable financial widgets. Designed with a clean glassmorphic interface to elevate the digital banking experience.",
-    tech: ["Next.js", "Tailwind CSS", "Framer Motion", "Recharts", "TypeScript"],
-    year: "2026",
-    role: "Engineering & Design",
-  },
-  {
     id: "2",
     title: "BraveCard",
     category: "Digital Identity Platform",
@@ -152,7 +141,7 @@ export function ProjectSection() {
           {/* Large Serif Heading & Description */}
           <div className="md:col-span-9">
             <h2 className="font-serif text-4xl sm:text-5xl md:text-7xl font-normal leading-[1.15] text-white tracking-tight mb-6">
-              Twelve things I've shipped.<br />
+              Eleven things I've shipped.<br />
               <span className="italic text-white/50 font-light">the rest is under NDA.</span>
             </h2>
             <p className="text-sm md:text-base text-muted-foreground font-light max-w-xl leading-relaxed">

@@ -24,8 +24,8 @@ const siteUrl = 'https://caleb-yinusa.web.app';
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
-  title: 'Caleb Yinusa | Website Development & Business Automation',
-  description: 'Website Development and Business Automation',
+  title: 'Caleb Yinusa | Websites, Web Apps & Digital Solution Expert',
+  description: 'Websites, Web Apps & Digital Solution Expert',
   keywords: [
     'Caleb Yinusa',
     'Frontend Developer',
@@ -57,8 +57,8 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'en_US',
     url: siteUrl,
-    title: 'Caleb Yinusa | Website Development & Business Automation',
-    description: 'Website Development and Business Automation',
+    title: 'Caleb Yinusa | Websites, Web Apps & Digital Solution Expert',
+    description: 'Websites, Web Apps & Digital Solution Expert',
     siteName: 'Caleb Yinusa Portfolio',
     images: [
       {
@@ -71,8 +71,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Caleb Yinusa | Website Development & Business Automation',
-    description: 'Website Development and Business Automation',
+    title: 'Caleb Yinusa | Websites, Web Apps & Digital Solution Expert',
+    description: 'Websites, Web Apps & Digital Solution Expert',
     creator: '@calebyinusaa',
     images: ['https://lh3.googleusercontent.com/d/1KV1aWxu5NMYZ2t_znz-jt25_zONN4KEN'],
   },
@@ -95,8 +95,8 @@ export default function RootLayout({
         name: 'Caleb Yinusa',
         url: siteUrl,
         image: 'https://lh3.googleusercontent.com/d/1KV1aWxu5NMYZ2t_znz-jt25_zONN4KEN',
-        jobTitle: 'Website Development & Business Automation Specialist',
-        description: 'Website Development and Business Automation',
+        jobTitle: 'Websites, Web Apps & Digital Solution Expert',
+        description: 'Websites, Web Apps & Digital Solution Expert',
         sameAs: [
           'https://x.com/calebyinusaa',
           'https://github.com/bigdevsircole',
@@ -118,8 +118,8 @@ export default function RootLayout({
         '@type': 'WebSite',
         '@id': `${siteUrl}/#website`,
         url: siteUrl,
-        name: 'Caleb Yinusa | Website Development & Business Automation',
-        description: 'Website Development and Business Automation',
+        name: 'Caleb Yinusa | Websites, Web Apps & Digital Solution Expert',
+        description: 'Websites, Web Apps & Digital Solution Expert',
         publisher: {
           '@id': `${siteUrl}/#person`,
         },

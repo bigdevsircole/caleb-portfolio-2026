@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 
 export function AboutSection() {
   const stats = [
-    { label: "Experience", value: "17+ Years" },
+    { label: "Experience", value: "12+ Years" },
     { label: "Project Delivery", value: "150+ High-Impact" },
     { label: "Core Stack", value: "React / Next.js / TS" },
     { label: "Architecture", value: "Firebase / Node.js" },
@@ -20,12 +20,9 @@ export function AboutSection() {
         className="space-y-6"
       >
         <p className="text-xl md:text-3xl font-medium leading-tight text-white">
-          Since 2009, I’ve helped businesses improve operations with <span className="text-primary">software</span>, <span className="text-primary">automation</span>, and <span className="text-muted-foreground italic">digital systems</span> — now building with AI.
+          Since 2014, I've helped businesses improve operations through <span className="text-primary">software</span>, <span className="text-primary">automation</span>, and <span className="text-muted-foreground italic">digital systems</span>. Today, I also leverage <span className="text-primary">AI</span> to build smarter, more efficient solutions that drive growth and simplify complex business processes.
         </p>
         <div className="space-y-4 text-lg text-muted-foreground leading-relaxed text-justify">
-          <p>
-            Think of me as the architect and builder of your digital storefront. You don't need to worry about the code, the servers, or the maintenance. I design and build highly responsive, secure websites that not only reflect your brand's excellence but are engineered to convert visitors into loyal clients.
-          </p>
           <p>
             My philosophy is simple: technology should be an accelerator, not a constraint. I focus on modern architectural patterns, accessibility, and clean, maintainable code to help brands scale their digital presence without technical friction.
           </p>

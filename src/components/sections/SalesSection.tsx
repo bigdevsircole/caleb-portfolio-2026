@@ -11,7 +11,7 @@ const products = [
     name: "Exclusive Training",
     category: "Training",
     price: "Make enquiry",
-    image: PlaceHolderImages[3].imageUrl,
+    image: PlaceHolderImages[2].imageUrl,
     link: "https://wa.me/2348180402086"
   },
   {
@@ -19,7 +19,7 @@ const products = [
     name: "Join my Telegram Group",
     category: "Community",
     price: "Get Access",
-    image: PlaceHolderImages[4].imageUrl,
+    image: PlaceHolderImages[3].imageUrl,
     link: "https://paystack.shop/pay/learnwithcaleb"
   }
 ];
