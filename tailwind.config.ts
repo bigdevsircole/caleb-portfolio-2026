@@ -10,10 +10,10 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        body: ['Space Grotesk', 'sans-serif'],
-        headline: ['Space Grotesk', 'sans-serif'],
+        body: ['var(--font-space-grotesk)', 'sans-serif'],
+        headline: ['var(--font-space-grotesk)', 'sans-serif'],
         code: ['monospace'],
-        serif: ['Cormorant Garamond', 'Georgia', 'serif'],
+        serif: ['var(--font-cormorant-garamond)', 'Georgia', 'serif'],
       },
       colors: {
         background: 'hsl(var(--background))',

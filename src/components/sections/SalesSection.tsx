@@ -41,6 +41,7 @@ export function SalesSection() {
               src={product.image}
               alt={product.name}
               fill
+              sizes="(max-width: 768px) 100vw, 50vw"
               unoptimized={product.image.includes('googleusercontent')}
               className="object-cover transition-transform duration-700 group-hover:scale-105"
             />

@@ -147,8 +147,9 @@ export function ContactForm() {
         <div className="relative">
           <form onSubmit={handleSubmit} className="space-y-6 bg-white/[0.03] p-6 md:p-10 rounded-[2rem] md:rounded-[2.5rem] border border-white/5 shadow-2xl relative z-10">
             <div className="space-y-2">
-              <label className="text-xs font-bold uppercase tracking-[0.2em] text-muted-foreground/60 ml-1">Full Name</label>
+              <label htmlFor="name-input" className="text-xs font-bold uppercase tracking-[0.2em] text-muted-foreground/60 ml-1">Full Name</label>
               <Input 
+                id="name-input"
                 required
                 disabled={loading}
                 placeholder="How should I address you?"
@@ -158,8 +159,9 @@ export function ContactForm() {
               />
             </div>
             <div className="space-y-2">
-              <label className="text-xs font-bold uppercase tracking-[0.2em] text-muted-foreground/60 ml-1">Input Your Email</label>
+              <label htmlFor="email-input" className="text-xs font-bold uppercase tracking-[0.2em] text-muted-foreground/60 ml-1">Input Your Email</label>
               <Input 
+                id="email-input"
                 required
                 disabled={loading}
                 type="email"
@@ -170,8 +172,9 @@ export function ContactForm() {
               />
             </div>
             <div className="space-y-2">
-              <label className="text-xs font-bold uppercase tracking-[0.2em] text-muted-foreground/60 ml-1">Project Brief</label>
+              <label htmlFor="message-input" className="text-xs font-bold uppercase tracking-[0.2em] text-muted-foreground/60 ml-1">Project Brief</label>
               <Textarea 
+                id="message-input"
                 required
                 disabled={loading}
                 placeholder="Tell me about your goals, timeline, and budget..."

@@ -122,6 +122,17 @@ const projects = [
     year: "2025",
     role: "IoT & Fullstack",
   },
+  {
+    id: "12",
+    title: "Dajj Engineering",
+    category: "Corporate Engineering Site",
+    image: "https://dajj-engineering.vercel.app/dajj-engineering/mechanical-and-electrical-engineering-company-in-abuja.avif",
+    link: "https://dajj-engineering.vercel.app/",
+    description: "A premium corporate website for a leading engineering and construction firm in Abuja. Features an interactive service showcase, dynamic project portfolios, and an automated client estimation pipeline.",
+    tech: ["Next.js", "Tailwind CSS", "Framer Motion", "TypeScript"],
+    year: "2025",
+    role: "Frontend Engineering",
+  },
 ];
 
 export function ProjectSection() {
@@ -141,7 +152,7 @@ export function ProjectSection() {
           {/* Large Serif Heading & Description */}
           <div className="md:col-span-9">
             <h2 className="font-serif text-4xl sm:text-5xl md:text-7xl font-normal leading-[1.15] text-white tracking-tight mb-6">
-              Eight things I've shipped.<br />
+              Twelve things I've shipped.<br />
               <span className="italic text-white/50 font-light">the rest is under NDA.</span>
             </h2>
             <p className="text-sm md:text-base text-muted-foreground font-light max-w-xl leading-relaxed">
@@ -163,6 +174,7 @@ export function ProjectSection() {
               href={project.link}
               target={isExternal ? "_blank" : undefined}
               rel={isExternal ? "noopener noreferrer" : undefined}
+              aria-label={`View ${project.title} live website`}
               className="group block w-full border-t border-white/10 py-10 md:py-12 transition-all duration-300 hover:bg-white/[0.015] relative"
             >
               <div className="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-4 items-start px-2">

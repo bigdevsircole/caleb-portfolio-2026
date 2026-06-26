@@ -1,13 +1,81 @@
-import type {Metadata} from 'next';
+import type { Metadata } from 'next';
+import { Space_Grotesk, Cormorant_Garamond } from 'next/font/google';
 import './globals.css';
 import { Toaster } from "@/components/ui/toaster";
 import BackToTop from "@/components/BackToTop";
 import Script from 'next/script';
 
+const spaceGrotesk = Space_Grotesk({
+  subsets: ['latin'],
+  variable: '--font-space-grotesk',
+  weight: ['300', '400', '500', '600', '700'],
+  display: 'swap',
+});
+
+const cormorantGaramond = Cormorant_Garamond({
+  subsets: ['latin'],
+  variable: '--font-cormorant-garamond',
+  weight: ['300', '400', '500', '600', '700'],
+  style: ['normal', 'italic'],
+  display: 'swap',
+});
+
+const siteUrl = 'https://caleb-yinusa.web.app';
 
 export const metadata: Metadata = {
-  title: 'Caleb Yinusa Portfolio',
-  description: 'Modern, high-performance portfolio by Caleb Yinusa',
+  metadataBase: new URL(siteUrl),
+  title: 'Caleb Yinusa | Website Development & Business Automation',
+  description: 'Website Development and Business Automation',
+  keywords: [
+    'Caleb Yinusa',
+    'Frontend Developer',
+    'UI Architect',
+    'React Developer',
+    'Next.js Engineer',
+    'TypeScript Specialist',
+    'Web Developer Portfolio',
+    'Abuja Software Engineer',
+    'Interactive Web Design'
+  ],
+  authors: [{ name: 'Caleb Yinusa', url: siteUrl }],
+  creator: 'Caleb Yinusa',
+  alternates: {
+    canonical: '/',
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
+  openGraph: {
+    type: 'website',
+    locale: 'en_US',
+    url: siteUrl,
+    title: 'Caleb Yinusa | Website Development & Business Automation',
+    description: 'Website Development and Business Automation',
+    siteName: 'Caleb Yinusa Portfolio',
+    images: [
+      {
+        url: 'https://lh3.googleusercontent.com/d/1KV1aWxu5NMYZ2t_znz-jt25_zONN4KEN',
+        width: 1200,
+        height: 630,
+        alt: 'Caleb Yinusa Portfolio',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Caleb Yinusa | Website Development & Business Automation',
+    description: 'Website Development and Business Automation',
+    creator: '@calebyinusaa',
+    images: ['https://lh3.googleusercontent.com/d/1KV1aWxu5NMYZ2t_znz-jt25_zONN4KEN'],
+  },
 };
 
 export default function RootLayout({
@@ -18,17 +86,59 @@ export default function RootLayout({
   const GA_MEASUREMENT_ID = 'G-EHH6B5V9MH';
   const GTAG_ID = 'AW-18037669008';
 
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@graph': [
+      {
+        '@type': 'Person',
+        '@id': `${siteUrl}/#person`,
+        name: 'Caleb Yinusa',
+        url: siteUrl,
+        image: 'https://lh3.googleusercontent.com/d/1KV1aWxu5NMYZ2t_znz-jt25_zONN4KEN',
+        jobTitle: 'Website Development & Business Automation Specialist',
+        description: 'Website Development and Business Automation',
+        sameAs: [
+          'https://x.com/calebyinusaa',
+          'https://github.com/bigdevsircole',
+          'https://www.linkedin.com/in/caleb-yinusa/',
+        ],
+        knowsAbout: [
+          'Frontend Development',
+          'User Interface Design',
+          'React.js',
+          'Next.js',
+          'TypeScript',
+          'Tailwind CSS',
+          'Framer Motion',
+          'Web Application Development',
+          'JavaScript',
+        ],
+      },
+      {
+        '@type': 'WebSite',
+        '@id': `${siteUrl}/#website`,
+        url: siteUrl,
+        name: 'Caleb Yinusa | Website Development & Business Automation',
+        description: 'Website Development and Business Automation',
+        publisher: {
+          '@id': `${siteUrl}/#person`,
+        },
+      },
+    ],
+  };
+
   return (
-    <html lang="en" className="dark" suppressHydrationWarning>
-      <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-      </head>
+    <html lang="en" className={`${spaceGrotesk.variable} ${cormorantGaramond.variable} dark`} suppressHydrationWarning>
       <body 
         className="font-body antialiased bg-background text-foreground overflow-x-hidden"
         suppressHydrationWarning
       >
+        {/* Schema.org Structured Data */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+
         <Script
           src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
           strategy="afterInteractive"
