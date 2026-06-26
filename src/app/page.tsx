@@ -50,9 +50,9 @@ export default function Home() {
               initial={{ opacity: 0.8 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.2 }}
-              className="text-xs md:text-sm text-muted-foreground italic font-light uppercase tracking-[0.5em] mt-2 block"
+              className="text-xs md:text-sm text-muted-foreground italic font-light uppercase tracking-[0.3em] mt-2 block font-medium"
             >
-              FRONTEND DEVELOPER
+              Website Development & Business Automation
             </motion.span>
           </div>
 

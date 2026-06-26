@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 
 export function AboutSection() {
   const stats = [
-    { label: "Experience", value: "8+ Years" },
+    { label: "Experience", value: "17+ Years" },
     { label: "Project Delivery", value: "150+ High-Impact" },
     { label: "Core Stack", value: "React / Next.js / TS" },
     { label: "Architecture", value: "Firebase / Node.js" },
@@ -20,7 +20,7 @@ export function AboutSection() {
         className="space-y-6"
       >
         <p className="text-xl md:text-3xl font-medium leading-tight text-white">
-          Crafting seamless digital experiences where <span className="text-primary">performance</span> meets <span className="text-muted-foreground italic">pixel-perfect design</span>.
+          Since 2009, I’ve helped businesses improve operations with <span className="text-primary">software</span>, <span className="text-primary">automation</span>, and <span className="text-muted-foreground italic">digital systems</span> — now building with AI.
         </p>
         <div className="space-y-4 text-lg text-muted-foreground leading-relaxed text-justify">
           <p>
