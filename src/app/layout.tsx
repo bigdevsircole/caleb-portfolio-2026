@@ -20,12 +20,12 @@ const cormorantGaramond = Cormorant_Garamond({
   display: 'swap',
 });
 
-const siteUrl = 'https://caleb-yinusa.web.app';
+const siteUrl = 'https://calebportfolio2026.web.app';
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
-  title: 'Caleb Yinusa | Websites, Web Apps & Digital Solution Expert',
-  description: 'Websites, Web Apps & Digital Solution Expert',
+  title: 'Caleb Yinusa | Frontend Developer',
+  description: 'Frontend Developer',
   keywords: [
     'Caleb Yinusa',
     'Frontend Developer',
@@ -57,8 +57,8 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'en_US',
     url: siteUrl,
-    title: 'Caleb Yinusa | Websites, Web Apps & Digital Solution Expert',
-    description: 'Websites, Web Apps & Digital Solution Expert',
+    title: 'Caleb Yinusa | Frontend Developer',
+    description: 'Frontend Developer',
     siteName: 'Caleb Yinusa Portfolio',
     images: [
       {
@@ -71,8 +71,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Caleb Yinusa | Websites, Web Apps & Digital Solution Expert',
-    description: 'Websites, Web Apps & Digital Solution Expert',
+    title: 'Caleb Yinusa | Frontend Developer',
+    description: 'Frontend Developer',
     creator: '@calebyinusaa',
     images: ['https://lh3.googleusercontent.com/d/1KV1aWxu5NMYZ2t_znz-jt25_zONN4KEN'],
   },
@@ -95,8 +95,8 @@ export default function RootLayout({
         name: 'Caleb Yinusa',
         url: siteUrl,
         image: 'https://lh3.googleusercontent.com/d/1KV1aWxu5NMYZ2t_znz-jt25_zONN4KEN',
-        jobTitle: 'Websites, Web Apps & Digital Solution Expert',
-        description: 'Websites, Web Apps & Digital Solution Expert',
+        jobTitle: 'Frontend Developer',
+        description: 'Frontend Developer',
         sameAs: [
           'https://x.com/calebyinusaa',
           'https://github.com/bigdevsircole',
@@ -118,8 +118,8 @@ export default function RootLayout({
         '@type': 'WebSite',
         '@id': `${siteUrl}/#website`,
         url: siteUrl,
-        name: 'Caleb Yinusa | Websites, Web Apps & Digital Solution Expert',
-        description: 'Websites, Web Apps & Digital Solution Expert',
+        name: 'Caleb Yinusa | Frontend Developer',
+        description: 'Frontend Developer',
         publisher: {
           '@id': `${siteUrl}/#person`,
         },

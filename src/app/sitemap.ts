@@ -3,7 +3,7 @@ import { MetadataRoute } from 'next';
 export const dynamic = 'force-static';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://caleb-yinusa.web.app';
+  const baseUrl = 'https://calebportfolio2026.web.app';
   
   return [
     {

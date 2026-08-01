@@ -141,7 +141,7 @@ export function ProjectSection() {
           {/* Large Serif Heading & Description */}
           <div className="md:col-span-9">
             <h2 className="font-serif text-4xl sm:text-5xl md:text-7xl font-normal leading-[1.15] text-white tracking-tight mb-6">
-              Eleven things I've shipped.<br />
+              Projects I've Built and Deployed.<br />
               <span className="italic text-white/50 font-light">the rest is under NDA.</span>
             </h2>
             <p className="text-sm md:text-base text-muted-foreground font-light max-w-xl leading-relaxed">

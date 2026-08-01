@@ -26,18 +26,7 @@
   ],
   "apphosting": [
     {
-      "backendId": "caleb-portfolio-2026",
-      "rootDir": "/",
-      "ignore": [
-        "node_modules",
-        ".git",
-        "firebase-debug.log",
-        "firebase-debug.*.log",
-        "functions"
-      ]
-    },
-    {
-      "backendId": "caleb-yinusa",
+      "backendId": "calebportfolio2026",
       "rootDir": "/",
       "ignore": [
         "node_modules",
@@ -49,7 +38,7 @@
     }
   ],
   "hosting": {
-    "site": "caleb-yinusa",
+    "site": "calebportfolio2026",
     "public": "out",
     "ignore": [
       "firebase.json",

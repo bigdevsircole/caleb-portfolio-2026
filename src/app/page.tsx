@@ -5,8 +5,8 @@ import { useState, useEffect } from "react";
 import Navigation from "@/components/Navigation";
 import SectionHeading from "@/components/SectionHeading";
 import { ProjectSection } from "@/components/sections/ProjectSection";
-import { SalesSection } from "@/components/sections/SalesSection";
 import { AboutSection } from "@/components/sections/AboutSection";
+import { JourneySection } from "@/components/sections/JourneySection";
 import { Button } from "@/components/ui/button";
 import SyntaxBackground from "@/components/SyntaxBackground";
 import { motion } from "framer-motion";
@@ -52,7 +52,7 @@ export default function Home() {
               transition={{ delay: 0.2 }}
               className="text-xs md:text-sm text-muted-foreground italic font-light uppercase tracking-[0.3em] mt-2 block font-medium"
             >
-              Websites, Web Apps & Digital Solution Expert
+              Frontend Developer
             </motion.span>
           </div>
 
@@ -73,20 +73,19 @@ export default function Home() {
         </section>
 
         <section id="about" className="py-24 px-6 max-w-7xl mx-auto">
-          <SectionHeading title="About" subtitle="Bridging the gap between design and engineering." />
+          <SectionHeading title="About Me" subtitle="My focus and aspirations as a developer." />
           <AboutSection />
+        </section>
+
+        <section id="journey" className="py-24 px-6 max-w-7xl mx-auto border-t border-white/5">
+          <SectionHeading title="Tech Journey" subtitle="Bridging the gap between design and engineering." />
+          <JourneySection />
         </section>
 
         <section id="projects" className="py-24 px-6 max-w-7xl mx-auto">
           <ProjectSection />
         </section>
 
-        <section id="shop" className="py-24 px-6 bg-primary/[0.01] border-y border-white/5">
-          <div className="max-w-7xl mx-auto">
-            <SectionHeading title="Shop" subtitle="Premium tools and training." />
-            <SalesSection />
-          </div>
-        </section>
 
         <section id="contact" className="py-24 px-6 max-w-7xl mx-auto">
           <ContactForm />
