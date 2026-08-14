@@ -26,6 +26,15 @@ export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: 'Caleb Yinusa | Frontend Developer',
   description: 'Frontend Developer',
+  icons: {
+    icon: [
+      {
+        url: '/favicon-16x16.png',
+        sizes: '16x16',
+        type: 'image/png',
+      },
+    ],
+  },
   keywords: [
     'Caleb Yinusa',
     'Frontend Developer',
