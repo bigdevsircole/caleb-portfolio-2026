@@ -76,6 +76,9 @@ export const metadata: Metadata = {
     creator: '@calebyinusaa',
     images: ['https://lh3.googleusercontent.com/d/1KV1aWxu5NMYZ2t_znz-jt25_zONN4KEN'],
   },
+  verification: {
+    google: 'googlea2f61936a5381509',
+  },
 };
 
 export default function RootLayout({
